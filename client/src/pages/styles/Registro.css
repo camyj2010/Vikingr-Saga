@@ -68,10 +68,14 @@ label {
     font-size: 1.8rem;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.6);
     color: #1D2F6F;
+    border: 3px solid transparent;
+    cursor: pointer;
 }
 
-.txt_field_registro:focus {
+.txt_field_registro:hover, .txt_field_registro:focus  {
     outline: none;
+    transition-duration: .2s;
+    border-color: #1D2F6F;
 }
 
 .txt_field_registro::placeholder {
