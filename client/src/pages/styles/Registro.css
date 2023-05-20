@@ -50,11 +50,17 @@
     flex-direction: column;
 }
 
-label {
+.label_Registro {
     font-family: Norse;
     color: white;
     font-size: 1.8rem;
     margin-bottom: 5px;
+}
+
+.label_Registro_Error {
+    font-family: Norse;
+    font-size: 1.8rem;
+    color: rgb(255, 0, 0);
 }
 
 .txt_field_registro {

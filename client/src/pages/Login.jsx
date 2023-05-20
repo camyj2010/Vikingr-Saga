@@ -1,25 +1,60 @@
 import React from 'react'
 import './styles/Login.css'
 import { useNavigate } from 'react-router-dom';
+import { useFormik } from 'formik'
+import * as Yup from 'yup'
 
 export default function Login() {
   const navigate = useNavigate();
+
+  const formik = useFormik({
+    initialValues: {
+      correo: '',
+      contraseña: ''
+    },
+
+    validationSchema: Yup.object({
+      correo: Yup.string().email('*Campo invalido').required("*Complete este campo"),
+      contraseña: Yup.string().required("*Complete este campo"),
+    }),
+
+    onSubmit: (values) => {
+      console.log(values)
+    }
+  })
+  console.log(formik.errors)
+
+
   return (
     <div className='main_container_login'>
-      <div class="center_login">
-        <form method="post">
+      <div className="center_login">
+        <form onSubmit={formik.handleSubmit}>
           <div className='form_login'>
             <h1>Login</h1>
-            <div> 
-              <input className='txt_field_login' type="text" placeholder='Correo' required />
+            <div className='txt_container'>
+              <label className={formik.errors.correo && formik.touched.correo ? 'label_login_error' : 'label_login'}>{formik.errors.correo}</label>
+              <input
+                className='txt_field_login'
+                name='correo'
+                type="text"
+                placeholder='Correo'
+                onChange={formik.handleChange}
+              />
               <span></span>
             </div>
-            <div>
-              <input className='txt_field_login' type="password" placeholder='Contraseña' required />
+            <div className='txt_container'>
+              <label className={formik.errors.contraseña && formik.touched.contraseña ? 'label_login_error' : 'label_login'}>{formik.errors.contraseña}</label>
+              <input
+                className='txt_field_login'
+                name='contraseña'
+                type="password"
+                placeholder='Contraseña'
+                onChange={formik.handleChange}
+              />
               <span></span>
             </div>
-            <button>Ingresar</button>
-            <div class="signup_link">
+            <button type='submit'>Ingresar</button>
+            <div className="signup_link">
               Aun no tienes cuenta? <a onClick={() => navigate('/Registro')}>Registrate</a>
             </div>
           </div>
