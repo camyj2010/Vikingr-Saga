@@ -1,0 +1,94 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+@font-face {
+    font-family: Norse_normal;
+    src: url('../../../public/fonts/norse.regular.otf');
+}
+
+
+@font-face {
+    font-family: Norse;
+    src: url('../../../public/fonts/norse.bold.otf');
+}
+
+.main_container_registro {
+    background-image: url('../../../public/images/Fondo_Registro.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
+.form_registro {
+    background-color: rgba(37, 22, 5,0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 0 10rem;
+    height: 100vh;
+}
+
+.title_registro {
+    font-size: 7.5rem;
+    text-align: center;
+    font-family: Norse;
+    color: white;
+}
+
+
+.txt_field {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-family: Norse;
+    color: white;
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.txt_field_registro {
+    font-family: Norse;
+    height: 3rem;
+    width: 20rem;
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1.8rem;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.6);
+    color: #1D2F6F;
+}
+
+.txt_field_registro:focus {
+    outline: none;
+}
+
+.txt_field_registro::placeholder {
+    color:rgb(220, 220, 220);
+}
+
+button {
+    font-family: Norse;
+    height: 3rem;
+    width: 60%;
+    background-color: #1D2F6F;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+
+}
+
