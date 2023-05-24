@@ -3,6 +3,8 @@ import './styles/Registro.css'
 import { useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
+import { sign_up } from './api/Handleapi';
+import Swal from 'sweetalert2/dist/sweetalert2.js'
 
 
 export default function Registro() {
@@ -19,27 +21,38 @@ export default function Registro() {
     validationSchema: Yup.object({
       usuario: Yup.string().required("*Complete este campo"),
       correo: Yup.string().email('*Campo invalido').required("*Complete este campo"),
-      contraseña: Yup.string().required("*Complete este campo"),
+      contraseña: Yup.string().min(3,"*Minimo 3 caracteres").required("*Complete este campo"),
     }),
 
-    onSubmit: (values) => {
-      console.log(values)
+    onSubmit: async(values) => {
+      const { errors } = formik;
+      const { usuario, correo, contraseña } = values;
+
+      const noErrors = Object.keys(errors).length === 0;
+      const noEmptyFields = usuario.length !== 0 && correo.length !== 0 && contraseña.length !== 0;
+      const res  = await sign_up(values.usuario, values.correo, values.contraseña)
+      console.log(res)
+
+      if (res.ok && noErrors && noEmptyFields ) {
+        navigate('/')
+      }
+      if(res.ok == false){
+        Swal.fire({
+          title: res.error,
+          icon: 'error',
+          showConfirmButton: false,
+          background: '#fff',
+          customClass: {
+            title: 'mi-titulo',
+          },
+        })
+      }
+      
     }
   })
 
-  function validar() {
-    const { errors, values } = formik;
-    const { usuario, correo, contraseña } = values;
-
-    const noErrors = Object.keys(errors).length === 0;
-    const noEmptyFields = usuario.length !== 0 && correo.length !== 0 && contraseña.length !== 0;
-
-    if (noErrors && noEmptyFields) {
-      navigate('/');
-    }
-  }
-  console.log(formik.values)
-  console.log(formik.values.usuario.length)
+  // console.log(formik.values)
+  console.log(formik.errors)
 
 
 
@@ -84,7 +97,7 @@ export default function Registro() {
               />
               <span></span>
             </div>
-            <button type='submit' onClick={validar} >Registrarse</button>
+            <button type='submit' >Registrarse</button>
           </div>
         </form>
       </div>

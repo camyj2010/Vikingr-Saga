@@ -3,6 +3,7 @@ import './styles/Login.css'
 import { useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
+import { sign_in } from './api/Handleapi';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -15,11 +16,17 @@ export default function Login() {
 
     validationSchema: Yup.object({
       correo: Yup.string().email('*Campo invalido').required("*Complete este campo"),
-      contraseña: Yup.string().required("*Complete este campo"),
+      contraseña: Yup.string().min(3, 'La contraseña debe tener al menos 3 caracteres.').required("*Complete este campo"),
     }),
 
-    onSubmit: (values) => {
-      console.log(values)
+    onSubmit: async (values) => {
+
+      const res = await sign_in(values.correo, values.contraseña)
+
+      if (res){
+        navigate('/Home')
+      }
+      
     }
   })
   console.log(formik.errors)
