@@ -3,6 +3,7 @@ import express from "express";
 import { login, register } from "../controllers/auth.controler.js";
 import {body}from "express-validator"
 import { validationResultExpress } from "../middlewares/validationResult.Express.js";
+import { bodyLoginValidator, bodyRegisterValidator } from "../middlewares/validatorManager.js";
 // import {
 //     login,
 //     register,
@@ -13,15 +14,8 @@ import { validationResultExpress } from "../middlewares/validationResult.Express
 
 
 const router = express.Router();
-router.post("/login",[
-    body('email', "Formato de email incorrecto").trim().isEmail().normalizeEmail(),
-    body("password", "formato de password incorrecto").trim().isLength(3)
-    ],validationResultExpress,login);
-router.post("/register",
-            [
-                body('email', "Formato de email incorrecto").trim().isEmail().normalizeEmail(),
-                body("password", "formato de password incorrecto").trim().isLength(3)
-            ],validationResultExpress,register);
+router.post("/login",bodyLoginValidator,login);
+router.post("/register",bodyRegisterValidator,register);
 
 // router.post("/register", register);
 // router.post("/login", login);
