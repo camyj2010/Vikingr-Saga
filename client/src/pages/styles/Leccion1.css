@@ -1,0 +1,135 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: Norse;
+    src: url('../../../public/fonts/norse.bold.otf');
+}
+
+@font-face {
+    font-family: texts;
+    src: url('../../../public/fonts/UncialAntiqua-Regular.ttf');
+}
+
+
+.contenedor_Leccion1 {
+    background-color: #251605;
+    height: 100%;
+}
+
+.navbar_leccion1 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-family: Norse;
+    font-size: 2.5rem;
+    padding: 1rem;
+    background-color: #251605;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.links_leccion1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 120px;
+    list-style: none;
+
+}
+
+.map_leccion1 {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.map_image_leccion1 {
+    width: 13%;
+}
+
+
+.link {
+    color: #fff;
+}
+
+.banner_container {
+    position: relative;
+}
+
+.banner_image_leccion1 {
+    width: 100%;
+}
+
+
+.title_leccion1 {
+    color: #fff;
+    font-family: Norse;
+    font-size: 12rem;
+    position: absolute;
+    top: 60%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: left;
+}
+
+.Leccion1_text {
+    font-family: texts;
+    padding: 3rem;
+    color: #fff;
+    font-size: 1rem;
+    text-align: right;
+    max-width: 50%;
+
+}
+
+.leccion1Left {
+    padding: 1rem;
+    color: #fff;
+    font-family: texts;
+    font-size: 3rem;
+    top: 50%;
+    background-color: #830615;
+    text-align: right;
+    margin-right: 200px;
+}
+
+.leccion1Right {
+    padding: 1rem;
+    color: #fff;
+    font-family: texts;
+    font-size: 3rem;
+    top: 50%;
+    background-color: #830615;
+    text-align: left;
+    margin-left: 200px;
+}
+
+.incursion {
+    background-color: #1D2F6F;
+    color: #fff;
+    font-family: Norse;
+    font-size: 7rem;
+    text-align: center;
+    padding: 2rem;
+}
+
+.incursion_leccion1 {
+    margin-bottom: 1rem;
+}
+
+.incursion_button {
+    cursor: pointer;
+}
