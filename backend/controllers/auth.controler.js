@@ -30,7 +30,8 @@ export const register =async(req,res)=>{
         //verificar si ya existe este usuario 
         let user= await User.findOne({email:email})
         if(user) throw({code:11000})
-        
+        let nickuser= await User.findOne({nickname:nickname})
+        if(nickuser) return res.status(403).json({ok:false,error:"Ya existe ese nombre de usuario"});
         user=new User ({email: email, password:password, nickname:nickname, progress:0});
         await user.save()
 
@@ -39,10 +40,10 @@ export const register =async(req,res)=>{
    catch(error){
     console.log(error)
     if(error.code===11000){
-        return res.status(400).json({error:"Ya existe este usuario"})
+        return res.status(400).json({ok:false,error:"Ya existe este email"})
     }
-    return res.status(500).json({error:"error de servidor"})
+    return res.status(500).json({ok:false,error:"error de servidor"})
    }
     // console.log(req.body);
-    res.json({ok:'true register'});
+    res.json({ok:true});
 };
