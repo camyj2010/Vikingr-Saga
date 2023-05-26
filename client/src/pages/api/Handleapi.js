@@ -1,18 +1,68 @@
-import axios from 'axios'
+const Swal = require('sweetalert2')
+const baseUrl = "http://localhost:5000/login"
 
-const baseUrl = "https://fullstack-todo-app-yt-backend.onrender.com"
-
-const getUser = async () => {
+async function sign_in(email, password) {
     try {
-        const response = await axios.get(`${baseUrl}/`);
-        const data = response.data;
-        console.log('data ---> ', data);
-    } catch (error) {
-        console.error('Error al obtener los datos:', error);
-    }
-};
+        const response = await fetch("http://localhost:5000/login", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                email,
+                password
+            }),
+        });
 
+        const data = await response.json(); // convierte la respuesta del servidor a JSON
+
+        if(response.status === 200) {
+            return data.acceso
+        } else {
+            alert("Ha ocurrido un error.");
+        }
+
+        // maneja la respuesta del servidor según sea necesario
+        console.log(data);
+
+    } catch (error) {
+        // maneja cualquier error que se produzca al enviar la solicitud
+        console.error(error);
+    }
+}
+
+async function sign_up(nickname,email,password) {
+    try {
+        const response = await fetch("http://localhost:5000/register", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                email,
+                password,
+                nickname
+            }),
+        });
+
+        const data = await response.json(); // convierte la respuesta del servidor a JSON
+
+        if(response.status === 200) {
+            return {"ok": data.ok }
+        } else {
+            return {"ok": data.ok , "error": data.error}
+        }
+
+        // maneja la respuesta del servidor según sea necesario
+        console.log(data);
+
+    } catch (error) {
+        // maneja cualquier error que se produzca al enviar la solicitud
+        console.error(error);
+    }
+}
 
 export {
-    getUser
+    sign_in,
+    sign_up
 }
