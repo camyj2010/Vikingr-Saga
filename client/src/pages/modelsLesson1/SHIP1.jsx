@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState  } from "react";
 import { useGLTF } from "@react-three/drei";
 import QuestionMark from "./QuestionMark";
 import Swal from 'sweetalert2/dist/sweetalert2.js'
-import "../styles/Modelos.css"
+
 
 export default function SHIP1(props, canvas) {
   const { nodes, materials } = useGLTF("/static/Ship1.glb");
@@ -14,7 +14,7 @@ export default function SHIP1(props, canvas) {
       title: detalle,
       icon: 'info',
       showConfirmButton: false,
-      background: '#1D2F6F',
+      background: '#fff',
       customClass: {
         title: 'mi-titulo',
       },
