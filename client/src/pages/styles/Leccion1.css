@@ -91,7 +91,7 @@ html {
     color: #fff;
     font-size: 1rem;
     text-align: right;
-    max-width: 50%;
+    max-width: 100%;
 
 }
 
@@ -133,3 +133,16 @@ html {
 .incursion_button {
     cursor: pointer;
 }
+
+.model_container {
+    display: flex;
+  }
+  
+  .model_container_left {
+    flex: 1;
+    padding-right: 20px; /* Espacio entre los elementos */
+  }
+  
+  .model_container_right {
+    flex: 1;
+  }

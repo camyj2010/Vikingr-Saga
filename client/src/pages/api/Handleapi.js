@@ -1,9 +1,9 @@
 const Swal = require('sweetalert2')
-const baseUrl = "http://localhost:5000/login"
+const baseUrl = "https://backend-ajuu.onrender.com"
 
 async function sign_in(email, password) {
     try {
-        const response = await fetch("http://localhost:5000/login", {
+        const response = await fetch(`${baseUrl}/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -33,7 +33,7 @@ async function sign_in(email, password) {
 
 async function sign_up(nickname,email,password) {
     try {
-        const response = await fetch("http://localhost:5000/register", {
+        const response = await fetch(`${baseUrl}/register`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
