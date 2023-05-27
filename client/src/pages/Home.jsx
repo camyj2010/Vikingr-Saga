@@ -3,6 +3,8 @@ import { Canvas } from '@react-three/fiber'
 import { Suspense } from 'react'
 import Experience from './Map/Experience'
 import './styles/Home.css'
+import flag from '../img/Salida1.png';
+
 
 export default function Home() {
 
@@ -16,8 +18,13 @@ export default function Home() {
 
     return (
         <div className='world'>
-
+            <a href='/' className='btn_singoff'>
+            
+            <img className='signoff_image' src={flag} alt='Flag' />
+            Cerrar Sesion
+            </a>
             <Canvas
+                shadows={true}
                 camera={cameraSettings}
             >
                 <Suspense>

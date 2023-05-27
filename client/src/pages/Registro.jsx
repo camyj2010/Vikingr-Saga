@@ -46,8 +46,7 @@ export default function Registro() {
             title: 'mi-titulo',
           },
         })
-      }
-      
+      }      
     }
   })
 
