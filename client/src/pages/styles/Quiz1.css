@@ -74,6 +74,8 @@
   .columna1, .columna2 {
     flex: 1;
     padding-top: 3rem;
+    align-items: center;
+    text-align: center;
   }
 
   .btn_quizVikingos{
@@ -99,9 +101,17 @@
   }
 
   .opcion{
-    cursor: pointer;
     width: 50%;
+    cursor: pointer;
+    text-align: center;
+    margin: 1rem;
   }
+
+  .col1_respuestas_quizVikingos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
   
   ul {
     list-style: none;

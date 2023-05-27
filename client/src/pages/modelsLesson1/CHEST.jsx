@@ -2,7 +2,6 @@ import React, { useRef, useEffect, useState} from "react";
 import { useGLTF } from "@react-three/drei";
 import QuestionMark from "./QuestionMark";
 import Swal from 'sweetalert2/dist/sweetalert2.js'
-import "../styles/Modelos.css"
 
 export default function CHEST(props) {
   const { nodes, materials } = useGLTF("/static/CHEST.glb");
@@ -14,7 +13,7 @@ export default function CHEST(props) {
       title: detalle,
       icon: 'info',
       showConfirmButton: false,
-      background: '#1D2F6F',
+      background: '#fff',
       customClass: {
         title: 'mi-titulo',
       },

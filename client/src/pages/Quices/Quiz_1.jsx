@@ -119,7 +119,7 @@ export default function Quiz_1() {
         </div>
         <div className='respuestas_quizVikingos'>
           <div className='columna1'>
-            <ul>
+            <ul className='col1_respuestas_quizVikingos'>
               {currentQuestion.options.slice(0, 2).map(option => (
                 <li className='opcion' key={option.id} onClick={() => handleAnswer(option.answer)}>
                   {option.answer}
@@ -128,7 +128,7 @@ export default function Quiz_1() {
             </ul>
           </div>
           <div className='columna2'>
-            <ul>
+            <ul className='col1_respuestas_quizVikingos'>
               {currentQuestion.options.slice(2).map(option => (
                 <li className='opcion' key={option.id} onClick={() => handleAnswer(option.answer)}>
                   {option.answer}
@@ -137,7 +137,6 @@ export default function Quiz_1() {
             </ul>
           </div>
         </div>
-        <button className='btn_quizVikingos'>Atacar</button>
       </div>
     </div>
   );
