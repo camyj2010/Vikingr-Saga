@@ -6,7 +6,8 @@
   "scripts": {
     "start": "react-scripts start",
     "dev": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "jest": "jest"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +17,7 @@
     "@react-three/fiber": "^8.13.0",
     "axios": "^1.4.0",
     "formik": "^2.2.9",
+    "jest": "^27.5.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.11.2",
