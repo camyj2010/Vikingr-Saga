@@ -6,11 +6,11 @@ const WaveShader = {
     uniforms: {
         uTime: { value: 0 },
 
-        uBigWavesElevation: { value: 1.5 },
+        uBigWavesElevation: { value: 1. },
         uBigWavesFrequency: { value: new THREE.Vector2(0.02, 0.01) },
         uBigWavesSpeed: { value: 0.5 },
 
-        uSmallWavesElevation: { value: 0.6 },
+        uSmallWavesElevation: { value: 0.3 },
         uSmallWavesFrequency: { value: 3 },
         uSmallWavesSpeed: { value: 0.2 },
         uSmallIterations: { value: 3 },
@@ -168,8 +168,8 @@ export default function Shader() {
 
 
     return (
-        <mesh rotation-x = {- Math.PI * 0.5} position={[100, 0, 50]} scale={30}>
-            <planeGeometry args={[10, 10, 480, 1024]} />
+        <mesh rotation-x = {- Math.PI * 0.5} position={[100, 0, 50]} scale={100}>
+            <planeGeometry args={[10, 10, 512, 512]} />
             <shaderMaterial ref={shaderMaterial} args={[WaveShader]}/>
         </mesh>
     )
