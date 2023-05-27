@@ -15,6 +15,13 @@ test('El usuario puede iniciar sesión correctamente', async () => {
     expect(result).toBe('access_token');
   });
 
+  global.fetch = jest.fn(() =>
+  Promise.resolve({
+    json: () => Promise.resolve({ ok: true }),
+    status: 200
+  })
+);
+
 test('El usuario se puede registrar correctamente', async () => {
   const nickname = 'testuser';
   const email = 'test@gmail.com';

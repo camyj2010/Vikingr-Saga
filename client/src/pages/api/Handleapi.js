@@ -46,7 +46,8 @@ async function sign_up(nickname,email,password) {
         });
 
         const data = await response.json(); // convierte la respuesta del servidor a JSON
-
+        console.log(data);
+        console.log(response.status);
         if(response.status === 200) {
             return {"ok": data.ok }
         } else {
