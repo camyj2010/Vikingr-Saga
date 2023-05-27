@@ -1,4 +1,4 @@
-const [sign_in, sign_up] = require('./pages/api/Handleapi.js');
+import { sign_in, sign_up } from './pages/api/Handleapi.js'
 
 global.fetch = jest.fn(() =>
   Promise.resolve({
