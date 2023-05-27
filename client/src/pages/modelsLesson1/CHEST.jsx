@@ -1,58 +1,28 @@
 import React, { useRef, useEffect, useState} from "react";
 import { useGLTF } from "@react-three/drei";
-
+import QuestionMark from "./QuestionMark";
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+import "../styles/Modelos.css"
 
 export default function CHEST(props) {
   const { nodes, materials } = useGLTF("/static/CHEST.glb");
   const chestRef = useRef();
   const [pressed,setPressed] = useState(false);
   const [modelRotation, setModelRotation] = useState([0, 0, 0]);
-  useEffect(() => {
-    const handlePointerUpOutsideModel = () => {
-      setPressed(false);
-    };
-  
-    document.addEventListener("pointerup", handlePointerUpOutsideModel);
-  
-    return () => {
-      document.removeEventListener("pointerup", handlePointerUpOutsideModel);
-    };
-  }, []);
-
-  const handlePointerDown = () => {
-    setPressed(true);
-  };
-  
-  const handlePointerUp = () => {
-    setPressed(false);
-  };
-  
- 
-const handlePointerMove = (event) => {
-if(pressed){
-    const { movementX, movementY } = event;
-
-    // Calcular los ángulos de rotación basados en las coordenadas del mouse
-    const rotationY = ((movementX / window.innerWidth) * Math.PI * 2)*10;
-    const rotationX = (movementY / window.innerHeight) * Math.PI * 2; 
-    
-    
-
-    // Verificar si existe el atributo 'rotation' en chestRef
-    if (chestRef.current.rotation) {
-    // Si existe, actualizar las propiedades 'x' e 'y' de la rotación
-    // chestRef.current.rotation.x = rotationX;
-    setModelRotation((prevRotation) => [
-        0,
-        prevRotation[1] + rotationY,
-        0,
-        ]);
-    }
-}
-};
-  
+  const handleDetalle = (detalle) => {
+    Swal.fire({
+      title: detalle,
+      icon: 'info',
+      showConfirmButton: false,
+      background: '#1D2F6F',
+      customClass: {
+        title: 'mi-titulo',
+      },
+    })
+  }
   return (
-    <group ref={chestRef} {...props} dispose={null} onPointerDown={handlePointerDown} onPointerUp={handlePointerUp} onPointerMove={handlePointerMove} rotation={modelRotation}>
+    <group ref={chestRef} {...props} dispose={null} >
+       <QuestionMark position={[8,-5,24]} onClick={() => handleDetalle("Los vikingos no solo atacaban sorpresivamente, también empleaban tácticas de asedio y sitiaban ciudades fortificadas")}/>
       <mesh
         castShadow
         receiveShadow

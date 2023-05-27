@@ -24,6 +24,7 @@ export default function Home() {
             Cerrar Sesion
             </a>
             <Canvas
+                shadows={true}
                 camera={cameraSettings}
             >
                 <Suspense>

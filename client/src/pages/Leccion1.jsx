@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react'
 import './styles/Leccion1.css'
 import Banner from '../img/Banner_leccion1.png'
-import map from '../img/treasure-map.png'
+import map from '../img/mapa-del-tesoro.png'
 import incursion from '../img/incursion.png'
 import { useNavigate } from 'react-router-dom';
 import AXE from './modelsLesson1/AXE'
@@ -11,34 +11,46 @@ import RASTRILLO from './modelsLesson1/RASTRILLO'
 import INCURSION from './modelsLesson1/INCURSION'
 import VIKING from './modelsLesson1/VIKING'
 import { Canvas } from '@react-three/fiber'
+import { OrbitControls } from '@react-three/drei'
 import { useRef } from 'react'
 
 export default function Leccion1() {
     const navigate = useNavigate();
+    const cameraSettings = {
+        fov: 45,
+        near: 0.1,
+        far: 300,
+        position: [0, 0, 15], // Ajusta la posición inicial de la cámara
+        rotation: [0, 0, 0], // Ajusta la rotación de la cámara
+      };
 
     return (
         <div className='contenedor_Leccion1'>
-            <nav className='navbar_leccion1'>
-                <ul className='links_leccion1'>
-                    <li>
-                        <a href='#hisotira' className='link'>Historia</a>
-                    </li>
-                    <li>
-                        <a href='#origen' className='link'>Origen</a>
-                    </li>
-                    <li>
-                        <a href='#incursiones' className='link'>incursiones</a>
-                    </li>
-                    <li>
-                        <a href='#barcos' className='link'> Barcos vikingos</a>
-                    </li>
-                </ul>
-                <div className='map_leccion1'>
+            <div className='navbar_leccion1'>
+                <nav>
+                    <ul className='links_leccion1'>
+                        <li>
+                            <a href='#hisotira' className='link'>Historia</a>
+                        </li>
+                        <li>
+                            <a href='#origen' className='link'>Origen</a>
+                        </li>
+                        <li>
+                            <a href='#incursiones' className='link'>incursiones</a>
+                        </li>
+                        <li>
+                            <a href='#barcos' className='link'> Barcos vikingos</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div >
                     <a href='/Home'>
                         <img className='map_image_leccion1' src={map} />
                     </a>
                 </div>
-            </nav>
+
+
+            </div>
 
             <div className='banner_container'>
                 <img className='banner_image_leccion1' src={Banner} />
@@ -58,17 +70,15 @@ export default function Leccion1() {
                     </div>
                     <div className='model_container_right'>
                         <Suspense>
-                            <Canvas>
+                        <Canvas camera={cameraSettings}>
+                                <OrbitControls
+                                    enableZoom={true}
+                                    enablePan={true}
+                                    minDistance={5} // Ajusta la distancia mínima de la cámara al objeto
+                                    maxDistance={20} // Ajusta la distancia máxima de la cámara al objeto
+                                />
                                 <ambientLight />
-                                <INCURSION scale={0.07} />
-                            </Canvas>
-                        </Suspense>
-                    </div>
-                    <div className='model_container_right'>
-                        <Suspense>
-                            <Canvas>
-                                <ambientLight />
-                                <CHEST scale={0.1} rotation={[Math.PI / 4, 3 * Math.PI / 2.3, 0]} />
+                                <VIKING scale={0.1} rotation={[0, Math.PI / 2, 0]} />
                             </Canvas>
                         </Suspense>
                     </div>
@@ -79,6 +89,36 @@ export default function Leccion1() {
                     El Origen
                 </div>
                 <div className='model_container'>
+                    <div className='model_container_right'>
+                        <Suspense>
+                        <Canvas camera={cameraSettings}>
+                                <OrbitControls
+                                    enableZoom={true}
+                                    enablePan={true}
+                                    minDistance={5} // Ajusta la distancia mínima de la cámara al objeto
+                                    maxDistance={20} // Ajusta la distancia máxima de la cámara al objeto
+                                />
+                                <ambientLight />
+                                <AXE scale={0.13}
+                                //  rotationX={Math.PI / 2} 
+                                />
+                            </Canvas>
+                        </Suspense>
+                    </div>
+                    <div className='model_container_right'>
+                        <Suspense>
+                        <Canvas camera={cameraSettings}>
+                                <OrbitControls
+                                    enableZoom={true}
+                                    enablePan={true}
+                                    minDistance={5} // Ajusta la distancia mínima de la cámara al objeto
+                                    maxDistance={20} // Ajusta la distancia máxima de la cámara al objeto
+                                />
+                                <ambientLight />
+                                <RASTRILLO scale={0.13} rotation={[Math.PI/4,3*Math.PI/4,0]}/>
+                            </Canvas>
+                        </Suspense>
+                    </div>
                     <div className='model_container_left'>
                         <p className='Leccion1_text'>
                             Los vikingos fueron un grupo de navegantes y guerreros escandinavos que surgieron alrededor del siglo VIII. Originarios de países como Noruega,
@@ -87,24 +127,6 @@ export default function Leccion1() {
                             veían en los ataques a poblaciones costeras una forma de obtener botines y esclavos, asegurando así su supervivencia y ascenso social.
                             Datos curiosos
                         </p>
-                    </div>
-                    <div className='model_container_right'>
-                        <Suspense>
-                            <Canvas>
-                                <ambientLight />
-                                <AXE scale={0.1}
-                                //  rotationX={Math.PI / 2} 
-                                 />
-                            </Canvas>
-                        </Suspense>
-                    </div>
-                    <div className='model_container_right'>
-                        <Suspense>
-                            <Canvas>
-                                <ambientLight />
-                                <RASTRILLO scale={0.1} />
-                            </Canvas>
-                        </Suspense>
                     </div>
                 </div>
             </div>
@@ -123,9 +145,29 @@ export default function Leccion1() {
                     </div>
                     <div className='model_container_right'>
                         <Suspense>
-                            <Canvas>
+                            <Canvas camera={cameraSettings}>
+                                <OrbitControls
+                                    enableZoom={true}
+                                    enablePan={true}
+                                    minDistance={5} // Ajusta la distancia mínima de la cámara al objeto
+                                    maxDistance={20} // Ajusta la distancia máxima de la cámara al objeto
+                                />
                                 <ambientLight />
-                                <VIKING scale={0.1}  rotation={[0,Math.PI/2,0]}/>
+                                <INCURSION scale={0.1} rotation={[0,3*Math.PI/4,0]}/>
+                            </Canvas>
+                        </Suspense>
+                    </div>
+                    <div className='model_container_right'>
+                        <Suspense>
+                        <Canvas camera={cameraSettings}>
+                                <OrbitControls
+                                    enableZoom={true}
+                                    enablePan={true}
+                                    minDistance={5} // Ajusta la distancia mínima de la cámara al objeto
+                                    maxDistance={20} // Ajusta la distancia máxima de la cámara al objeto
+                                />
+                                <ambientLight />
+                                <CHEST scale={0.12} rotation={[0, 3 * Math.PI / 2.3, 0]} />
                             </Canvas>
                         </Suspense>
                     </div>
@@ -136,22 +178,29 @@ export default function Leccion1() {
                     Barcos Vikingos
                 </div>
                 <div className='model_container'>
+                    <div className='model_container_right'>
+                        <Suspense>
+                        <Canvas camera={cameraSettings}>
+                                <OrbitControls
+                                    enableZoom={true}
+                                    enablePan={true}
+                                    minDistance={5} // Ajusta la distancia mínima de la cámara al objeto
+                                    maxDistance={20} // Ajusta la distancia máxima de la cámara al objeto
+                                />
+                                <ambientLight />
+                                <SHIP1 scale={1.2} />
+                            </Canvas>
+                        </Suspense>
+                    </div>
                     <div className='model_container_left'>
                         <p className='Leccion1_text'>
                             Los barcos vikingos, como los drakkars, eran embarcaciones rápidas y ligeras.
                             Con cascos estrechos y largos, y proas y popas elevadas, podían navegar en aguas poco profundas y ríos.
+
                             Impulsados por velas y remos, los vikingos realizaban incursiones sorpresivas a velocidades de hasta 15 nudos,
                             saqueando y comerciando a lo largo de Europa. La importancia de estos barcos radicaba en su capacidad para explorar,
                             atacar y establecer rutas comerciales a larga distancia.
                         </p>
-                    </div>
-                    <div className='model_container_right'>
-                        <Suspense>
-                            <Canvas>
-                                <ambientLight />
-                                <SHIP1 scale={0.1} />
-                            </Canvas>
-                        </Suspense>
                     </div>
                 </div>
             </div>
@@ -161,6 +210,6 @@ export default function Leccion1() {
                 </div>
                 <img className='incursion_button' src={incursion} />
             </div>
-        </div>
+      </div>
     )
 }

@@ -15,20 +15,24 @@ export default function introLecture() {
     
 
     useFrame((state, delta)=>{
-        if(coin.current.position.y < 40){
-            coin.current.position.y += 20 * delta   
-            coin.current.rotation.x += 2 * delta          
+        if(coin.current.position.y < 45){
+            coin.current.position.y += 2 * delta   
+            coin.current.rotation.x += 3 * delta          
         }
+        // else{
+        //     coin.current.position.y -= 2 * delta   
+        //     coin.current.rotation.x -= 4 * delta 
+        // }
 
         if(coin.current.rotation.x > (- Math.PI * 0.5)){
-            coin.current.rotation.x += 2 * delta
-            coin.current.rotation.y += 10 * delta  
+            coin.current.rotation.x += 4 * delta
+            // coin.current.rotation.y += 4 * delta  
             //console.log(coin.current.rotation.y) 
         }
     })
 
     return (
-        <mesh ref={coin} scale={10} rotation={[- Math.PI * 0.5,  Math.PI * 0.5, 0] } position={[70, -10, 50]} onClick={() => navigate('/Leccion1')}
+        <mesh ref={coin} scale={8} rotation={[- Math.PI * 0.5,  Math.PI * 0.5, 0] } position={[70, 25, 50]} onClick={() => navigate('/Leccion1')}
     >
             <cylinderGeometry args={[1, 1, 0.1, 64, 1]} />
             <meshStandardMaterial side={DoubleSide} map={colorMap}/>

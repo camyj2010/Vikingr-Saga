@@ -1,62 +1,30 @@
 import React, { useRef, useEffect, useState } from "react";
 import { useGLTF } from "@react-three/drei";
+import QuestionMark from "./QuestionMark";
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+import "../styles/Modelos.css"
 
 export default function INCURSION(props) {
   const { nodes, materials } = useGLTF("/static/Incursion.glb");
   const skullRef = useRef();
   const [pressed,setPressed] = useState(false);
   const [modelRotation, setModelRotation] = useState([0, 0, 0]);
-  
-
-  useEffect(() => {
-    const handlePointerUpOutsideModel = () => {
-      setPressed(false);
-    };
-  
-    document.addEventListener("pointerup", handlePointerUpOutsideModel);
-  
-    return () => {
-      document.removeEventListener("pointerup", handlePointerUpOutsideModel);
-    };
-  }, []);
-
-  const handlePointerDown = () => {
-    setPressed(true);
-  };
-  
-  const handlePointerUp = () => {
-    setPressed(false);
-  };
-  
- 
-const handlePointerMove = (event) => {
-if(pressed){
-    const { movementX, movementY } = event;
-
-    // Calcular los ángulos de rotación basados en las coordenadas del mouse
-    const rotationY = ((movementX / window.innerWidth) * Math.PI * 2)*10;
-    const rotationX = (movementY / window.innerHeight) * Math.PI * 2; 
-    
-    
-
-    // Verificar si existe el atributo 'rotation' en skullRef
-    if (skullRef.current.rotation) {
-    // Si existe, actualizar las propiedades 'x' e 'y' de la rotación
-    // skullRef.current.rotation.x = rotationX;
-    setModelRotation((prevRotation) => [
-        0,
-        prevRotation[1] + rotationY,
-        0,
-        ]);
-    }
-}
-};
-  
-
+  const handleDetalle = (detalle) => {
+    Swal.fire({
+      title: detalle,
+      icon: 'info',
+      showConfirmButton: false,
+      background: '#1D2F6F',
+      customClass: {
+        title: 'mi-titulo',
+      },
+    })
+  }
 
 
   return (
-    <group ref={skullRef} {...props} dispose={null}  onPointerMove={handlePointerMove} onPointerDown={handlePointerDown} onPointerUp={handlePointerUp} rotation={modelRotation}>
+    <group ref={skullRef} {...props} dispose={null} >
+     
       <mesh
         castShadow
         receiveShadow

@@ -1,59 +1,29 @@
 import React, { useRef, useEffect, useState} from "react";
 import { useGLTF } from "@react-three/drei";
+import QuestionMark from "./QuestionMark";
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+import "../styles/Modelos.css"
 
 export default function VIKING(props, canvas) {
   const { nodes, materials } = useGLTF("/static/Viking.glb");
   const vikingRef = useRef();
   const [pressed,setPressed] = useState(false);
   const [modelRotation, setModelRotation] = useState([0, 0, 0]);
+  const handleDetalle = (detalle) => {
+    Swal.fire({
+      title: detalle,
+      icon: 'info',
+      showConfirmButton: false,
+      background: '#1D2F6F',
+      customClass: {
+        title: 'mi-titulo',
+      },
+    })
+  }
   
-
-  useEffect(() => {
-    const handlePointerUpOutsideModel = () => {
-      setPressed(false);
-    };
-  
-    document.addEventListener("pointerup", handlePointerUpOutsideModel);
-  
-    return () => {
-      document.removeEventListener("pointerup", handlePointerUpOutsideModel);
-    };
-  }, []);
-
-  const handlePointerDown = () => {
-    setPressed(true);
-  };
-  
-  const handlePointerUp = () => {
-    setPressed(false);
-  };
-  
- 
-const handlePointerMove = (event) => {
-if(pressed){
-    const { movementX, movementY } = event;
-
-    // Calcular los ángulos de rotación basados en las coordenadas del mouse
-    const rotationY = ((movementX / window.innerWidth) * Math.PI * 2)*10;
-    const rotationX = (movementY / window.innerHeight) * Math.PI * 2; 
-    
-    
-
-    // Verificar si existe el atributo 'rotation' en vikingRef
-    if (vikingRef.current.rotation) {
-    // Si existe, actualizar las propiedades 'x' e 'y' de la rotación
-    // vikingRef.current.rotation.x = rotationX;
-    setModelRotation((prevRotation) => [
-        0,
-        prevRotation[1] + rotationY,
-        0,
-        ]);
-    }
-}
-};
-
   return (
-    <group ref={vikingRef} {...props} dispose={null} scale={0.2} onPointerDown={handlePointerDown} onPointerUp={handlePointerUp} onPointerMove={handlePointerMove} rotation={modelRotation}>
+    <group ref={vikingRef} {...props} dispose={null} scale={0.27} >
+      <QuestionMark position={[7,13,-17]} onClick={() => handleDetalle("La palabra vikingo tiene origen en la palabra “vikingr”, que significa “pirata”, es decir, “ladrones en el mar”")}/>
       <mesh
         castShadow
         receiveShadow

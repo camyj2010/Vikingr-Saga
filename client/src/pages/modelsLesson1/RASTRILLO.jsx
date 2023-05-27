@@ -1,62 +1,29 @@
 import React, { useRef, useEffect, useState } from "react";
 import { useGLTF } from "@react-three/drei";
-
+import QuestionMark from "./QuestionMark";
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+import "../styles/Modelos.css"
 
 export default function RASTRILLO(props) {
   const { nodes, materials } = useGLTF("/static/RASTRILLO.glb");
   const rastrilloRef = useRef();
   const [pressed,setPressed] = useState(false);
   const [modelRotation, setModelRotation] = useState([5*Math.PI/12, Math.PI/3, 0]);
-
-
-  useEffect(() => {
-    const handlePointerUpOutsideModel = () => {
-      setPressed(false);
-    };
-  
-    document.addEventListener("pointerup", handlePointerUpOutsideModel);
-  
-    return () => {
-      document.removeEventListener("pointerup", handlePointerUpOutsideModel);
-    };
-  }, []);
-
-  const handlePointerDown = () => {
-    setPressed(true);
-  };
-  
-  const handlePointerUp = () => {
-    setPressed(false);
-  };
-  
- 
-const handlePointerMove = (event) => {
-if(pressed){
-    const { movementX, movementY, movementZ } = event;
-
-    // Calcular los ángulos de rotación basados en las coordenadas del mouse
-    const rotationY = ((movementX / window.innerWidth) * Math.PI * 2)*10;
-    const rotationX = ((movementY / window.innerHeight) * Math.PI * 2)*10; 
-    
-    
-
-    // Verificar si existe el atributo 'rotation' en rastrilloRef
-    if (rastrilloRef.current.rotation) {
-    // Si existe, actualizar las propiedades 'x' e 'y' de la rotación
-    // rastrilloRef.current.rotation.x = rotationX;
-    setModelRotation((prevRotation) => [
-        prevRotation[0] + rotationX,
-        //prevRotation[1] + rotationY,
-        Math.PI/3,
-        0,
-        ]);
-        //console.log(modelRotation)
-    }
-}
-};  
+  const handleDetalle = (detalle) => {
+    Swal.fire({
+      title: detalle,
+      icon: 'info',
+      showConfirmButton: false,
+      background: '#1D2F6F',
+      customClass: {
+        title: 'mi-titulo',
+      },
+    })
+  }
   
   return (
-    <group ref={rastrilloRef} {...props} dispose={null} onPointerDown={handlePointerDown} onPointerUp={handlePointerUp} onPointerMove={handlePointerMove} rotation={modelRotation}>
+    <group ref={rastrilloRef} {...props} dispose={null} >
+
       <mesh
         castShadow
         receiveShadow
