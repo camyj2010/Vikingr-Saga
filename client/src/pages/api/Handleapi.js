@@ -62,7 +62,7 @@ async function sign_up(nickname,email,password) {
     }
 }
 
-export {
+module.exports = {
     sign_in,
     sign_up
 }
