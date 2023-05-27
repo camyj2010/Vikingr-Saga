@@ -1,18 +1,25 @@
-var api = require('/api/Handleapi.js')
+const [sign_in, sign_up] = require('./api/Handleapi.js')
+
+global.fetch = jest.fn(() =>
+  Promise.resolve({
+    json: () => Promise.resolve({ acceso: 'access_token' }),
+    status: 200
+  })
+);
+
+test('El usuario puede iniciar sesión correctamente', async () => {
+    const email = 'test@example.com';
+    const password = 'password';
+    const result = await sign_in(email, password);
+  
+    expect(result).toBe('access_token');
+  });
 
 test('El usuario se puede registrar correctamente', async () => {
-    const req = {
-      body: {
-        email: 'test@example.com',
-        password: 'password',
-        nickname: 'testuser'
-      }
-    };
-    const res = {
-      json: jest.fn()
-    };
-  
-    await register(req, res);
-  
-    expect(res.json).toHaveBeenCalledWith({ ok: true });
-  });
+  const nickname = 'testuser';
+  const email = 'test@example.com';
+  const password = 'password';
+  const result = await sign_up(nickname, email, password);
+
+  expect(result).toEqual({ ok: true });
+});
