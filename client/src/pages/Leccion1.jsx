@@ -13,6 +13,8 @@ import VIKING from './modelsLesson1/VIKING'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import { useRef } from 'react'
+import AxePlusRastrillo from './modelsLesson1/AxePlusRastrillo'
+import SkullPlusChest from './modelsLesson1/SkullPlusChest'
 
 export default function Leccion1() {
     const navigate = useNavigate();
@@ -99,23 +101,9 @@ export default function Leccion1() {
                                     maxDistance={20} // Ajusta la distancia máxima de la cámara al objeto
                                 />
                                 <ambientLight />
-                                <AXE scale={0.13}
+                                <AxePlusRastrillo scale={0.13}
                                 //  rotationX={Math.PI / 2} 
                                 />
-                            </Canvas>
-                        </Suspense>
-                    </div>
-                    <div className='model_container_right'>
-                        <Suspense>
-                        <Canvas camera={cameraSettings}>
-                                <OrbitControls
-                                    enableZoom={true}
-                                    enablePan={true}
-                                    minDistance={5} // Ajusta la distancia mínima de la cámara al objeto
-                                    maxDistance={20} // Ajusta la distancia máxima de la cámara al objeto
-                                />
-                                <ambientLight />
-                                <RASTRILLO scale={0.13} rotation={[Math.PI/4,3*Math.PI/4,0]}/>
                             </Canvas>
                         </Suspense>
                     </div>
@@ -153,21 +141,7 @@ export default function Leccion1() {
                                     maxDistance={20} // Ajusta la distancia máxima de la cámara al objeto
                                 />
                                 <ambientLight />
-                                <INCURSION scale={0.1} rotation={[0,3*Math.PI/4,0]}/>
-                            </Canvas>
-                        </Suspense>
-                    </div>
-                    <div className='model_container_right'>
-                        <Suspense>
-                        <Canvas camera={cameraSettings}>
-                                <OrbitControls
-                                    enableZoom={true}
-                                    enablePan={true}
-                                    minDistance={5} // Ajusta la distancia mínima de la cámara al objeto
-                                    maxDistance={20} // Ajusta la distancia máxima de la cámara al objeto
-                                />
-                                <ambientLight />
-                                <CHEST scale={0.12} rotation={[0, 3 * Math.PI / 2.3, 0]} />
+                                <SkullPlusChest scale={0.2} rotation={[0,Math.PI,0]}/>
                             </Canvas>
                         </Suspense>
                     </div>
