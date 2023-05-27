@@ -8,8 +8,8 @@ global.fetch = jest.fn(() =>
 );
 
 test('El usuario puede iniciar sesión correctamente', async () => {
-    const email = 'test@example.com';
-    const password = 'password';
+    const email = 'atlasAdmin@gmail.com';
+    const password = '123';
     const result = await sign_in(email, password);
   
     expect(result).toBe('access_token');
@@ -17,8 +17,8 @@ test('El usuario puede iniciar sesión correctamente', async () => {
 
 test('El usuario se puede registrar correctamente', async () => {
   const nickname = 'testuser';
-  const email = 'test@example.com';
-  const password = 'password';
+  const email = 'test@gmail.com';
+  const password = '12345';
   const result = await sign_up(nickname, email, password);
 
   expect(result).toEqual({ ok: true });
