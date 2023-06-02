@@ -1,4 +1,4 @@
-import React from 'react'
+import {React, useRef} from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Suspense } from 'react'
 import Experience from './Map/Experience'
@@ -7,7 +7,7 @@ import flag from '../img/Salida1.png';
 
 
 export default function Home() {
-
+    const scene = useRef();
     const cameraSettings = {
         fov: 45,
         near: 0.3,
@@ -28,6 +28,7 @@ export default function Home() {
                 camera={cameraSettings}
             >
                 <Suspense>
+                    
                     <Experience />
                 </Suspense>
             </Canvas>

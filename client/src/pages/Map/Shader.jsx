@@ -1,5 +1,5 @@
 import {  useFrame } from '@react-three/fiber'
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import * as THREE from 'three'
 
 const WaveShader = {
@@ -162,13 +162,22 @@ const WaveShader = {
 export default function Shader() {
     const shaderMaterial = useRef();
 
+    const shaderRef = useRef();
+
+    useEffect(() => {
+        // Accede al objeto del shader del suelo a través de shaderRef.current
+        if (shaderRef.current) {
+        // Asigna userData.isGround = true al objeto del shader del suelo
+        shaderRef.current.userData.isGround = true;
+        }
+    }, []);
     useFrame(({ clock }) => {
         shaderMaterial.current.uniforms.uTime.value = clock.elapsedTime;
     });
 
 
     return (
-        <mesh rotation-x = {- Math.PI * 0.5} position={[100, 0, 50]} scale={100}>
+        <mesh rotation-x = {- Math.PI * 0.5} position={[100, 0, 50]} scale={100} ref={shaderRef}>
             <planeGeometry args={[10, 10, 512, 512]} />
             <shaderMaterial ref={shaderMaterial} args={[WaveShader]}/>
         </mesh>
