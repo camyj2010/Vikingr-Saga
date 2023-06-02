@@ -6,6 +6,7 @@ import * as Yup from 'yup'
 import { sign_in, login_google } from './api/Handleapi';
 import { gapi } from 'gapi-script'
 import GoogleLogin from 'react-google-login'
+import google from '../img/google.png'
 
 export default function Login() {
 
@@ -17,14 +18,14 @@ export default function Login() {
   useEffect(() => {
     const start = () => {
       gapi.auth2.init({
-        clientId : clientID,
+        clientId: clientID,
       })
     }
     gapi.load("client:auth2", start)
   }, [])
 
   const onSuccess = (res) => {
-    const {email, googleId, givenName} = res.profileObj
+    const { email, googleId, givenName } = res.profileObj
     login_google(email, googleId, givenName)
     navigate('/Home')
   }
@@ -49,10 +50,10 @@ export default function Login() {
       const res = await sign_in(values.correo, values.contraseña)
       console.log(values.correo)
 
-      if (res){
+      if (res) {
         navigate('/Home')
       }
-      
+
     }
   })
 
@@ -87,17 +88,21 @@ export default function Login() {
               />
               <span></span>
             </div>
-            <button type='submit'>Ingresar</button>
+            <button className='btn_login' type='submit'>Ingresar</button>
             <div className="signup_link">
               Aun no tienes cuenta? <a onClick={() => navigate('/Registro')}>Registrate</a>
             </div>
+          <GoogleLogin
+            clientId={clientID}
+            onSuccess={onSuccess}
+            onFailure={onFailure}
+            cookiePolicy={"single_host_policy"}
+            style={{ backgroundColor: "black" }}
+            render={renderProps => (
+              <button className='btn_google' onClick={renderProps.onClick} disabled={renderProps.disabled}><span><img className='img_google' src={google}/></span>Ingresar con google</button>
+            )}
+          />
           </div>
-        <GoogleLogin 
-        clientId={clientID}
-        onSuccess={onSuccess}
-        onFailure={onFailure}
-        cookiePolicy={"single_host_policy"}
-        />
         </form>
       </div>
     </div>
