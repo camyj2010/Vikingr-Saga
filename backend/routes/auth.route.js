@@ -1,6 +1,6 @@
 import express from "express";
 // import { Router } from "express";
-import { login, register } from "../controllers/auth.controler.js";
+import { login, register, loginGoogle } from "../controllers/auth.controler.js";
 import {body}from "express-validator"
 import { validationResultExpress } from "../middlewares/validationResult.Express.js";
 import { bodyLoginValidator, bodyRegisterValidator } from "../middlewares/validatorManager.js";
@@ -16,6 +16,7 @@ import { bodyLoginValidator, bodyRegisterValidator } from "../middlewares/valida
 const router = express.Router();
 router.post("/login",bodyLoginValidator,login);
 router.post("/register",bodyRegisterValidator,register);
+router.post("/login-google",loginGoogle);
 
 // router.post("/register", register);
 // router.post("/login", login);
