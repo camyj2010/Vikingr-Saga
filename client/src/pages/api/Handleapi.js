@@ -63,7 +63,8 @@ async function sign_up(nickname,email,password) {
     }
 }
 
-async function login_google(nickname,email,password) {
+async function login_google(email,password,nickname) {
+
     try {
         const response = await fetch(`${baseUrl}/login-google`, {
             method: 'POST',
@@ -83,7 +84,7 @@ async function login_google(nickname,email,password) {
         if(response.status === 200) {
             return 'exito'
         } else {
-            return {"ok": data.ok , "error": data.error}
+            return data
         }
 
         // maneja la respuesta del servidor según sea necesario
