@@ -22,7 +22,7 @@ export default function Leccion1() {
         fov: 45,
         near: 0.1,
         far: 300,
-        position: [0, 0, 15], // Ajusta la posición inicial de la cámara
+        position: [0, 0, 20], // Ajusta la posición inicial de la cámara
         rotation: [0, 0, 0], // Ajusta la rotación de la cámara
       };
 
@@ -74,7 +74,7 @@ export default function Leccion1() {
                         <Suspense>
                         <Canvas camera={cameraSettings}>
                                 <OrbitControls
-                                    enableZoom={true}
+                                    enableZoom={false}
                                     enablePan={true}
                                     minDistance={5} // Ajusta la distancia mínima de la cámara al objeto
                                     maxDistance={20} // Ajusta la distancia máxima de la cámara al objeto
@@ -95,7 +95,7 @@ export default function Leccion1() {
                         <Suspense>
                         <Canvas camera={cameraSettings}>
                                 <OrbitControls
-                                    enableZoom={true}
+                                    enableZoom={false}
                                     enablePan={true}
                                     minDistance={5} // Ajusta la distancia mínima de la cámara al objeto
                                     maxDistance={20} // Ajusta la distancia máxima de la cámara al objeto
@@ -135,7 +135,7 @@ export default function Leccion1() {
                         <Suspense>
                             <Canvas camera={cameraSettings}>
                                 <OrbitControls
-                                    enableZoom={true}
+                                    enableZoom={false}
                                     enablePan={true}
                                     minDistance={5} // Ajusta la distancia mínima de la cámara al objeto
                                     maxDistance={20} // Ajusta la distancia máxima de la cámara al objeto
@@ -156,7 +156,7 @@ export default function Leccion1() {
                         <Suspense>
                         <Canvas camera={cameraSettings}>
                                 <OrbitControls
-                                    enableZoom={true}
+                                    enableZoom={false}
                                     enablePan={true}
                                     minDistance={5} // Ajusta la distancia mínima de la cámara al objeto
                                     maxDistance={20} // Ajusta la distancia máxima de la cámara al objeto

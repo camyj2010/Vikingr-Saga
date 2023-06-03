@@ -1,14 +1,16 @@
-import React, { useRef, useEffect, useState} from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { useGLTF } from "@react-three/drei";
-import QuestionMark from "./QuestionMark";
 import Swal from 'sweetalert2/dist/sweetalert2.js'
+import Question_mark from "./Question_mark";
+import QuestionMark from "./QuestionMark";
 
 
 export default function VIKING(props, canvas) {
   const { nodes, materials } = useGLTF("/static/Viking.glb");
   const vikingRef = useRef();
-  const [pressed,setPressed] = useState(false);
+  const [pressed, setPressed] = useState(false);
   const [modelRotation, setModelRotation] = useState([0, 0, 0]);
+
   const handleDetalle = (detalle) => {
     Swal.fire({
       title: detalle,
@@ -20,10 +22,13 @@ export default function VIKING(props, canvas) {
       },
     })
   }
-  
+
   return (
     <group ref={vikingRef} {...props} dispose={null} scale={0.27} >
-      <QuestionMark position={[7,13,-17]} onClick={() => handleDetalle("La palabra vikingo tiene origen en la palabra “vikingr”, que significa “pirata”, es decir, “ladrones en el mar”")}/>
+      <Question_mark position={[-15, 10, -15]} size={3}
+        onClick={ () => handleDetalle('La palabra vikingo tiene origen en la palabra “vikingr”, que significa “pirata”, es decir, “ladrones en el mar”')}
+
+      />
       <mesh
         castShadow
         receiveShadow
