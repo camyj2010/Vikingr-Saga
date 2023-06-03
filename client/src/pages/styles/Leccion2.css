@@ -12,11 +12,14 @@ html {
     src: url('../../../public/fonts/norse.bold.otf');
 }
 
+/* @font-face {
+    font-family: texts;
+    src: url('../../../public/fonts/UncialAntiqua-Regular.ttf');
+} */
 @font-face {
     font-family: texts;
     src: url('../../../public/fonts/Poppins-ExtraLight.ttf');
   }
-
 
 .contenedor_Leccion1 {
     background-color: #251605;
@@ -89,18 +92,26 @@ html {
 }
 
 
-.title_leccion1 {
+.title_leccion2 {
     color: #fff;
     font-family: Norse;
-    font-size: 12rem;
+    font-size: 9.4rem;
     position: absolute;
-    top: 60%;
-    left: 25%;
+    top: 70%;
+    left: 38%;
     transform: translate(-50%, -50%);
     color: white;
     text-align: left;
 }
 
+.Leccion1_text {
+    font-family: texts;
+    padding: 3rem;
+    color: #fff;
+    font-size: 1.2rem;
+    text-align: right;
+
+}
 .Leccion2_text {
     font-family: texts;
     padding: 2rem;
@@ -110,7 +121,7 @@ html {
 
 }
 
-.leccion1Left {
+.leccion2Left {
     padding: 1rem;
     color: #fff;
     font-family: Norse;
@@ -121,7 +132,7 @@ html {
     margin-right: 200px;
 }
 
-.leccion1Right {
+.leccion2Right {
     padding: 1rem;
     color: #fff;
     font-family: Norse;

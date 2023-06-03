@@ -66,7 +66,8 @@ export default function Leccion1() {
                     <div className='model_container_left'>
                         <p className='Leccion1_text'>
                             Los vikingos fueron un grupo de guerreros y marinos pertenecientes a un conjunto de pueblos originarios de Escandinavia,
-                            en el norte de Europa. Estos se hicieron conocidos por sus viajes de exploración marítima y por sus incursiones y saqueos
+                            en el norte de Europa.
+                            </p><p className='Leccion1_text'> Estos se hicieron conocidos por sus viajes de exploración marítima y por sus incursiones y saqueos
                             en gran parte de Europa, entre los siglos VIII a XI.
                         </p>
                     </div>
