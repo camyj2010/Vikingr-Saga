@@ -177,7 +177,7 @@ export default function Shader() {
 
 
     return (
-        <mesh rotation-x = {- Math.PI * 0.5} position={[100, 0, 50]} scale={100} ref={shaderRef}>
+        <mesh rotation-x = {- Math.PI * 0.5}  scale={100} ref={shaderRef}>
             <planeGeometry args={[10, 10, 512, 512]} />
             <shaderMaterial ref={shaderMaterial} args={[WaveShader]}/>
         </mesh>

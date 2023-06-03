@@ -1,4 +1,4 @@
-import { OrbitControls, Stars, useHelper, PerspectiveCamera } from '@react-three/drei'
+import { OrbitControls, Stars, useHelper, PerspectiveCamera, Center } from '@react-three/drei'
 import Shader from './Shader'
 import Island1 from '../Island1/Island1'
 import { useRef, useState } from 'react'
@@ -21,7 +21,6 @@ export default function Experience() {
     const raycaster = new Raycaster();
     const mouse = new Vector2();
     const shipRef = useRef();
-    const shipHitboxRef = useRef()
     const targetPosition = useRef(null);
 
 
@@ -43,7 +42,7 @@ export default function Experience() {
 
             }
             // console.log('Coordenadas del clic:', point);
-            console.log(shipRef.current.position)
+           
           }
     }
 
@@ -60,14 +59,18 @@ export default function Experience() {
               const newPosition = currentPosition.clone().add(direction.multiplyScalar(speed));
             //   console.log(shipRef.current.position)
               shipRef.current.position.copy(newPosition);
-            //   console.log("posicion de la hitbox del barco", shipHitboxRef.current.position)
-            //   shipHitboxRef.current.position.copy(newPosition);
-            //   console.log(shipHitboxRef.current.position)
               
             } else {
               // El barco ha llegado a la posición objetivo
               targetPosition.current = null;
             }
+
+            const cuboidCollider = shipRef.current.getObjectByName('cuboidCollider');
+            
+            if (cuboidCollider) {
+              cuboidCollider.position.copy(shipRef.current.position);
+              cuboidCollider.updateMatrixWorld();
+            }       
           }
         }
       });
@@ -86,7 +89,8 @@ export default function Experience() {
     
     return (
         <>
-            <group position={[-60, 0, -50]}>
+            <group>
+            
                 <PerspectiveCamera ref={cameraRef} makeDefault position={[50,70, 200]} />
                 <OrbitControls
                     camera={cameraRef.current}
@@ -98,37 +102,40 @@ export default function Experience() {
                 />
                 {/* <directionalLight castShadow position={[1, 2, 3]} intensity={1.5} />*/}
                 <ambientLight intensity={1} />  
+                
                 {/* <Stars radius={50} depth={10} count={5000} factor={4} saturation={0} fade speed={1} /> */}
-                <mesh onClick={(event) => ShipMovementHandler(event)}>
-                <Shader/> 
+                <mesh onClick={(event) => ShipMovementHandler(event)} position={[0,-10,0]}>
+                <Shader /> 
                 </mesh>
                 
                 <IconLecture1 />   
                 <Physics
                 debug={true} 
                  gravity={[0,0,0]}
-                >
-                      
+                >  
+                 
+                <RigidBody colliders='cuboid'>
                 <mesh receiveShadow={true} castShadow>
                 <Island1 /> 
                 </mesh>
+                </RigidBody>
                 
-                <RigidBody colliders='cuboid'>
-                {/* <mesh ref={shipRef}>
-                <Ship/>
-                </mesh> */}
-                <mesh ref={shipRef}>
+                <RigidBody colliders={false} type='fixed'>  
+                {/* <BallCollider ref={shipHitboxRef} /> */}
+                <mesh ref={shipRef} position={[60,12,140]}>
                     <Ship />
+                    <CuboidCollider args={[12,11,5]} name="cuboidCollider"/>
                 </mesh>
-               
-                 </RigidBody>
 
-                </Physics> 
+                 </RigidBody>
+                </Physics>  
+                
                 <mesh ref={sunRef} position={[4, 500, 4]}>
                     <sphereGeometry args={[50, 500, 100]} />
                     <meshBasicMaterial color={0xffff00} />
                     <pointLight ref={pointLightRef} castShadow={true} intensity={2} shadow-mapSize={[512, 512]} />
                 </mesh>
+                
                 
             </group> 
         </>
