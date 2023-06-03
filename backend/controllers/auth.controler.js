@@ -50,7 +50,8 @@ export const register = async (req, res) => {
 
 export const loginGoogle = async (req, res) => {
     const { email, password, nickname } = req.body;
-
+    console.log(email)
+    
     try {
         // Verificar si ya existe este usuario
         let user = await User.findOne({ email: email });
