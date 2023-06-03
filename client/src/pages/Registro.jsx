@@ -20,23 +20,53 @@ export default function Registro() {
 
     validationSchema: Yup.object({
       usuario: Yup.string().required("*Complete este campo"),
-      correo: Yup.string().matches( /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/,"*campo invalido" ).required("*Complete este campo"),
-      contraseña: Yup.string().min(3,"*Minimo 3 caracteres").required("*Complete este campo"),
+      correo: Yup.string().matches(/^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/, "*campo invalido").required("*Complete este campo"),
+      contraseña: Yup.string().min(3, "*Minimo 3 caracteres").required("*Complete este campo"),
     }),
 
-    onSubmit: async(values) => {
+    onSubmit: async (values) => {
       const { errors } = formik;
       const { usuario, correo, contraseña } = values;
 
       const noErrors = Object.keys(errors).length === 0;
       const noEmptyFields = usuario.length !== 0 && correo.length !== 0 && contraseña.length !== 0;
-      const res  = await sign_up(values.usuario, values.correo, values.contraseña)
+
+      Swal.fire({
+        title: 'Cargando...',
+        icon: 'info',
+        showConfirmButton: false,
+        background: '#fff',
+        customClass: {
+          title: 'mi-titulo',
+        },
+        allowOutsideClick: false, // Evita que el usuario pueda hacer clic fuera de la alerta
+        onBeforeOpen: () => {
+          Swal.showLoading();
+        },
+      });
+
+      const res = await sign_up(values.usuario, values.correo, values.contraseña)
       console.log(res)
 
-      if (res.ok && noErrors && noEmptyFields ) {
+
+
+      if (res.ok && noErrors && noEmptyFields) {
+        // Ocultar la alerta de carga
+        Swal.close();
+
+        // Mostrar mensaje de éxito
+        Swal.fire({
+          title: 'Te has registrado con exito',
+          icon: 'success',
+          showConfirmButton: false,
+          background: '#fff',
+          customClass: {
+            title: 'mi-titulo',
+          },
+        });
         navigate('/')
       }
-      if(res.ok == false){
+      if (res.ok == false) {
         Swal.fire({
           title: res.error,
           icon: 'error',
@@ -46,7 +76,7 @@ export default function Registro() {
             title: 'mi-titulo',
           },
         })
-      }      
+      }
     }
   })
 
