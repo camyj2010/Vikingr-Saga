@@ -65,7 +65,7 @@ async function sign_up(nickname,email,password) {
 
 async function login_google(nickname,email,password) {
     try {
-        const response = await fetch(`http://localhost:5000/login-google`, {
+        const response = await fetch(`${baseUrl}/login-google`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
