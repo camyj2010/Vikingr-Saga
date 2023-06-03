@@ -3,14 +3,15 @@ import Shader from './Shader'
 import Island1 from '../Island1/Island1'
 import { useRef, useState } from 'react'
 import { useFrame, useThree  } from '@react-three/fiber'
-import { DoubleSide, PlaneGeometry, PointLightHelper, Vector2 } from 'three'
+import { DoubleSide, Euler, PlaneGeometry, PointLightHelper, Vector2 ,Raycaster, Vector3, MathUtils, Object3D, BoxGeometry } from 'three'
 import IconLecture1 from './Icon'
 import { useNavigate } from 'react-router-dom'
 import Leccion1 from '../../pages/Leccion1'
 import QuestionMark from '../modelsLesson1/QuestionMark'
 import Ship from './Ship.jsx'
-import { Raycaster, Vector3 } from 'three';
-import { BallCollider, CuboidCollider, Physics, RigidBody } from '@react-three/rapier'
+import { BallCollider, CuboidCollider, Physics, RigidBody , useRapier } from '@react-three/rapier'
+
+
 
 export default function Experience() {
     const pointLightRef = useRef();
@@ -21,12 +22,14 @@ export default function Experience() {
     const raycaster = new Raycaster();
     const mouse = new Vector2();
     const shipRef = useRef();
+    const shipMeshRef = useRef();
     const targetPosition = useRef(null);
 
 
     const ShipMovementHandler = (event) => {
         mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
         mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+        
     
         // Configura el raycaster y realiza la intersección con la escena
         raycaster.setFromCamera(mouse, cameraRef.current);
@@ -36,41 +39,41 @@ export default function Experience() {
         if (groundIntersects.length > 0) {
             const intersection = groundIntersects[0];
             const point = intersection.point;
-        
             if (shipRef.current) {
-              targetPosition.current = new Vector3(point.x, shipRef.current.position.y, point.z);
-
+              targetPosition.current = new Vector3(point.x, shipRef.current.translation().y, point.z);
             }
             // console.log('Coordenadas del clic:', point);
            
           }
     }
 
+
     useFrame(() => {
-        if (shipRef.current) {
+
+        if (shipRef.current && shipMeshRef.current) {
           if (targetPosition.current) {
-            const currentPosition = shipRef.current.position;
+            const currentPosition = new Vector3(shipRef.current.translation().x, shipRef.current.translation().y, shipRef.current.translation().z)
             const targetXZ = new Vector3(targetPosition.current.x, currentPosition.y, targetPosition.current.z);
             const direction = targetXZ.clone().sub(currentPosition).normalize();
             const speed = 0.1;
             const distance = currentPosition.distanceTo(targetXZ);
-      
             if (distance > 0.1) {
               const newPosition = currentPosition.clone().add(direction.multiplyScalar(speed));
-            //   console.log(shipRef.current.position)
-              shipRef.current.position.copy(newPosition);
-              
-            } else {
-              // El barco ha llegado a la posición objetivo
-              targetPosition.current = null;
-            }
-
-            const cuboidCollider = shipRef.current.getObjectByName('cuboidCollider');
             
-            if (cuboidCollider) {
-              cuboidCollider.position.copy(shipRef.current.position);
-              cuboidCollider.updateMatrixWorld();
-            }       
+              shipMeshRef.current.position.copy(newPosition)
+              shipRef.current.setTranslation({x: newPosition.x , y: currentPosition.y , z: newPosition.z})
+              
+              //shipMeshRef.current.lookAt(targetXZ)
+              const targetRotation = new Euler(0, -(Math.atan2(direction.z,direction.x) + (Math.PI * 2)), 0);
+              shipMeshRef.current.rotation.y = MathUtils.lerp(
+                shipMeshRef.current.rotation.y,
+                targetRotation.y, 
+                0.01 
+              );
+            } else {
+              // El barco ha llegado a laa posición objetivo
+              targetPosition.current = null;
+            }      
           }
         }
       });
@@ -91,7 +94,7 @@ export default function Experience() {
         <>
             <group>
             
-                <PerspectiveCamera ref={cameraRef} makeDefault position={[50,70, 200]} />
+                <PerspectiveCamera ref={cameraRef} makeDefault position={[60,100, 400]} />
                 <OrbitControls
                     camera={cameraRef.current}
                     maxPolarAngle={Math.PI / 2} // Limita el movimiento hacia arriba y hacia abajo
@@ -114,21 +117,27 @@ export default function Experience() {
                  gravity={[0,0,0]}
                 >  
                  
-                <RigidBody colliders='cuboid'>
+                <RigidBody colliders={false} position={[0,-9,0]}  mass={9999999} kinematic={true}>
                 <mesh receiveShadow={true} castShadow>
                 <Island1 /> 
+                <CuboidCollider args={[82,15,47]} position={[82,10,49]}/>
                 </mesh>
                 </RigidBody>
-                
-                <RigidBody colliders={false} type='fixed'>  
-                {/* <BallCollider ref={shipHitboxRef} /> */}
-                <mesh ref={shipRef} position={[60,12,140]}>
-                    <Ship />
-                    <CuboidCollider args={[12,11,5]} name="cuboidCollider"/>
-                </mesh>
 
+                {/**Hitbox del barco */}
+                <RigidBody colliders={false} ref={shipRef} mass={0.01} position={[60,5,140]} kinematic={true}>  
+                <CuboidCollider args={[12,11,5]} name="cuboidCollider"/>
                  </RigidBody>
-                </Physics>  
+                </Physics>
+      {/* Hago un parentesis y recordatorio, hay una hitbox que esta siempre en la misma posicion del barco pero el modelo del barco
+      no esta dentro del RigidBody porque si lo ponia ahi el modelo desaparecia al cabo de unos segundos, cosa que habra que solucionar 
+      luego*/ }
+                {/** el barco */}
+                <mesh ref={shipMeshRef} position={[60,5,140]}>
+
+                    <Ship />
+                    
+                </mesh>  
                 
                 <mesh ref={sunRef} position={[4, 500, 4]}>
                     <sphereGeometry args={[50, 500, 100]} />
