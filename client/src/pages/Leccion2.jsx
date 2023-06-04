@@ -222,7 +222,7 @@ export default function Leccion1() {
                     </div>
                 </div>
             </div>
-            <div className='incursion' onClick={() => navigate('/Quiz_Vikingos')}>
+            <div className='incursion' onClick={() => navigate('/Quiz_Mitologia')}>
                 <div className='incursion_leccion1'>
                     Las incursiones
                 </div>
