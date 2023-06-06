@@ -1,6 +1,7 @@
 import { OrbitControls, Stars, useHelper, PerspectiveCamera, Center } from '@react-three/drei'
 import Shader from './Shader'
 import Island1 from '../Island1/Island1'
+import Island2 from '../Island2/Island2'
 import { useRef, useState } from 'react'
 import { useFrame, useThree  } from '@react-three/fiber'
 import { DoubleSide, Euler, PlaneGeometry, PointLightHelper, Vector2 ,Raycaster, Vector3, MathUtils, Object3D, BoxGeometry } from 'three'
@@ -10,7 +11,7 @@ import Leccion1 from '../../pages/Leccion1'
 import QuestionMark from '../modelsLesson1/QuestionMark'
 import Ship from './Ship.jsx'
 import { BallCollider, CuboidCollider, Physics, RigidBody , useRapier } from '@react-three/rapier'
-
+import TheMDFShip from './TheMDFShip'
 
 
 export default function Experience() {
@@ -98,10 +99,10 @@ export default function Experience() {
                 <OrbitControls
                     camera={cameraRef.current}
                     maxPolarAngle={Math.PI / 2} // Limita el movimiento hacia arriba y hacia abajo
-                    // enablePan={false}
+                    //enablePan={false}
                     enabled={true}
-                    // enableRotate ={false}
-                    // enableZoom = {false}
+                    //enableRotate ={false}
+                    //enableZoom = {false}
                 />
                 {/* <directionalLight castShadow position={[1, 2, 3]} intensity={1.5} />*/}
                 <ambientLight intensity={1} />  
@@ -116,7 +117,7 @@ export default function Experience() {
                 debug={true} 
                  gravity={[0,0,0]}
                 >  
-                 
+                
                 <RigidBody colliders={false} position={[0,-9,0]}  mass={9999999} kinematic={true}>
                 <mesh receiveShadow={true} castShadow>
                 <Island1 /> 
@@ -124,19 +125,26 @@ export default function Experience() {
                 </mesh>
                 </RigidBody>
 
+                <RigidBody colliders={false} position={[-150,70,-200]}  mass={9999999} kinematic={true} rotation={[0,Math.PI/3,0]}>
+                <mesh receiveShadow={true} castShadow>
+                <Island2 /> 
+                <CuboidCollider args={[60,10,55]} position={[-60,-70,40]}/>
+                </mesh>
+                </RigidBody>
+
                 {/**Hitbox del barco */}
-                <RigidBody colliders={false} ref={shipRef} mass={0.01} position={[60,5,140]} kinematic={true}>  
-                <CuboidCollider args={[12,11,5]} name="cuboidCollider"/>
+                <RigidBody colliders={false} ref={shipRef} mass={0.01} position={[60,-2,140]} kinematic={true}>  
+                <CuboidCollider args={[11,11,11]} name="cuboidCollider"/>
                  </RigidBody>
                 </Physics>
       {/* Hago un parentesis y recordatorio, hay una hitbox que esta siempre en la misma posicion del barco pero el modelo del barco
       no esta dentro del RigidBody porque si lo ponia ahi el modelo desaparecia al cabo de unos segundos, cosa que habra que solucionar 
       luego*/ }
                 {/** el barco */}
-                <mesh ref={shipMeshRef} position={[60,5,140]}>
+                <mesh ref={shipMeshRef} position={[60,-2,140]}>
 
-                    <Ship />
-                    
+                  {/* <Ship /> */}
+                  <TheMDFShip /> 
                 </mesh>  
                 
                 <mesh ref={sunRef} position={[4, 500, 4]}>
