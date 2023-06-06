@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react'
 import './styles/Leccion2.css'
-import Banner from '../img/Banner_leccion1.png'
+import Banner from '../img/BG_leccion1.jpg'
 import map from '../img/mapa-del-tesoro.png'
 import incursion from '../img/incursion.png'
 import { useNavigate } from 'react-router-dom';
@@ -59,11 +59,14 @@ export default function Leccion1() {
                 <p className='title_leccion2'>Mitologia Nordica</p>
             </div>
             <div id='laCreacion'>
-                <div className='leccion1Left'>
-                    La Creacion
-                </div>
                 <div className='model_container'>
-                    <div className='model_container_left'>
+                    <div className='model_container_left'style={{ width: '70%' }}>
+                        <div style={{ position: 'relative' }}>
+                        <div className='leccion1Left'>
+                            La Creacion
+                        </div>
+                        <div style={{ position: 'absolute', bottom: 0, left: '15%', width: '20%', borderBottom: '3px solid white' }}></div>
+                        </div>
                         <p className='Leccion1_text'>
                         Según la mitología nórdica, el mundo se creó a partir del choque entre el fuego y el hielo. En el principio había dos regiones: Muspelheim, el reino del fuego, y Niflheim, el reino del hielo. Del choque entre ambos surgió un vasto abismo llamado Ginnungagap.
                         </p><p className='Leccion1_text'>
@@ -91,11 +94,10 @@ export default function Leccion1() {
                 </div>
             </div>
             <div id='losDioses'>
-                <div className='leccion1Right'>
-                    Los Dioses
-                </div>
+                
                 <div className='model_container'>
                     <div className='model_container_right'>
+                        
                         <Suspense>
                         <Canvas camera={cameraSettings}>
                                 <OrbitControls
@@ -111,7 +113,13 @@ export default function Leccion1() {
                             </Canvas>
                         </Suspense>
                     </div>
-                    <div className='model_container_left'>
+                    <div className='model_container_left'style={{ width: '70%' }}>
+                         <div style={{ position: 'relative' }}>
+                        <div className='leccion2Right'>
+                         Los Dioses
+                        </div>
+                        <div style={{ position: 'absolute', bottom: 0, left: '15%', width: '20%', borderBottom: '3px solid white' }}></div>
+                        </div>
                         <p className='Leccion2_text'>
                             Los dioses nórdicos eran una amplia pantheon de deidades veneradas en la mitología nórdica, que era la creencia religiosa de los pueblos escandinavos y germanos durante la Era Vikinga y la Edad Media. Algunos de los principales dioses nórdicos incluyen:
                          </p>
@@ -123,11 +131,10 @@ export default function Leccion1() {
                         </ul>
                     </div>
                 </div>
-                <div className='leccion1Right'>
-                    Los Dioses
-                </div>
+                
                 <div className='model_container'>
                     <div className='model_container_right'>
+                        
                         <Suspense>
                         <Canvas camera={cameraSettings}>
                                 <OrbitControls
@@ -143,7 +150,13 @@ export default function Leccion1() {
                             </Canvas>
                         </Suspense>
                     </div>
-                    <div className='model_container_left'>
+                    <div className='model_container_left'style={{ width: '70%' }}>
+                        <div style={{ position: 'relative' }}>
+                        <div className='leccion2Right'>
+                            Los Dioses
+                        </div>
+                        <div style={{ position: 'absolute', bottom: 0, left: '15%', width: '20%', borderBottom: '3px solid white' }}></div>
+                        </div>
                         <p className='Leccion2_text'>
                         <ul>
                             <li> - Thor: Dios del trueno, el rayo y la fuerza. Hijo de Odin.</li>
@@ -160,11 +173,14 @@ export default function Leccion1() {
                 </div>
             </div>
             <div id='beowulf'>
-                <div className='leccion1Left'>
-                    La leyenda de Beowulf
-                </div>
                 <div className='model_container'>
-                    <div className='model_container_left'>
+                    <div className='model_container_left'style={{ width: '70%' }}>
+                        <div style={{ position: 'relative' }}>
+                        <div className='leccion1Left'>
+                            La leyenda de Beowulf
+                        </div>
+                        <div style={{ position: 'absolute', bottom: 0, left: '15%', width: '20%', borderBottom: '3px solid white' }}></div>
+                        </div>
                         <p className='Leccion1_text'>
                         El poema nórdico de Beowulf es una antigua epopeya escandinava que narra la historia del héroe homónimo. 
                         Compuesto en el siglo VIII, el poema tiene lugar en Dinamarca y Suecia, y sigue las hazañas de Beowulf mientras se enfrenta a monstruos y dragones para proteger a su pueblo.
@@ -191,11 +207,10 @@ export default function Leccion1() {
                 </div>
             </div>
             <div id='ragnarok'>
-                <div className='leccion1Right'>
-                    La leyenda del Ragnarök 
-                </div>
+                
                 <div className='model_container'>
                     <div className='model_container_right'>
+                        
                         <Suspense>
                         <Canvas camera={cameraSettings}>
                                 <OrbitControls
@@ -210,6 +225,12 @@ export default function Leccion1() {
                         </Suspense>
                     </div>
                     <div className='model_container_left'>
+                        <div style={{ position: 'relative' }}>
+                        <div className='leccion2Right'>
+                            La leyenda del Ragnarök 
+                        </div>
+                        <div style={{ position: 'absolute', bottom: 0, left: '15%', width: '20%', borderBottom: '3px solid white' }}></div>
+                        </div>
                         <p className='Leccion1_text'>
                         El Ragnarök es el apocalipsis en la mitología nórdica, una batalla cósmica que marca el fin del mundo y el renacimiento de un nuevo ciclo. 
                         Los dioses se enfrentan a sus enemigos, como los gigantes de hielo y las fuerzas del caos. 

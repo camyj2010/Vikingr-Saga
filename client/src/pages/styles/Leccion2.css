@@ -22,10 +22,31 @@ html {
   }
 
 .contenedor_Leccion1 {
-    background-color: #251605;
+    background-color: #171B2C;
     height: 100%;
 }
+.historia{
+    background: linear-gradient(0deg, rgba(14, 24, 59, 0.2), rgba(17, 28, 70, 0.6)), url('../../img/Historia.png');
+    background-size: cover;
+}
 
+.origen{
+    background: linear-gradient(0deg, rgba(1, 1, 3, 0.2), rgba(17, 28, 70, 0.6)), url('../../img/Origen.jpg');
+    background-size: cover;
+    margin-top: 3px;
+}
+
+.barcos{
+    background: linear-gradient(0deg, rgba(1, 1, 3, 0.2), rgba(17, 28, 70, 0.6)), url('../../img/Barcos.jpg');
+    background-size: cover;
+    margin-top: 3px;
+}
+
+.barcos_vikingos{
+    background: linear-gradient(0deg, rgba(1, 1, 3, 0.2), rgba(17, 28, 70, 0.6)), url('../../img/Barcos_vikingos.jpg');
+    background-size: cover;
+    margin-top: 3px;
+}
 .navbar_leccion1 {
     position: fixed;
     top: 0;
@@ -36,7 +57,7 @@ html {
     font-family: Norse;
     font-size: 2.5rem;
     padding: 1rem;
-    background-color: #251605;
+    background-color: #171B2C;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -95,13 +116,12 @@ html {
 .title_leccion2 {
     color: #fff;
     font-family: Norse;
-    font-size: 9.4rem;
+    font-size: 12rem;
     position: absolute;
-    top: 70%;
-    left: 38%;
-    transform: translate(-50%, -50%);
+    top: 60%;
+    left: 20%;
+    transform: translate(-10%, -30%);
     color: white;
-    text-align: left;
 }
 
 .Leccion1_text {
@@ -122,35 +142,42 @@ html {
 }
 
 .leccion2Left {
-    padding: 1rem;
+    /* padding: 1rem;
     color: #fff;
     font-family: Norse;
     font-size: 3rem;
     top: 50%;
     background-color: #830615;
     text-align: right;
-    margin-right: 200px;
+    margin-right: 200px; */
+    padding: 1rem;
+    color: #fff;
+    font-size: 5rem;
+    text-align: center;
 }
 
 .leccion2Right {
-    padding: 1rem;
+    /* padding: 1rem;
     color: #fff;
     font-family: Norse;
     font-size: 3rem;
     top: 50%;
     background-color: #830615;
     text-align: left;
-    margin-left: 200px;
+    margin-left: 200px; */
+    padding: 1rem;
+    color: #fff;
+    font-size: 5rem;
+    text-align: center;
 }
 
-.incursion {
+/* .incursion {
     background-color: #1D2F6F;
     color: #fff;
     font-family: Norse;
     font-size: 7rem;
     text-align: center;
-    padding: 2rem;
-}
+} */
 
 .incursion_leccion1 {
     margin-bottom: 1rem;
