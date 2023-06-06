@@ -25,24 +25,24 @@ html {
     background-color: #171B2C;
     height: 100%;
 }
-.historia{
+.creacion{
     background: linear-gradient(0deg, rgba(14, 24, 59, 0.2), rgba(17, 28, 70, 0.6)), url('../../img/Historia.png');
     background-size: cover;
 }
 
-.origen{
+.dioses{
     background: linear-gradient(0deg, rgba(1, 1, 3, 0.2), rgba(17, 28, 70, 0.6)), url('../../img/Origen.jpg');
     background-size: cover;
     margin-top: 3px;
 }
 
-.barcos{
+.leyenda{
     background: linear-gradient(0deg, rgba(1, 1, 3, 0.2), rgba(17, 28, 70, 0.6)), url('../../img/Barcos.jpg');
     background-size: cover;
     margin-top: 3px;
 }
 
-.barcos_vikingos{
+.ragnarok{
     background: linear-gradient(0deg, rgba(1, 1, 3, 0.2), rgba(17, 28, 70, 0.6)), url('../../img/Barcos_vikingos.jpg');
     background-size: cover;
     margin-top: 3px;
@@ -104,11 +104,14 @@ html {
     transform-origin: left;
     transform: scaleX(1);
 }
-.banner_container {
+.banner_container2 {
     position: relative;
+    background: linear-gradient(0deg, rgba(2, 3, 8, 0.2), rgba(6, 11, 32, 0.6)), url('../../img/option4.jpg');
+    background-size: cover;
+    height: 500px;
 }
 
-.banner_image_leccion1 {
+.banner_image_leccion2 {
     width: 100%;
 }
 
@@ -179,9 +182,9 @@ html {
     text-align: center;
 } */
 
-.incursion_leccion1 {
+/* .incursion_leccion1 {
     margin-bottom: 1rem;
-}
+} */
 
 .incursion_button {
     cursor: pointer;
