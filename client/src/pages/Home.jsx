@@ -2,6 +2,7 @@ import {React, useRef} from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Suspense } from 'react'
 import Experience from './Map/Experience'
+import  {Loader} from '@react-three/drei'
 import './styles/Home.css'
 import flag from '../img/Salida1.png';
 
@@ -15,6 +16,8 @@ export default function Home() {
         position: [-130, 100, 120], // Ajusta la posición de la cámara
         rotation: [0, 0, 0], // Ajusta la rotación de la cámara
     }
+    
+      
 
     return (
         <div className='world'>
@@ -28,10 +31,10 @@ export default function Home() {
                 camera={cameraSettings}
             >
                 <Suspense>
-                    
                     <Experience />
                 </Suspense>
             </Canvas>
+            <Loader/>
         </div>
     )
 }
