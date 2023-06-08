@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState  } from "react";
 import { useGLTF } from "@react-three/drei";
 import QuestionMark from "./QuestionMark";
 import Swal from 'sweetalert2/dist/sweetalert2.js';
-import Question_mark from "./Question_mark";
+import Question_mark from "../Question_mark";
 
 
 export default function SHIP1(props, canvas) {

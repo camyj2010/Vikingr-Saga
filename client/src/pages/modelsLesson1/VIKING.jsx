@@ -1,8 +1,8 @@
 import React, { useRef, useEffect, useState } from "react";
 import { useGLTF } from "@react-three/drei";
 import Swal from 'sweetalert2/dist/sweetalert2.js'
-import Question_mark from "./Question_mark";
-import QuestionMark from "./QuestionMark";
+import Question_mark from "../Question_mark";
+
 
 
 export default function VIKING(props, canvas) {

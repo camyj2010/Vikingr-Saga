@@ -15,7 +15,8 @@ import { useRef } from 'react'
 import AxePlusRastrillo from './modelsLesson1/AxePlusRastrillo'
 import SkullPlusChest from './modelsLesson1/SkullPlusChest'
 import video from '../img/smoke.mp4'
-
+import BEOWULF from './modelsLesson2/BEOWULF';
+import RAGNAROK from './modelsLesson2/RAGNAROK';
 export default function Leccion1() {
     const navigate = useNavigate();
     const cameraSettings = {
@@ -199,7 +200,7 @@ export default function Leccion1() {
                                     maxDistance={20} // Ajusta la distancia máxima de la cámara al objeto
                                 />
                                 <ambientLight />
-                                <SkullPlusChest scale={0.2} rotation={[0, Math.PI, 0]} />
+                                <BEOWULF scale={0.2} rotation={[0, Math.PI/2, 0]} />
                             </Canvas>
                         </Suspense>
                     </div>
@@ -219,7 +220,7 @@ export default function Leccion1() {
                                     maxDistance={20} // Ajusta la distancia máxima de la cámara al objeto
                                 />
                                 <ambientLight />
-                                <SHIP1 scale={1.2} />
+                                <RAGNAROK rotation={[0,-Math.PI/2,0]} position={[3,-2,0]}/>
                             </Canvas>
                         </Suspense>
                     </div>
