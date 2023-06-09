@@ -5,6 +5,7 @@ import Experience from './Map/Experience'
 import  {Loader} from '@react-three/drei'
 import './styles/Home.css'
 import flag from '../img/Salida1.png';
+import hut from '../img/mini_hut.png';
 
 
 export default function Home() {
@@ -21,11 +22,16 @@ export default function Home() {
 
     return (
         <div className='world'>
-            <a href='/' className='btn_singoff'>
-            
-            <img className='signoff_image' src={flag} alt='Flag' />
-            Cerrar Sesion
-            </a>
+            <div className='model_container_home'>
+                
+                <a href='/' className='btn_singoff'>
+                    <img className='signoff_image' src={flag} alt='Flag' />
+                    Cerrar Sesión
+                </a>
+                <a href='/Hut' className='btn_hut'>
+                    <img className='hut_image' src={hut} />
+                </a>
+            </div>
             <Canvas
                 shadows={true}
                 camera={cameraSettings}
