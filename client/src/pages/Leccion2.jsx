@@ -18,6 +18,7 @@ import video from '../img/smoke.mp4'
 import BEOWULF from './modelsLesson2/BEOWULF';
 import RAGNAROK from './modelsLesson2/RAGNAROK';
 import IceVsFire from './modelsLesson2/IceVsFire';
+import ThorO from './modelsLesson2/ThorO';
 export default function Leccion1() {
     const navigate = useNavigate();
     const cameraSettings = {
@@ -145,9 +146,7 @@ export default function Leccion1() {
                                     maxDistance={20} // Ajusta la distancia máxima de la cámara al objeto
                                 />
                                 <ambientLight />
-                                <AxePlusRastrillo scale={0.13}
-                                //  rotationX={Math.PI / 2} 
-                                />
+                                <ThorO/>
                             </Canvas>
                         </Suspense>
                     </div>

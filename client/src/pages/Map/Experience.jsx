@@ -5,6 +5,7 @@ import { useRef, useState } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { PointLightHelper } from 'three'
 import IconLecture1 from './Icon'
+import IconLecture2 from './IconIsland2'
 import { useNavigate } from 'react-router-dom'
 import Leccion1 from '../../pages/Leccion1'
 import QuestionMark from '../modelsLesson1/QuestionMark'
@@ -39,7 +40,8 @@ export default function Experience() {
                 <ambientLight intensity={1} />  
                 {/* <Stars radius={50} depth={10} count={5000} factor={4} saturation={0} fade speed={1} /> */}
                 <Shader /> 
-                <IconLecture1 />       
+                <IconLecture1 />  
+                <IconLecture2 />     
                 <Island1 position={[30, 20, -30]} /> 
                 <mesh ref={sunRef} position={[4, 500, 4]}>
                     <sphereGeometry args={[50, 500, 100]} />
