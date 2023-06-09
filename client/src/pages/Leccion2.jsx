@@ -17,6 +17,7 @@ import SkullPlusChest from './modelsLesson1/SkullPlusChest'
 import video from '../img/smoke.mp4'
 import BEOWULF from './modelsLesson2/BEOWULF';
 import RAGNAROK from './modelsLesson2/RAGNAROK';
+import IceVsFire from './modelsLesson2/IceVsFire';
 export default function Leccion1() {
     const navigate = useNavigate();
     const cameraSettings = {
@@ -87,7 +88,7 @@ export default function Leccion1() {
                                     maxDistance={20} // Ajusta la distancia máxima de la cámara al objeto
                                 />
                                 <ambientLight />
-                                <VIKING scale={0.1} rotation={[0, Math.PI / 2, 0]} />
+                                <IceVsFire/>
                             </Canvas>
                         </Suspense>
                     </div>
