@@ -110,7 +110,7 @@ export default function Quiz_1() {
       </div>
       <div className='container_title_quizVikingos'>
         <img className='hacha_quizVikingos' src={hacha} alt='Hacha' />
-        <p>Primera incursión</p>
+        <p>Segunda incursión</p>
       </div>
 
       <div className='contenedor_preguntas_quizvikingos'>

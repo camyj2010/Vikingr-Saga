@@ -18,7 +18,7 @@ export default function BEOWULF(props) {
   }
   return (
     <group {...props} dispose={null}>
-    <Question_mark position={[0,-5,-15]} size={4.5} onClick={() => handleDetalle("Aunque el Ragnarök representa el fin del mundo, también se considera un ciclo de renovación y transformación. Después de la destrucción, se espera que un nuevo mundo emerja y los sobrevivientes reconstruyan una sociedad mejor.")}/>
+    <Question_mark position={[0,-5,-15]} size={4.5} onClick={() => handleDetalle("En el poema, Beowulf viaja desde su tierra natal, Geatland, hasta Dinamarca para ayudar al rey Hrothgar a enfrentarse al monstruo Grendel, que aterroriza a su pueblo en la sala de Heorot.")}/>
     <Question_mark position={[0,-5,20]} size={4.5} onClick={() => handleDetalle("El poema de Beowulf es considerado una de las obras literarias más importantes y antiguas de la literatura en lengua inglesa.")}/>
       <mesh
         castShadow
