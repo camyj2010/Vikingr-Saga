@@ -24,7 +24,16 @@
     top: -5px;
     font-family: Norse;
     font-size: 2.4rem;
-    right: -80%;
+    right: -76%;
+    color: #fff;
+  }
+  .btn_info {
+    position: relative;
+    width: 20%;
+    top: -15px;
+    font-family: Norse;
+    font-size: 2.4rem;
+    right: -75%;
     color: #fff;
   }
   
@@ -37,4 +46,7 @@
 }
 .hut_image{
     width: 5%;
+}
+.info_image{
+  width: 3.8%;
 }
