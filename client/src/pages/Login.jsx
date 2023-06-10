@@ -7,6 +7,7 @@ import { sign_in, login_google } from './api/Handleapi';
 import { gapi } from 'gapi-script'
 import GoogleLogin from 'react-google-login'
 import google from '../img/google.png'
+import Swal from 'sweetalert2/dist/sweetalert2.js'
 
 export default function Login() {
 
@@ -24,10 +25,36 @@ export default function Login() {
     gapi.load("client:auth2", start)
   }, [])
 
-  const onSuccess = (res) => {
-    const { email, googleId, givenName } = res.profileObj
-    login_google(email, googleId, givenName)
-    navigate('/Home')
+  const onSuccess = async (res) => {
+    Swal.fire({
+      title: 'Cargando...',
+      icon: 'info',
+      showConfirmButton: false,
+      background: '#fff',
+      customClass: {
+        title: 'mi-titulo',
+      },
+      allowOutsideClick: false, // Evita que el usuario pueda hacer clic fuera de la alerta
+      onBeforeOpen: () => {
+        Swal.showLoading();
+      },
+    });
+
+    try {
+      const { email, googleId, givenName } = res.profileObj;
+      await login_google(email, googleId, givenName);
+      navigate('/Home');
+    } catch (error) {
+      // Tratar error en caso de que ocurra durante la ejecución
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Ocurrió un error durante la ejecución.',
+      });
+    } finally {
+      // Cerrar la alerta de carga
+      Swal.close();
+    }
   }
 
   const onFailure = () => {
@@ -47,11 +74,41 @@ export default function Login() {
 
     onSubmit: async (values) => {
 
-      const res = await sign_in(values.correo, values.contraseña)
-      console.log(values.correo)
+      Swal.fire({
+        title: 'Cargando...',
+        icon: 'info',
+        showConfirmButton: false,
+        background: '#fff',
+        customClass: {
+          title: 'mi-titulo',
+        },
+        allowOutsideClick: false, // Evita que el usuario pueda hacer clic fuera de la alerta
+        onBeforeOpen: () => {
+          Swal.showLoading();
+        },
+      });
 
-      if (res) {
-        navigate('/Home')
+      try {
+        const res = await sign_in(values.correo, values.contraseña);
+        console.log(values.correo);
+
+        if (res) {
+          navigate('/Home');
+        }
+      } catch (error) {
+        // Tratar error en caso de que ocurra durante la ejecución
+        Swal.fire({
+          title: res.error,
+          icon: 'error',
+          showConfirmButton: false,
+          background: '#fff',
+          customClass: {
+            title: 'mi-titulo',
+          },
+        })
+      } finally {
+        // Cerrar la alerta de carga
+        Swal.close();
       }
 
     }
@@ -92,16 +149,16 @@ export default function Login() {
             <div className="signup_link">
               Aun no tienes cuenta? <a onClick={() => navigate('/Registro')}>Registrate</a>
             </div>
-          <GoogleLogin
-            clientId={clientID}
-            onSuccess={onSuccess}
-            onFailure={onFailure}
-            cookiePolicy={"single_host_policy"}
-            style={{ backgroundColor: "black" }}
-            render={renderProps => (
-              <button className='btn_google' onClick={renderProps.onClick} disabled={renderProps.disabled}><span><img className='img_google' src={google}/></span>Ingresar con google</button>
-            )}
-          />
+            <GoogleLogin
+              clientId={clientID}
+              onSuccess={onSuccess}
+              onFailure={onFailure}
+              cookiePolicy={"single_host_policy"}
+              style={{ backgroundColor: "black" }}
+              render={renderProps => (
+                <button className='btn_google' onClick={renderProps.onClick} disabled={renderProps.disabled}><span><img className='img_google' src={google} /></span>Ingresar con google</button>
+              )}
+            />
           </div>
         </form>
       </div>
