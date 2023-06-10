@@ -6,7 +6,11 @@ import Home from './pages/Home';
 import Leccion1 from './pages/Leccion1';
 import Leccion2 from './pages/Leccion2';
 import Quiz_1 from './pages/Quices/Quiz_1';
+
 import Quiz_2 from './pages/Quices/Quiz_2';
+
+import Hut from './pages/Hut';
+
 // import World from './pages/Map/World'
 
 export default function app() {
@@ -18,8 +22,12 @@ export default function app() {
        <Route path="/Home" element={<Home />} />
        <Route path="/Leccion1" element={<Leccion1 />} />
        <Route path="/Quiz_Vikingos" element={<Quiz_1 />} />
+
        <Route path="/Quiz_Mitologia" element={<Quiz_2 />} />
        <Route path="/Leccion2" element={<Leccion2 />} />
+
+       <Route path="/Hut" element={<Hut />} />
+
     </Route>
   </Routes>
   )
