@@ -6,7 +6,7 @@ import Swal from 'sweetalert2/dist/sweetalert2.js'
 export default function AXE(props) {
   const { nodes, materials } = useGLTF("/static/AXE.glb");
   const axeRef = useRef();
-  const [pressed,setPressed] = useState(false);
+  const [pressed, setPressed] = useState(false);
   const [modelRotation, setModelRotation] = useState([0, 0, 0]);
   const handleDetalle = (detalle) => {
     Swal.fire({
@@ -20,9 +20,22 @@ export default function AXE(props) {
     })
   }
 
+  const handlePointerOver = () => {
+    document.body.style.cursor = 'pointer';
+  };
+
+  const handlePointerLeave = () => {
+    document.body.style.cursor = 'auto';
+  };
+
   return (
     <group ref={axeRef} {...props} dispose={null} >
-        <QuestionMark position={[5,-20,0]} onClick={() => handleDetalle("Los vikingos no solo eran guerreros y saqueadores, sino que también fueron hábiles comerciantes")}/>
+      <QuestionMark position={[5, -20, 0]}
+        onClick={() => handleDetalle("Los vikingos no solo eran guerreros y saqueadores, sino que también fueron hábiles comerciantes")}
+        onPointerOver={handlePointerOver}
+        onPointerLeave={handlePointerLeave}
+      />
+
       <mesh
         castShadow
         receiveShadow

@@ -6,7 +6,7 @@ export default function Island1(props) {
   const { nodes, materials } = useGLTF('/static/ISLA1.glb');
   return (
     <group {...props} dispose={null}>
-      <group position={[-32, -20, 32]} scale={0.01}>
+      <group scale={0.01}>
         <mesh
           castShadow
           receiveShadow

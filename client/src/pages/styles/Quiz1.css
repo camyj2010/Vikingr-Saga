@@ -1,121 +1,132 @@
 
 @font-face {
-    font-family: Norse;
-    src: url('../../../public/fonts/norse.bold.otf');
+  font-family: Norse;
+  src: url('../../../public/fonts/norse.bold.otf');
 }
 
 
 
 .custom-confirm-button{
-    width: 100%;
-    background-color: #49C6E5;
+  width: 100%;
+  background-color: #49C6E5;
 }
 
 .custom-fail-button{
-    width: 100%;
-    background-color: #49C6E5;
+  width: 100%;
+  background-color: #49C6E5;
 }
 
 .mi-titulo_succes{
-    color: #37698E;
-    font-family: Norse;
+  color: #37698E;
+  font-family: Norse;
 }
 
 .mi-titulo_fail{
-    color: #FE3D3D;
-    font-family: Norse;
+  color: #FE3D3D;
+  font-family: Norse;
 }
 
 .container_quizVikingos{
-    height: 100vh;
-    background-image: url('../../img/Quiz1_fondo.jpg');
-    background-size: cover;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
+  height: 100vh;
+  background-image: url('../../img/Quiz1_fondo.jpg');
+  background-size: cover;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
 
 
 }
 
 .contenedor_preguntas_quizvikingos{
-    text-align: center;
-    padding: 5rem;
+  text-align: center;
+  padding: 5rem;
 }
 
 .pregunta_quizVikingos{
-    color: #fff;
-    font-family: Norse;
-    font-size: 3rem;
+  color: #fff;
+  font-family: Norse;
+  font-size: 3rem;
 }
 
 .container_title_quizVikingos{
-    display: flex;
-    color: #fff;
-    font-family: Norse;
-    font-size: 6rem;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
+  display: flex;
+  color: #fff;
+  font-family: Norse;
+  font-size: 6rem;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
 }
 
 .hacha_quizVikingos{
-    width: 10%;
+  width: 10%;
 }
 .flag_image{
-    width: 3.3%;
+  width: 3.3%;
 }
 .respuestas_quizVikingos {
-    display: flex;
-    font-family: Norse;
-    color: #fff;
-    font-size: 3rem;
-  }
-  
-  .columna1, .columna2 {
-    flex: 1;
-    padding-top: 3rem;
-    align-items: center;
-    text-align: center;
-  }
-
-  .btn_quizVikingos{
-    position: relative;
-    top: 10%;
-    left: 40%;
-    width: 25%;
-    height: 20%;
-    background-color: #49C6E5;
-    color: #1D2F6F;
-    font-size: 3rem;
-    border-radius: 1.5rem;
-    border: solid .2rem #1D2F6F;
-  }
-  .btn_huir{
-    position: relative;
-    width: 20%;
-    top: 0;
-    font-family: Norse;
-    font-size: 3rem;
-    left: 85%;
-    color: #fff;
-  }
-
-  .opcion{
-    width: 50%;
-    cursor: pointer;
-    text-align: center;
-    margin: 1rem;
-  }
-
-  .col1_respuestas_quizVikingos{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  font-family: Norse;
+  color: #fff;
+  font-size: 2.8rem;
 }
-  
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
+
+.columna1, .columna2 {
+  flex: 1;
+  padding-top: 3rem;
+  align-items: center;
+  text-align: center;
+}
+
+.btn_quizVikingos{
+  position: relative;
+  top: 10%;
+  left: 40%;
+  width: 25%;
+  height: 20%;
+  background-color: #49C6E5;
+  color: #1D2F6F;
+  font-size: 3rem;
+  border-radius: 1.5rem;
+  border: solid .2rem #1D2F6F;
+}
+.btn_huir{
+  position: relative;
+  width: 20%;
+  top: 0;
+  font-family: Norse;
+  font-size: 3rem;
+  left: 85%;
+  color: #fff;
+}
+/* 
+.btn_huir_container:hover{
+  transform: scale(10%);
+}
+ */
+.btn_huir:hover{
+  color: #FE3D3D;
+}
+
+.opcion{
+  width: 50%;
+  cursor: pointer;
+  text-align: center;
+  margin: 1rem;
+}
+
+.opcion:hover{
+  color: #49C6E5;
+}
+
+.col1_respuestas_quizVikingos{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}

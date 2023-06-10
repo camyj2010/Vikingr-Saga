@@ -8,15 +8,45 @@
     background-image: url('../../../public/images/Fondo_Home.png');
     background-size: cover;
 }
-.btn_singoff{
-  position: relative;
+.btn_singoff {
+    position: relative;
     width: 20%;
-    top: 10;
+    top: -35px;
     font-family: Norse;
     font-size: 2.4rem;
-    right: -10;
+    left: 10px;
     color: #fff;
-}
+  }
+  
+  .btn_hut {
+    position: relative;
+    width: 20%;
+    top: -5px;
+    font-family: Norse;
+    font-size: 2.4rem;
+    right: -76%;
+    color: #fff;
+  }
+  .btn_info {
+    position: relative;
+    width: 20%;
+    top: -15px;
+    font-family: Norse;
+    font-size: 2.4rem;
+    right: -75%;
+    color: #fff;
+  }
+  
+.model_container_home{
+    flex: 1;
+    /* Espacio entre los elementos */
+  }
 .signoff_image{
     width: 2.2%;
+}
+.hut_image{
+    width: 5%;
+}
+.info_image{
+  width: 3.8%;
 }
