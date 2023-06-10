@@ -82,7 +82,7 @@ export default function Leccion1() {
                                     enableZoom={false}
                                     enablePan={false}
                                     minDistance={5}
-                                    maxDistance={20}
+                                    maxDistance={15}
                                 />
                                 <ambientLight />
                                 <VIKING scale={1} rotation={[0, Math.PI / 2, 0]} />

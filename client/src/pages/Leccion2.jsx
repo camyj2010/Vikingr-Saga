@@ -29,7 +29,7 @@ export default function Leccion1() {
         position: [0, 0, 20], // Ajusta la posición inicial de la cámara
         rotation: [0, 0, 0], // Ajusta la rotación de la cámara
     };
-
+    
     return (
         <div className='contenedor_Leccion1'>
             <div className='navbar_leccion1'>
@@ -87,10 +87,10 @@ export default function Leccion1() {
                                     enableZoom={false}
                                     enablePan={true}
                                     minDistance={5} // Ajusta la distancia mínima de la cámara al objeto
-                                    maxDistance={20} // Ajusta la distancia máxima de la cámara al objeto
+                                    maxDistance={10} // Ajusta la distancia máxima de la cámara al objeto
                                 />
                                 <ambientLight />
-                                <IceVsFire/>
+                                <IceVsFire rotation={[Math.PI/6,13*Math.PI/12,0]}/>
                             </Canvas>
                         </Suspense>
                     </div>
@@ -117,7 +117,7 @@ export default function Leccion1() {
                     <div className='model_container_left' style={{ width: '70%' }}>
                         <div style={{ position: 'relative' }}>
                             <div className='leccion2Right'>
-                                Los Dioses
+                                ¿Quienes eran los dioses?
                             </div>
                             <div style={{ position: 'absolute', bottom: 0, left: '15%', width: '20%', borderBottom: '3px solid white' }}></div>
                         </div>
@@ -142,7 +142,7 @@ export default function Leccion1() {
                                     enableZoom={false}
                                     enablePan={true}
                                     minDistance={5} // Ajusta la distancia mínima de la cámara al objeto
-                                    maxDistance={20} // Ajusta la distancia máxima de la cámara al objeto
+                                    maxDistance={15} // Ajusta la distancia máxima de la cámara al objeto
                                 />
                                 <ambientLight />
                                 <ThorO rotation={[0,Math.PI/2,0]}/>
@@ -152,7 +152,6 @@ export default function Leccion1() {
                     <div className='model_container_left' style={{ width: '70%' }}>
                         <div style={{ position: 'relative' }}>
                             <div className='leccion2Right'>
-                                Los Dioses
                             </div>
                             <div style={{ position: 'absolute', bottom: 0, left: '15%', width: '20%', borderBottom: '3px solid white' }}></div>
                         </div>
@@ -215,7 +214,7 @@ export default function Leccion1() {
                                 <OrbitControls
                                     enableZoom={false}
                                     enablePan={true}
-                                    minDistance={5} // Ajusta la distancia mínima de la cámara al objeto
+                                    minDistance={10} // Ajusta la distancia mínima de la cámara al objeto
                                     maxDistance={20} // Ajusta la distancia máxima de la cámara al objeto
                                 />
                                 <ambientLight />

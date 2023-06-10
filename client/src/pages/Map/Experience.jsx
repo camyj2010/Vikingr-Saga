@@ -42,7 +42,7 @@ export default function Experience() {
             const intersection = groundIntersects[0];
             const point = intersection.point;
             if (shipRef.current) {
-              targetPosition.current = new Vector3(point.x, shipRef.current.translation().y, point.z);
+              targetPosition.current = new Vector3(point.x, shipRef.current.y, point.z);
             }
             // console.log('Coordenadas del clic:', point);
            
@@ -57,7 +57,7 @@ export default function Experience() {
             const currentPosition = new Vector3(shipRef.current.translation().x, shipRef.current.translation().y, shipRef.current.translation().z)
             const targetXZ = new Vector3(targetPosition.current.x, currentPosition.y, targetPosition.current.z);
             const direction = targetXZ.clone().sub(currentPosition).normalize();
-            const speed = 0.1;
+            const speed = 0.15;
             const distance = currentPosition.distanceTo(targetXZ);
             if (distance > 0.1) {
               const newPosition = currentPosition.clone().add(direction.multiplyScalar(speed));
@@ -96,40 +96,38 @@ export default function Experience() {
         <>
             <group>
             
-                <PerspectiveCamera ref={cameraRef} makeDefault position={[60,100, 400]} />
+                <PerspectiveCamera ref={cameraRef} makeDefault position={[60,50, 250]} />
                 <OrbitControls
                     camera={cameraRef.current}
                     maxPolarAngle={Math.PI / 2} // Limita el movimiento hacia arriba y hacia abajo
-                    //enablePan={false}
-                    enabled={true}
-                    //enableRotate ={false}
-                    //enableZoom = {false}
+                    enablePan={false}
+                    enabled={false}
+                    enableRotate ={false}
+                    enableZoom = {false}
                 />
                 {/* <directionalLight castShadow position={[1, 2, 3]} intensity={1.5} />*/}
-                <ambientLight intensity={1} />  
+                <ambientLight intensity={0.7} />  
                 
                 {/* <Stars radius={50} depth={10} count={5000} factor={4} saturation={0} fade speed={1} /> */}
                 <mesh onClick={(event) => ShipMovementHandler(event)} position={[0,-10,0]}>
                 <Shader /> 
-                <IconLecture1 />  
-                <IconLecture2 />     
-                <Island1 position={[30, 20, -30]} /> 
+   
                 </mesh>
-                
-                <IconLecture1 />   
+                <IconLecture1 />  
+                <IconLecture2 />  
                 <Physics
-                debug={true} 
+                // debug={true} 
                  gravity={[0,0,0]}
                 >  
                 
-                <RigidBody colliders={false} position={[0,-9,0]}  mass={9999999} kinematic={true}>
+                <RigidBody colliders={false} position={[0,-9,0]}  mass={99999999} kinematic={true}>
                 <mesh receiveShadow={true} castShadow>
                 <Island1 /> 
                 <CuboidCollider args={[82,15,47]} position={[82,10,49]}/>
                 </mesh>
                 </RigidBody>
 
-                <RigidBody colliders={false} position={[-150,70,-200]}  mass={9999999} kinematic={true} rotation={[0,Math.PI/3,0]}>
+                <RigidBody colliders={false} position={[-150,70,-200]}  mass={99999999} kinematic={true} rotation={[0,Math.PI/3,0]}>
                 <mesh receiveShadow={true} castShadow>
                 <Island2 /> 
                 <CuboidCollider args={[60,10,55]} position={[-60,-70,40]}/>
@@ -149,13 +147,14 @@ export default function Experience() {
 
                   {/* <Ship /> */}
                   <TheMDFShip /> 
+                  {/* <Prueba/> */}
                 </mesh>  
                 
 
                 <mesh ref={sunRef} position={[4, 500, 4]}>
                     <sphereGeometry args={[50, 500, 100]} />
                     <meshBasicMaterial color={0xffff00} />
-                    <pointLight ref={pointLightRef} castShadow={true} intensity={2} shadow-mapSize={[512, 512]} />
+                    <pointLight ref={pointLightRef} castShadow={true} intensity={0.5} shadow-mapSize={[512, 512]} />
                 </mesh>
                 
                 

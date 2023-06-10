@@ -15,7 +15,7 @@ export default function Home() {
     const cameraSettings = {
         fov: 45,
         near: 0.3,
-        far: 10000,
+        far: 100,
         position: [-130, 100, 120], // Ajusta la posición de la cámara
         rotation: [0, 0, 0], // Ajusta la rotación de la cámara
     }

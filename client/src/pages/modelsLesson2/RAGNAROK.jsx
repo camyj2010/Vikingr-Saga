@@ -18,9 +18,9 @@ export default function RAGNAROK(props) {
   }
   return (
     <group {...props} dispose={null}>
-      <Question_mark position={[5,8,4]} size={0.5} onClick={() => handleDetalle("Aunque el Ragnarök representa el fin del mundo, también se considera un ciclo de renovación y transformación. Después de la destrucción, se espera que un nuevo mundo emerja y los sobrevivientes reconstruyan una sociedad mejor.")}/>
-      <Question_mark position={[3,4,8]} size={0.5} onClick={() => handleDetalle("Los dioses principales, como Odin, Thor y Loki, están destinados a morir en el Ragnarök.")}/>
-      <group scale={0.0005}>
+      <Question_mark position={[5,7.6,4]} size={0.5} onClick={() => handleDetalle("Aunque el Ragnarök representa el fin del mundo, también se considera un ciclo de renovación y transformación. Después de la destrucción, se espera que un nuevo mundo emerja y los sobrevivientes reconstruyan una sociedad mejor.")}/>
+      <Question_mark position={[3,4,0]} size={0.5} onClick={() => handleDetalle("Los dioses principales, como Odin, Thor y Loki, están destinados a morir en el Ragnarök.")}/>
+      <group scale={0.000499}>
         <mesh
           castShadow
           receiveShadow
