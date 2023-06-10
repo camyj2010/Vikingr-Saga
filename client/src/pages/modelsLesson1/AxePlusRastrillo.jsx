@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import QuestionMark from "./QuestionMark";
+import Question_mark from "../Question_mark";
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import "../styles/Modelos.css"
 
@@ -19,7 +20,7 @@ export default function AxePlusRastrillo(props) {
   }
   return (
     <group {...props} dispose={null}>
-        <QuestionMark position={[-10,-20,0]} onClick={() => handleDetalle("Los vikingos no solo eran guerreros y saqueadores, sino que también fueron hábiles comerciantes")}/>
+        <Question_mark position={[-10,-20,0]}  size={4} onClick={() => handleDetalle("Los vikingos no solo eran guerreros y saqueadores, sino que también fueron hábiles comerciantes")}/>
       <group position={[-36.72, -0.54, -17.29]} rotation={[-0.28, 0.26, 0.09]}>
         <mesh
           castShadow

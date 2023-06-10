@@ -14,12 +14,12 @@ html {
 
 @font-face {
     font-family: texts;
-    src: url('../../../public/fonts/UncialAntiqua-Regular.ttf');
+    src: url('../../../public/fonts/Poppins-ExtraLight.ttf');
 }
 
 
 .contenedor_Leccion1 {
-    background-color: #251605;
+    background-color: #1D2F6F;
     height: 100%;
 }
 
@@ -33,7 +33,7 @@ html {
     font-family: Norse;
     font-size: 2.5rem;
     padding: 1rem;
-    background-color: #251605;
+    background-color: #1D2F6F;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -54,6 +54,43 @@ html {
     width: 20%;
     margin-left: 10rem;
 }
+
+.map_image_leccion1:hover{
+    animation: shake3856 0.3s linear infinite both;
+}
+
+@keyframes shake3856 {
+    0% {
+     -webkit-transform: translate(0);
+     transform: translate(0);
+    }
+   
+    20% {
+     -webkit-transform: translate(-2px, 2px);
+     transform: translate(-2px, 2px);
+    }
+   
+    40% {
+     -webkit-transform: translate(-2px, -2px);
+     transform: translate(-2px, -2px);
+    }
+   
+    60% {
+     -webkit-transform: translate(2px, 2px);
+     transform: translate(2px, 2px);
+    }
+   
+    80% {
+     -webkit-transform: translate(2px, -2px);
+     transform: translate(2px, -2px);
+    }
+   
+    100% {
+     -webkit-transform: translate(0);
+     transform: translate(0);
+    }
+   }
+   
 
 
 .link {
@@ -80,6 +117,7 @@ html {
     transform-origin: left;
     transform: scaleX(1);
 }
+
 .banner_container {
     position: relative;
 }
@@ -88,6 +126,28 @@ html {
     width: 100%;
 }
 
+.historia {
+    background: linear-gradient(0deg, rgba(14, 24, 59, 0.2), rgba(17, 28, 70, 0.6)), url('../../img/Historia.png');
+    background-size: cover;
+}
+
+.origen {
+    background: linear-gradient(0deg, rgba(1, 1, 3, 0.2), rgba(17, 28, 70, 0.6)), url('../../img/Origen.jpg');
+    background-size: cover;
+    margin-top: 3px;
+}
+
+.barcos {
+    background: linear-gradient(0deg, rgba(1, 1, 3, 0.2), rgba(17, 28, 70, 0.6)), url('../../img/Barcos.jpg');
+    background-size: cover;
+    margin-top: 3px;
+}
+
+.barcos_vikingos {
+    background: linear-gradient(0deg, rgba(1, 1, 3, 0.2), rgba(17, 28, 70, 0.6)), url('../../img/Barcos_vikingos.jpg');
+    background-size: cover;
+    margin-top: 3px;
+}
 
 .title_leccion1 {
     color: #fff;
@@ -95,36 +155,32 @@ html {
     font-size: 12rem;
     position: absolute;
     top: 60%;
-    left: 25%;
+    left: 50%;
     transform: translate(-50%, -50%);
     color: white;
-    text-align: left;
 }
 
-.Leccion1_text {
+.Leccion2_text {
     font-family: texts;
-    padding: 3rem;
+    padding: 2rem;
     color: #fff;
     font-size: 1.2rem;
-    text-align: right;
+    text-align: left;
 
 }
 
 .leccion1Left {
     padding: 1rem;
     color: #fff;
-    font-family: texts;
-    font-size: 3rem;
-    top: 50%;
-    background-color: #830615;
-    text-align: right;
-    margin-right: 200px;
+    font-size: 5rem;
+    text-align: center;
+
 }
 
 .leccion1Right {
     padding: 1rem;
     color: #fff;
-    font-family: texts;
+    font-family: Norse;
     font-size: 3rem;
     top: 50%;
     background-color: #830615;
@@ -133,32 +189,85 @@ html {
 }
 
 .incursion {
-    background-color: #1D2F6F;
+    background: linear-gradient(0deg, rgba(6, 6, 73, 0.747), rgba(5, 19, 73, 0.6));
+    background-size: cover;
+    /* filter: grayscale(.8); */
     color: #fff;
     font-family: Norse;
     font-size: 7rem;
     text-align: center;
-    padding: 2rem;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.video-de-fondo {
+    /* position: absolute; */
+    background: black;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .incursion_leccion1 {
-    margin-bottom: 1rem;
+    z-index: 100;
+    position: absolute;
+    background-color: rgba(2, 2, 36, 0.7);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.incursion_button {
+.quiz_btn{
     cursor: pointer;
+    position: relative;
 }
+
+.quiz_btn::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    border-radius: 4px;
+    background-color: #ffffff;
+    bottom: 0;
+    left: 0;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .3s ease-in-out;
+}
+
+.quiz_btn:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
+    
+  }
+/* a.quiz_btn:hover:after{
+    opacity: 1;
+	-webkit-transform: scale(1);
+	transform: scale(1);
+} */
 
 .model_container {
     display: flex;
     padding: 5rem 10rem;
-  }
-  
-  .model_container_left {
+}
+
+.model_container_left {
     flex: 1;
-    padding-right: 20px; /* Espacio entre los elementos */
-  }
-  
-  .model_container_right {
-   flex: 1;
- }
+    padding-right: 20px;
+    /* Espacio entre los elementos */
+}
+
+.model_container_right {
+    flex: 1;
+}

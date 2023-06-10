@@ -1,7 +1,8 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import QuestionMark from "./QuestionMark";
-import Swal from 'sweetalert2/dist/sweetalert2.js'
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+import Question_mark from "../Question_mark";
 import "../styles/Modelos.css"
 
 export default function SkullPlusChest(props) {
@@ -19,7 +20,7 @@ export default function SkullPlusChest(props) {
   }
   return (
     <group {...props} dispose={null} position={[0,-5,0]}>
-        <QuestionMark position={[-15,-5,0]} onClick={() => handleDetalle("Los vikingos no solo atacaban sorpresivamente, también empleaban tácticas de asedio y sitiaban ciudades fortificadas")}/>
+        <Question_mark position={[-15,-5,0]} size={4.5} onClick={() => handleDetalle("Los vikingos no solo atacaban sorpresivamente, también empleaban tácticas de asedio y sitiaban ciudades fortificadas")}/>
       <group position={[-26, 20, -20]}>
         <mesh
           castShadow

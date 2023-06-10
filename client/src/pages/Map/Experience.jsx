@@ -6,6 +6,7 @@ import { useRef, useState } from 'react'
 import { useFrame, useThree  } from '@react-three/fiber'
 import { DoubleSide, Euler, PlaneGeometry, PointLightHelper, Vector2 ,Raycaster, Vector3, MathUtils, Object3D, BoxGeometry } from 'three'
 import IconLecture1 from './Icon'
+import IconLecture2 from './IconIsland2'
 import { useNavigate } from 'react-router-dom'
 import Leccion1 from '../../pages/Leccion1'
 import QuestionMark from '../modelsLesson1/QuestionMark'
@@ -110,6 +111,9 @@ export default function Experience() {
                 {/* <Stars radius={50} depth={10} count={5000} factor={4} saturation={0} fade speed={1} /> */}
                 <mesh onClick={(event) => ShipMovementHandler(event)} position={[0,-10,0]}>
                 <Shader /> 
+                <IconLecture1 />  
+                <IconLecture2 />     
+                <Island1 position={[30, 20, -30]} /> 
                 </mesh>
                 
                 <IconLecture1 />   
@@ -147,6 +151,7 @@ export default function Experience() {
                   <TheMDFShip /> 
                 </mesh>  
                 
+
                 <mesh ref={sunRef} position={[4, 500, 4]}>
                     <sphereGeometry args={[50, 500, 100]} />
                     <meshBasicMaterial color={0xffff00} />

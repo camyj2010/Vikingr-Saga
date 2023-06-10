@@ -1,7 +1,8 @@
 import React, { useRef, useEffect, useState  } from "react";
 import { useGLTF } from "@react-three/drei";
 import QuestionMark from "./QuestionMark";
-import Swal from 'sweetalert2/dist/sweetalert2.js'
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+import Question_mark from "../Question_mark";
 
 
 export default function SHIP1(props, canvas) {
@@ -23,11 +24,11 @@ export default function SHIP1(props, canvas) {
 
   return (
     <group  ref={shipRef} {...props} dispose={null} scale={0.57}>
-      <QuestionMark scale = {0.2}position={[-3,-5,0]} onClick={() => handleDetalle("Tecnología avanzada: Utilizaban una técnica llamada construcción de clinker que consistía en solapar tablones de madera en lugar de unirlos con clavos, lo que hacía que los barcos fueran más flexibles y resistentes.")}/>
-      <QuestionMark scale = {0.3} position={[10,2,0]} onClick={() => handleDetalle("Diseño innovador: Eran embarcaciones de alto rendimiento con un casco poco profundo y estrecho, lo que les permitía navegar tanto en aguas abiertas como en ríos poco profundos.")}/>
-      <QuestionMark scale = {0.2} position={[-10,-8,-4]} onClick={() => handleDetalle("Tamaño variable: Los barcos vikingos variaban en tamaño, desde pequeñas embarcaciones de guerra hasta barcos más grandes utilizados para transportar mercancías y colonizar nuevas tierras.")}/>
-      <QuestionMark scale = {0.1} position={[-11,1,0]} onClick={() => handleDetalle("Tecnología avanzada: Utilizaban una técnica llamada construcción de clinker que consistía en solapar tablones de madera en lugar de unirlos con clavos, lo que hacía que los barcos fueran más flexibles y resistentes.")}/>
-      <QuestionMark scale = {0.2}position={[9,-7,3]} onClick={() => handleDetalle("Velocidad impresionante:Alcanzaban 15 nudos (aproximadamente 28 kilómetros por hora), lo cual era muy rápido para la época")}/>
+      <Question_mark scale = {0.2}position={[-3,-5,0]}size={1} onClick={() => handleDetalle("Utilizaban una técnica llamada construcción de clinker que consistía en solapar tablones de madera en lugar de unirlos con clavos, lo que hacía que los barcos fueran más flexibles y resistentes.")}/>
+      <Question_mark scale = {0.3} position={[14,2,0]}size={1} onClick={() => handleDetalle("Eran embarcaciones de alto rendimiento con un casco poco profundo y estrecho, lo que les permitía navegar tanto en aguas abiertas como en ríos poco profundos.")}/>
+      <Question_mark scale = {0.2} position={[-10,-8,-4]}size={1} onClick={() => handleDetalle("Los barcos vikingos variaban en tamaño, desde pequeñas embarcaciones de guerra hasta barcos más grandes utilizados para transportar mercancías y colonizar nuevas tierras.")}/>
+      <Question_mark scale = {0.1} position={[-11,2.5,0]}size={1}  onClick={() => handleDetalle("Utilizaban una técnica llamada construcción de clinker que consistía en solapar tablones de madera en lugar de unirlos con clavos, lo que hacía que los barcos fueran más flexibles y resistentes.")}/>
+      <Question_mark scale = {0.2}position={[9,-7,4]}size={1}  onClick={() => handleDetalle("Alcanzaban 15 nudos (aproximadamente 28 kilómetros por hora), lo cual era muy rápido para la época")}/>
       <mesh
         castShadow
         receiveShadow
