@@ -19,6 +19,7 @@ import BEOWULF from './modelsLesson2/BEOWULF';
 import RAGNAROK from './modelsLesson2/RAGNAROK';
 import IceVsFire from './modelsLesson2/IceVsFire';
 import ThorO from './modelsLesson2/ThorO';
+import Odin from './modelsLesson2/Odin';
 export default function Leccion1() {
     const navigate = useNavigate();
     const cameraSettings = {
@@ -109,9 +110,7 @@ export default function Leccion1() {
                                     maxDistance={20} // Ajusta la distancia máxima de la cámara al objeto
                                 />
                                 <ambientLight />
-                                <AxePlusRastrillo scale={0.13}
-                                //  rotationX={Math.PI / 2} 
-                                />
+                                <Odin rotation={[0,Math.PI/2,0]}/>
                             </Canvas>
                         </Suspense>
                     </div>
@@ -146,7 +145,7 @@ export default function Leccion1() {
                                     maxDistance={20} // Ajusta la distancia máxima de la cámara al objeto
                                 />
                                 <ambientLight />
-                                <ThorO/>
+                                <ThorO rotation={[0,Math.PI/2,0]}/>
                             </Canvas>
                         </Suspense>
                     </div>

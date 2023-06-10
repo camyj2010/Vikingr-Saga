@@ -18,8 +18,11 @@ export default function ThorO(props) {
   }
   return (
     <group {...props} dispose={null}>
-      <group position={[6.5, -4, -15]} scale={0.5}>
-        <group position={[-0.5, 6, -4]}>
+        <Question_mark position={[0,2.6,-6]} size={0.7} onClick={() => handleDetalle("Siempre lleva su poderoso martillo, Mjolnir, que es capaz de controlar el clima y regresar a su mano después de ser arrojado.")}/>
+        <Question_mark position={[0,2.6,6]} size={0.7} onClick={() => handleDetalle("A pesar de su apariencia ruda, Thor también es conocido por su buen humor y apetito voraz. Es famoso por su amor por la cerveza y la comida abundante.")}/>
+        <Question_mark position={[4,0,0]} size={0.7} onClick={() => handleDetalle("Es representado como un guerrero fuerte y valiente, con cabello rojo y barba.")}/>
+      <group  scale={0.3}>
+        <group >
           <mesh
             castShadow
             receiveShadow
