@@ -21,6 +21,8 @@ import RAGNAROK from './modelsLesson2/RAGNAROK';
 import IceVsFire from './modelsLesson2/IceVsFire';
 import ThorO from './modelsLesson2/ThorO';
 import Odin from './modelsLesson2/Odin';
+import MONOLITH from './modelsLesson3/MONOLITH'
+import Oseberg from './modelsLesson3/Oseberg'
 export default function Leccion1() {
     const navigate = useNavigate();
     const cameraSettings = {
@@ -108,7 +110,7 @@ export default function Leccion1() {
                                     maxDistance={20} // Ajusta la distancia máxima de la cámara al objeto
                                 />
                                 <ambientLight />
-                                <Odin rotation={[0,Math.PI/2,0]}/>
+                                <MONOLITH rotation={[0,13*Math.PI/12,0]}/>
                             </Canvas>
                         </Suspense>
                     </div>
@@ -145,7 +147,7 @@ export default function Leccion1() {
                                     maxDistance={15} // Ajusta la distancia máxima de la cámara al objeto
                                 />
                                 <ambientLight />
-                                <ThorO rotation={[0,Math.PI/2,0]}/>
+                                <Oseberg rotation={[0,Math.PI/3,0]}/>
                             </Canvas>
                         </Suspense>
                     </div>
