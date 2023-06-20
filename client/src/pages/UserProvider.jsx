@@ -20,7 +20,7 @@ export function UserProvider({ children }) {
       setUser(storedUser);
     }
   }, []);
-
+  //xd
   const updateUser = (newUser) => {
     setUser(newUser);
     localStorage.setItem('user', newUser);
