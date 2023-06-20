@@ -5,7 +5,11 @@ import { sign_in, sign_up } from './pages/api/Handleapi.js'
 test('El usuario puede iniciar sesión correctamente', async () => {
     global.fetch = jest.fn(() =>
   Promise.resolve({
-    json: () => Promise.resolve({ acceso: 'access_token' }),
+    json: () => Promise.resolve({ 
+          acceso: 'access_token',
+          message: 'Entro',
+          userid: '649218ed5ac5c6e292e7842e',
+          userNickname: 'admin', }),
     status: 200
   })
 );
