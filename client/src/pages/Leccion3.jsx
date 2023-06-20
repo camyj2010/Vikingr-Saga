@@ -128,7 +128,7 @@ export default function Leccion1() {
                         El diseño de joyas vikingas, como brazaletes, anillos y collares, se caracterizaba por su estilo intrincado y detallado.
                         Los objetos de uso diario, como cucharas, cuchillos y hebillas, también eran cuidadosamente decorados con grabados y filigranas.
                         En adición, se encontraron monumentos de piedra en la región, como los famosos "piedras rúnicas". 
-                        Estas piedras estaban grabadas con inscripciones rúnicas, que a menudo eran conmemorativas o relacionadas con eventos históricos.
+                        
                         </p>
                     </div>
                 </div>
