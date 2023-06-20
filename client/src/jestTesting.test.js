@@ -13,7 +13,7 @@ test('El usuario puede iniciar sesión correctamente', async () => {
     const password = '123';
     const result = await sign_in(email, password);
   
-    expect(result).toBe({
+    expect(result).toEqual({
       acceso : true,
       message: "Entro",
       userid: "649218ed5ac5c6e292e7842e",
