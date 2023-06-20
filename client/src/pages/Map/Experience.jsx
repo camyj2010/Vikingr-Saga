@@ -13,7 +13,7 @@ import QuestionMark from '../modelsLesson1/QuestionMark'
 import Ship from './Ship.jsx'
 import { BallCollider, CuboidCollider, Physics, RigidBody , useRapier } from '@react-three/rapier'
 import TheMDFShip from './TheMDFShip'
-
+import Island3 from '../Island3/Island3'
 
 export default function Experience() {
     const pointLightRef = useRef();
@@ -116,7 +116,7 @@ export default function Experience() {
                 <IconLecture1 />  
                 <IconLecture2 />  
                 <Physics
-                // debug={true} 
+                 //debug={true} 
                  gravity={[0,0,0]}
                 >  
                 
@@ -131,6 +131,13 @@ export default function Experience() {
                 <mesh receiveShadow={true} castShadow>
                 <Island2 /> 
                 <CuboidCollider args={[60,10,55]} position={[-60,-70,40]}/>
+                </mesh>
+                </RigidBody>
+
+                <RigidBody colliders={false} position={[0,-9,-400]}  mass={99999999} kinematic={true}>
+                <mesh receiveShadow={true} castShadow>
+                <Island3 /> 
+                <CuboidCollider args={[180,15,140]} position={[180,10,150]}/>
                 </mesh>
                 </RigidBody>
 
