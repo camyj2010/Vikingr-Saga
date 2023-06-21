@@ -248,7 +248,7 @@ export default function Leccion1() {
             </div>
             <div className='incursion' >
                 <div className='incursion_leccion1'>
-                   <p className='quiz_btn' onClick={() => navigate('/Quiz_Mitologia')} >Incursion</p> 
+                   <p className='quiz_btn' onClick={() => navigate('/Quiz_Arte')} >Incursion</p> 
                 </div>
                 <video autoPlay loop muted className="video-de-fondo">
                     <source src={video} type="video/mp4" />
