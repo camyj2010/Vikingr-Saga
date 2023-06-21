@@ -1,3 +1,13 @@
+@font-face {
+    font-family: Norse;
+    src: url('../../../public/fonts/norse.bold.otf');
+}
+
+@font-face {
+    font-family: texts;
+    src: url('../../../public/fonts/Poppins-ExtraLight.ttf');
+}
+
 .hut_ambient
 {
     position: fixed;
@@ -7,8 +17,91 @@
     height: 100vh;
     background-image: url('../../../public/images/Fondo_Hut.jpg');
     background-size: cover;
+    
+}
+.black_div {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 25%;
+  height: 100vh;
+  background-color: black; /* Color negro de fondo */
+  opacity: 0.7; /* Ajusta la opacidad según tus necesidades */
 }
 .map_image_hut{
-    width: 4%;
-    margin-left: 95%;
+    width: 6%;
+    margin-left: 93%;
+}
+.Hut_text {
+    position: fixed;
+    top: 13%;
+    
+    font-family: Norse;
+    padding: 3rem;
+    color: #fff;
+    font-size: 2.5rem;
+    text-align: left;
+
+}
+
+
+.progress_bar {
+    
+    
+    top: 20%;
+
+    width: 25%;
+    height: 30px;
+    /* font-family: Norse;
+    color: #fff;
+    font-size: 2.5rem; */
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+ 
+  .progress_bar::-webkit-progress-value {
+    background-color: #49C6E5;
+  }
+  
+  .progress_bar::-moz-progress-bar {
+    background-color: #49C6E5;
+  }
+  
+  .progress_bar::-ms-fill {
+    background-color: #49C6E5;
+  }
+  
+  .progress_bar::-ms-fill-lower {
+    background-color: #49C6E5;
+  }
+  .progress_text {
+    position: fixed;
+    top: 30.7%;
+    left: 11%;
+    font-family: Norse;
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 2rem;
+  }
+  .progress_bar_container {
+    position: relative;
+    width: 70%;
+    height: 30px;
+    top: 18%;
+    left: 3%;
+    overflow: hidden;
+  }
+  .info_Hut {
+    background-color: rgba(37, 22, 5,0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 0 10rem;
+    height: 100vh;
 }
