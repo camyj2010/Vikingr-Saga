@@ -1,5 +1,6 @@
-import React, { Suspense } from 'react'
-import './styles/Leccion1.css'
+import React, { useEffect, useState, Suspense } from 'react';
+import './styles/Leccion1.css';
+import { useUserContext } from './UserProvider';
 import Banner from '../img/BG_leccion1.jpg'
 import map from '../img/mapa-del-tesoro.png'
 import incursion from '../img/incursion.png'
@@ -18,6 +19,8 @@ import SkullPlusChest from './modelsLesson1/SkullPlusChest'
 import video from '../img/smoke.mp4'
 
 export default function Leccion1() {
+    const { user } = useUserContext();
+    console.log(user);
     const navigate = useNavigate();
     const cameraSettings = {
         fov: 45,

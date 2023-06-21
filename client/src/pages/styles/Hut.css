@@ -17,14 +17,24 @@
     height: 100vh;
     background-image: url('../../../public/images/Fondo_Hut.jpg');
     background-size: cover;
+    
+}
+.black_div {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 25%;
+  height: 100vh;
+  background-color: black; /* Color negro de fondo */
+  opacity: 0.7; /* Ajusta la opacidad según tus necesidades */
 }
 .map_image_hut{
-    width: 4%;
-    margin-left: 95%;
+    width: 6%;
+    margin-left: 93%;
 }
 .Hut_text {
     position: fixed;
-    top: 9%;
+    top: 13%;
     
     font-family: Norse;
     padding: 3rem;
@@ -51,23 +61,23 @@
   
  
   .progress_bar::-webkit-progress-value {
-    background-color: #1D2F6F;
+    background-color: #49C6E5;
   }
   
   .progress_bar::-moz-progress-bar {
-    background-color: #1D2F6F;
+    background-color: #49C6E5;
   }
   
   .progress_bar::-ms-fill {
-    background-color: #1D2F6F;
+    background-color: #49C6E5;
   }
   
   .progress_bar::-ms-fill-lower {
-    background-color: #1D2F6F;
+    background-color: #49C6E5;
   }
   .progress_text {
     position: fixed;
-    top: 26.7%;
+    top: 30.7%;
     left: 11%;
     font-family: Norse;
    
@@ -85,3 +95,13 @@
     left: 3%;
     overflow: hidden;
   }
+  .info_Hut {
+    background-color: rgba(37, 22, 5,0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 0 10rem;
+    height: 100vh;
+}

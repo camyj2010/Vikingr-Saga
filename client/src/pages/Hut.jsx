@@ -34,15 +34,18 @@ export default function Hut() {
 
   return (
     <div className='hut_ambient'>
+      
       <a href='/Home'>
         <img className='map_image_hut' src={map} alt='Map' />
       </a>
+      <div className='black_div'></div>
       <p className='Hut_text'>{userInfo?.nickname}</p>
       
       <div className='progress_bar_container'>
         <progress className='progress_bar' value={userInfo?.progress} max={100}></progress>
         <span className='progress_text'>{userInfo?.progress}%</span>
       </div>
-    </div>
+    
+    </div> 
   );
 }
