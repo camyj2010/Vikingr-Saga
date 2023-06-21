@@ -8,9 +8,12 @@ import flag from '../img/Salida1.png';
 import hut from '../img/mini_hut.png';
 import info from '../img/info.png';
 import Swal from 'sweetalert2/dist/sweetalert2.js'
+import { useUserContext } from './UserProvider';
 
 
 export default function Home() {
+    const { user } = useUserContext()
+    console.log(user)
     const scene = useRef();
     const cameraSettings = {
         fov: 45,

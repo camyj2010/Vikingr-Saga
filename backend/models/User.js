@@ -14,16 +14,31 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    nickname:{
-        type:String,
+    nickname: {
+        type: String,
         required: false,
-        unique:false,
+        unique: false,
     },
     progress: {
         type: Number,
         required: false,
-      },
-
+    },
+    lesson1: {
+        type: Boolean,
+        default: false,
+    },
+    lesson2: {
+        type: Boolean,
+        default: false,
+    },
+    lesson3: {
+        type: Boolean,
+        default: false,
+    },
+    lesson4: {
+        type: Boolean,
+        default: false,
+    },
 });
 
 userSchema.pre("save", async function(next) {
