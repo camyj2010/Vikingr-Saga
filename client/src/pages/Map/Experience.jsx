@@ -7,6 +7,7 @@ import { useFrame, useThree, useLoader  } from '@react-three/fiber'
 import { DoubleSide, Euler, PlaneGeometry, PointLightHelper, Vector2 ,Raycaster, Vector3, MathUtils, Object3D, BoxGeometry } from 'three'
 import IconLecture1 from './Icon'
 import IconLecture2 from './IconIsland2'
+import IconLecture3 from './IconIsland3'
 import { useNavigate } from 'react-router-dom'
 import Leccion1 from '../../pages/Leccion1'
 import QuestionMark from '../modelsLesson1/QuestionMark'
@@ -104,10 +105,10 @@ export default function Experience() {
                 <OrbitControls
                     camera={cameraRef.current}
                     maxPolarAngle={Math.PI / 2} // Limita el movimiento hacia arriba y hacia abajo
-                    enablePan={true}
-                    enabled={true}
-                    enableRotate ={true}
-                    enableZoom = {true}
+                    enablePan={false}
+                    enabled={false}
+                    enableRotate ={false}
+                    enableZoom = {false}
                 />
                 {/* <directionalLight castShadow position={[1, 2, 3]} intensity={1.5} />*/}
                     <Sound
@@ -128,7 +129,9 @@ export default function Experience() {
    
                 </mesh>
                 <IconLecture1 />  
-                <IconLecture2 />  
+                <IconLecture2 /> 
+                <IconLecture3 />
+                 
                 <Physics
                  //debug={true} 
                  gravity={[0,0,0]}
