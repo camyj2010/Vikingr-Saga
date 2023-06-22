@@ -126,7 +126,7 @@ export default function Registro() {
               />
               <span></span>
             </div>
-            <button type='submit' >Registrarse</button>
+            <button classname='btn_registro' type='submit' >Registrarse</button>
           </div>
         </form>
       </div>
