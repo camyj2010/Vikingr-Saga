@@ -1,0 +1,113 @@
+@font-face {
+    font-family: texts;
+    src: url('../../public/fonts/Poppins-ExtraLight.ttf');
+}
+
+.Modal_component_container {
+    position: absolute;
+    background-color: rgba(0, 0, 0, .3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.Modal_title{
+    font-family: texts;
+    font-size: 5rem;
+    font-weight: bold;
+    text-align: left;
+}
+
+.open_button {
+    background-color: #47a386;
+}
+
+.modal_close{
+    position: absolute;
+    top: 3%;
+    right: 5%;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    /* transition: all 0.5s; */
+}
+
+.icon_close_modal{
+    width: 70%;
+}
+
+.Modal_cotainer {
+    display: flex;
+    background-color: rgba(0, 0, 0, .6);
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    /* pointer-events: none; */
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+.Modal_container_close{
+    display: none;
+}
+.icon_close_modal{
+    transition: all 0.2s;
+}
+
+.icon_close_modal:hover{
+    transform: scale(1.1);
+}
+
+.Modal {
+    color: #ffff;
+    background-color: #251605a6;
+    width: 80%;
+    height: 80%;
+    padding: 30px 50px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.Modal::-webkit-scrollbar{
+    width: 12px;
+}
+
+.Modal::-webkit-scrollbar-thumb{
+    background-color: #5c3e1c;
+    border-radius: 20px;
+}
+
+.sinopsis {
+    padding: 2.5%;
+    width: 100%;
+}
+
+.sinopsis_title{
+    font-weight: bold;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+.serie_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: texts;
+
+}
+.img_container_Modal{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img_series {
+    width: 100%;
+    -webkit-box-shadow: 0px 24px 25px -15px rgba(0,0,0,1);
+    -moz-box-shadow: 0px 24px 25px -15px rgba(0,0,0,1);
+    box-shadow: 0px 24px 25px -15px rgba(0,0,0,1);
+}

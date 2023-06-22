@@ -92,7 +92,7 @@
     color:rgb(220, 220, 220);
 }
 
-button {
+.btn_registro {
     font-family: Norse;
     height: 3rem;
     width: 60%;
