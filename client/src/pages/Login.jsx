@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import './styles/Login.css'
 import { useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik'
@@ -8,11 +8,20 @@ import { gapi } from 'gapi-script'
 import GoogleLogin from 'react-google-login'
 import google from '../img/google.png'
 import Swal from 'sweetalert2/dist/sweetalert2.js'
+import { useUserContext, useToogleContext } from './UserProvider';
+import { useHistory } from 'react-router-dom';
 
 export default function Login() {
 
-  const clientID = "210604676754-meeiidpktbvgbu10rg4j0qkoh23jf5tr.apps.googleusercontent.com"
+  const { user, updateUser } = useUserContext()
+  console.log(user)
 
+  const clientID = "210604676754-meeiidpktbvgbu10rg4j0qkoh23jf5tr.apps.googleusercontent.com"
+  
+  const update = (context) => {
+    updateUser(context)
+    console.log(user)
+  }
 
   const navigate = useNavigate();
 
@@ -42,7 +51,10 @@ export default function Login() {
 
     try {
       const { email, googleId, givenName } = res.profileObj;
-      await login_google(email, googleId, givenName);
+      const response = await login_google(email, googleId, givenName);
+      console.log(response.userid)
+      update(response.userid)
+      // history.push('/Home');
       navigate('/Home');
     } catch (error) {
       // Tratar error en caso de que ocurra durante la ejecución
@@ -90,9 +102,10 @@ export default function Login() {
 
       try {
         const res = await sign_in(values.correo, values.contraseña);
-        console.log(values.correo);
+        console.log(res);
 
-        if (res) {
+        if (res.acceso) {
+          update(res.userid)
           navigate('/Home');
         }
       } catch (error) {
