@@ -112,6 +112,13 @@ h1 {
 .btn_google{
   background-color: rgba(14, 14, 14, .5 );
   width: 80%;
+  color: #fff;
+  font-family: norse;
+  font-size: 1.7rem;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 .img_google{
