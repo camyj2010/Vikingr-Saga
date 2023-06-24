@@ -1,10 +1,10 @@
 import React from 'react'
-import './styles/Registro.css'
 import { useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { sign_up } from './api/Handleapi';
 import Swal from 'sweetalert2/dist/sweetalert2.js'
+import './styles/Registro.css'
 
 
 export default function Registro() {
@@ -87,9 +87,10 @@ export default function Registro() {
 
   return (
     <div className='main_container_registro'>
-      <div>
-        <form onSubmit={formik.handleSubmit}>
-          <div className='form_registro'>
+
+
+        <form className='form_registro' onSubmit={formik.handleSubmit}>
+          <div className='form_registro_info'>
             <h1 className='title_registro'>Registro</h1>
             <div className="txt_field">
               <label className={formik.errors.usuario && formik.touched.usuario ? 'label_Registro_Error' : 'label_Registro'}>{formik.errors.usuario && formik.touched.usuario ? formik.errors.usuario : 'Nombre de usuario'}</label>
@@ -99,7 +100,7 @@ export default function Registro() {
                 placeholder='Ej: USER123'
                 name='usuario'
                 onChange={formik.handleChange}
-
+                onBlur={formik.handleBlur}
               />
               <span></span>
             </div>
@@ -111,6 +112,7 @@ export default function Registro() {
                 placeholder='EJ: Correo@gmail.com'
                 name='correo'
                 onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
               />
               <span></span>
             </div>
@@ -126,10 +128,11 @@ export default function Registro() {
               />
               <span></span>
             </div>
-            <button classname='btn_registro' type='submit' >Registrarse</button>
+            <button className='btn_registro_user' type='submit' >Registrarse</button>
           </div>
         </form>
-      </div>
+
+
     </div>
   )
 }

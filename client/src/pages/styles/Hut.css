@@ -8,8 +8,7 @@
     src: url('../../../public/fonts/Poppins-ExtraLight.ttf');
 }
 
-.hut_ambient
-{
+.hut_ambient {
     position: fixed;
     top: 0;
     left: 0;
@@ -17,92 +16,122 @@
     height: 100vh;
     background-image: url('../../../public/images/Fondo_Hut.jpg');
     background-size: cover;
-    
+
 }
-.black_div {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 25%;
-  height: 100vh;
-  background-color: black; /* Color negro de fondo */
-  opacity: 0.7; /* Ajusta la opacidad según tus necesidades */
+
+.return_btn_hut{
+    position: fixed;
+    right: 5%;
+    top: 2%
 }
-.map_image_hut{
+
+.return_btn_image_hut{
+    width: 70%;
+    cursor: pointer;
+    transition: all 0.2s;
+
+}
+
+.return_btn_image_hut:hover{
+    transform: scale(1.1);
+}
+
+
+.hut_displa_container{
+    display: flex;
+}
+
+.map_image_hut {
 
     width: 6%;
     margin-left: 93%;
 }
+
 .Hut_text {
-    position: fixed;
-    top: 13%;
-    
+
     font-family: Norse;
     padding: 3rem;
     color: #fff;
     font-size: 2.5rem;
-    text-align: left;
+    text-align: center;
 
 }
 
 
-.progress_bar {
-    
-    
-    top: 20%;
+.progress_bar_container {
+    position: relative;
+}
 
-    width: 25%;
-    height: 30px;
-    /* font-family: Norse;
-    color: #fff;
-    font-size: 2.5rem; */
+.progress_bar {
+
+    width: 20rem;
+    height: 50px;
     border-radius: 10px;
     overflow: hidden;
-  }
-  
- 
-  .progress_bar::-webkit-progress-value {
-    background-color: #49C6E5;
-  }
-  
-  .progress_bar::-moz-progress-bar {
-    background-color: #49C6E5;
-  }
-  
-  .progress_bar::-ms-fill {
-    background-color: #49C6E5;
-  }
-  
-  .progress_bar::-ms-fill-lower {
-    background-color: #49C6E5;
-  }
-  .progress_text {
-    position: fixed;
-    top: 30.7%;
-    left: 11%;
-    font-family: Norse;
-   
-    display: flex;
-    justify-content: center;
-    align-items: center;
+}
+
+.progress_text {
+    position: absolute;
+    top: 15%;
+    left: 45%;
+    font-family: norse;
     color: #fff;
     font-size: 2rem;
-  }
-  .progress_bar_container {
-    position: relative;
-    width: 70%;
-    height: 30px;
-    top: 18%;
-    left: 3%;
-    overflow: hidden;
-  }
-  .info_Hut {
-    background-color: rgba(37, 22, 5,0.6);
+}
+
+
+.progress_bar::-webkit-progress-value {
+    background-color: #49C6E5;
+}
+
+.progress_bar::-moz-progress-bar {
+    background-color: #49C6E5;
+}
+
+.progress_bar::-ms-fill {
+    background-color: #49C6E5;
+}
+
+.progress_bar::-ms-fill-lower {
+    background-color: #49C6E5;
+}
+
+
+
+.stats_hut {
+    background-color: #000000a1;
+    width: 30%;
+    height: 100vh;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
-    padding: 0 10rem;
-    height: 100vh;
+    flex-direction: column;
+}
+.avatar_hut{
+    width: 40%;
+}
+
+.recomendations_hut{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5%;
+}
+
+.recomendations_titile_hut{
+    font-family: norse;
+    color: #fff;
+    font-size: 2.5rem;
+}
+
+.btn_recomendation_hut{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.icon_close_modal:hover{
+    transform: scale(1.1);
 }
