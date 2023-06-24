@@ -24,16 +24,16 @@ export default function App() {
     <UserProvider>
       <Routes>
         <Route>
-       <Route path="/" element={<Login />} />
-       <Route path="/Registro" element={<Registro />} />
-       <Route path="/Home" element={<Home />} />
-       <Route path="/Leccion1" element={<Leccion1 />} />
-       <Route path="/Quiz_Vikingos" element={<Quiz_1 />} />
-       <Route path="/Quiz_Mitologia" element={<Quiz_2 />} />
-       <Route path="/Quiz_Arte" element={<Quiz_3/>} />
-       <Route path="/Leccion2" element={<Leccion2 />} />
-       <Route path="/Leccion3" element={<Leccion3 />} />
-       <Route path="/Hut" element={<Hut />} />
+          <Route path="/" element={<Login />} />
+          <Route path="/Registro" element={<Registro />} />
+          <Route path="/Home" element={<Home />} />
+          <Route path="/Leccion1" element={<Leccion1 />} />
+          <Route path="/Quiz_Vikingos" element={<Quiz_1 />} />
+          <Route path="/Quiz_Mitologia" element={<Quiz_2 />} />
+          <Route path="/Quiz_Arte" element={<Quiz_3 />} />
+          <Route path="/Leccion2" element={<Leccion2 />} />
+          <Route path="/Leccion3" element={<Leccion3 />} />
+          <Route path="/Hut" element={<Hut />} />
         </Route>
       </Routes>
     </UserProvider>

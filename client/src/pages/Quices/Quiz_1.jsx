@@ -6,6 +6,8 @@ import hacha from '../../img/incursion.png';
 import flag from '../../img/white-flag.png';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { useNavigate } from 'react-router-dom';
+import soundFile from '../../sounds/LessonSong.mp3';
+import Sound from 'react-sound';
 
 const questions = [
   {
@@ -111,6 +113,13 @@ export default function Quiz_1() {
 
   return (
     <div className='container_quizVikingos'>
+      <Sound
+                        url={soundFile}
+                        playStatus={Sound.status.PLAYING}
+                        playFromPosition={0}
+                        loop={true}
+                        volume={5}
+                      />
       <div>
         <li>
           <a href='/Home' className='btn_huir'>
