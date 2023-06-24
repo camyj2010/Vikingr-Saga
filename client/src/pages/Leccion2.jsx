@@ -21,6 +21,9 @@ import RAGNAROK from './modelsLesson2/RAGNAROK';
 import IceVsFire from './modelsLesson2/IceVsFire';
 import ThorO from './modelsLesson2/ThorO';
 import Odin from './modelsLesson2/Odin';
+import soundFile from '../sounds/LessonSong.mp3';
+import Sound from 'react-sound';
+
 export default function Leccion1() {
     const { user } = useUserContext();
     console.log(user);
@@ -35,6 +38,13 @@ export default function Leccion1() {
     
     return (
         <div className='contenedor_Leccion1'>
+            <Sound
+                        url={soundFile}
+                        playStatus={Sound.status.PLAYING}
+                        playFromPosition={0}
+                        loop={true}
+                        volume={3}
+                      />
             <div className='navbar_leccion1'>
                 <nav>
                     <ul className='links_leccion1'>
