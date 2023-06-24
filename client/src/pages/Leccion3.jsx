@@ -26,6 +26,8 @@ import Oseberg from './modelsLesson3/Oseberg'
 import Drake from './modelsLesson3/Drake'
 import VikingHouse from './modelsLesson3/VikingHouse'
 import Aldea from './modelsLesson3/Aldea'
+
+
 export default function Leccion1() {
     const navigate = useNavigate();
     const cameraSettings = {
