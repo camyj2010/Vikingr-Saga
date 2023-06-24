@@ -17,6 +17,9 @@ import { useRef } from 'react'
 import AxePlusRastrillo from './modelsLesson1/AxePlusRastrillo'
 import SkullPlusChest from './modelsLesson1/SkullPlusChest'
 import video from '../img/smoke.mp4'
+import soundFile from '../sounds/LessonSong.mp3';
+import Sound from 'react-sound';
+
 
 export default function Leccion1() {
     const { user } = useUserContext();
@@ -31,7 +34,15 @@ export default function Leccion1() {
     };
 
     return (
+        
         <div className='contenedor_Leccion1'>
+            <Sound
+                        url={soundFile}
+                        playStatus={Sound.status.PLAYING}
+                        playFromPosition={0}
+                        loop={true}
+                        volume={3}
+                      />
             <div className='navbar_leccion1'>
                 <nav>
                     <ul className='links_leccion1'>
