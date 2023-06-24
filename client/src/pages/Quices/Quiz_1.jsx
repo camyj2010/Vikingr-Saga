@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState } from 'react';
 import '../styles/Quiz1.css';
+import { useUserContext } from '../UserProvider';
+import { checkLesson1Progress } from '../api/Handleapi';
 import hacha from '../../img/incursion.png';
 import flag from '../../img/white-flag.png';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
@@ -36,6 +38,11 @@ const questions = [
 ];
 
 export default function Quiz_1() {
+  const { user } = useUserContext();
+  console.log(user);
+
+  
+
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [res, setRes] = useState(null);
   const navigate = useNavigate();
@@ -58,6 +65,10 @@ export default function Quiz_1() {
         },
         preConfirm: () => {
           if (answer === '15 nudos') {
+
+              const userInfo = checkLesson1Progress(String(user));
+              console.log("Done")
+    
             navigate('/Home');
           } else if (currentQuestionIndex + 1 < questions.length) {
             setCurrentQuestionIndex(currentQuestionIndex + 1);

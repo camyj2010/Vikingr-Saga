@@ -1,5 +1,6 @@
-import React, { Suspense } from 'react'
-import './styles/Leccion1.css'
+import React, { useEffect, useState, Suspense } from 'react';
+import './styles/Leccion1.css';
+import { useUserContext } from './UserProvider';
 import Banner from '../img/BG_leccion1.jpg'
 import map from '../img/mapa-del-tesoro.png'
 import incursion from '../img/incursion.png'
@@ -16,8 +17,13 @@ import { useRef } from 'react'
 import AxePlusRastrillo from './modelsLesson1/AxePlusRastrillo'
 import SkullPlusChest from './modelsLesson1/SkullPlusChest'
 import video from '../img/smoke.mp4'
+import soundFile from '../sounds/LessonSong.mp3';
+import Sound from 'react-sound';
+
 
 export default function Leccion1() {
+    const { user } = useUserContext();
+    console.log(user);
     const navigate = useNavigate();
     const cameraSettings = {
         fov: 45,
@@ -28,7 +34,15 @@ export default function Leccion1() {
     };
 
     return (
+        
         <div className='contenedor_Leccion1'>
+            <Sound
+                        url={soundFile}
+                        playStatus={Sound.status.PLAYING}
+                        playFromPosition={0}
+                        loop={true}
+                        volume={3}
+                      />
             <div className='navbar_leccion1'>
                 <nav>
                     <ul className='links_leccion1'>

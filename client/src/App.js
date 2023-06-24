@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Routes, Route } from 'react-router-dom';
 import Login from './pages/Login';
 import Registro from './pages/Registro';
@@ -10,13 +10,20 @@ import Quiz_1 from './pages/Quices/Quiz_1';
 import Quiz_2 from './pages/Quices/Quiz_2';
 import Quiz_3 from './pages/Quices/Quiz_3';
 import Hut from './pages/Hut';
-
+import { UserProvider } from './pages/UserProvider';
 // import World from './pages/Map/World'
 
-export default function app() {
+
+
+export default function App() {
+
+
+
   return (
-    <Routes>
-    <Route>
+
+    <UserProvider>
+      <Routes>
+        <Route>
        <Route path="/" element={<Login />} />
        <Route path="/Registro" element={<Registro />} />
        <Route path="/Home" element={<Home />} />
@@ -27,8 +34,8 @@ export default function app() {
        <Route path="/Leccion2" element={<Leccion2 />} />
        <Route path="/Leccion3" element={<Leccion3 />} />
        <Route path="/Hut" element={<Hut />} />
-
-    </Route>
-  </Routes>
+        </Route>
+      </Routes>
+    </UserProvider>
   )
 }

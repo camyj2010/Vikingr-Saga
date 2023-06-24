@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react'
 import './styles/Leccion2.css'
+import { useUserContext } from './UserProvider';
 import map from '../img/mapa-del-tesoro.png'
 import incursion from '../img/incursion.png'
 import { useNavigate } from 'react-router-dom';
@@ -20,7 +21,12 @@ import RAGNAROK from './modelsLesson2/RAGNAROK';
 import IceVsFire from './modelsLesson2/IceVsFire';
 import ThorO from './modelsLesson2/ThorO';
 import Odin from './modelsLesson2/Odin';
+import soundFile from '../sounds/LessonSong.mp3';
+import Sound from 'react-sound';
+
 export default function Leccion1() {
+    const { user } = useUserContext();
+    console.log(user);
     const navigate = useNavigate();
     const cameraSettings = {
         fov: 45,
@@ -32,6 +38,13 @@ export default function Leccion1() {
     
     return (
         <div className='contenedor_Leccion1'>
+            <Sound
+                        url={soundFile}
+                        playStatus={Sound.status.PLAYING}
+                        playFromPosition={0}
+                        loop={true}
+                        volume={3}
+                      />
             <div className='navbar_leccion1'>
                 <nav>
                     <ul className='links_leccion1'>

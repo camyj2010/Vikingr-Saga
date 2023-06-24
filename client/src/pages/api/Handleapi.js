@@ -1,6 +1,6 @@
 const Swal = require('sweetalert2')
 const baseUrl = "https://backend-ajuu.onrender.com"
-
+// const baseUrl = "http://localhost:5000"
 async function sign_in(email, password) {
     try {
         const response = await fetch(`${baseUrl}/login`, {
@@ -17,7 +17,7 @@ async function sign_in(email, password) {
         const data = await response.json(); // convierte la respuesta del servidor a JSON
 
         if(response.status === 200) {
-            return data.acceso
+            return data
         } else {
             alert("Ha ocurrido un error.");
         }
@@ -79,10 +79,9 @@ async function login_google(email,password,nickname) {
         });
 
         const data = await response.json(); // convierte la respuesta del servidor a JSON
-        console.log(data);
-        console.log(response.status);
+
         if(response.status === 200) {
-            return 'exito'
+            return data
         } else {
             return data
         }
@@ -96,8 +95,124 @@ async function login_google(email,password,nickname) {
     }
 }
 
+// Asume que el userId será proporcionado como argumento
+async function checkLesson1Progress(userId) {
+    try {
+        const response = await fetch(`${baseUrl}/Lesson1_Quiz/${userId}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        const data = await response.json(); 
+
+        if(response.status === 200) {
+            return data
+        } else {
+            alert("Ha ocurrido un error.");
+        }
+
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+async function checkLesson2Progress(userId) {
+    try {
+        const response = await fetch(`${baseUrl}/Lesson2_Quiz/${userId}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        const data = await response.json(); 
+
+        if(response.status === 200) {
+            return data
+        } else {
+            alert("Ha ocurrido un error.");
+        }
+
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+async function checkLesson3Progress(userId) {
+    try {
+        const response = await fetch(`${baseUrl}/Lesson3_Quiz/${userId}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        const data = await response.json(); 
+
+        if(response.status === 200) {
+            return data
+        } else {
+            alert("Ha ocurrido un error.");
+        }
+
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+async function checkLesson4Progress(userId) {
+    try {
+        const response = await fetch(`${baseUrl}/Lesson3_Quiz/${userId}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        const data = await response.json(); 
+
+        if(response.status === 200) {
+            return data
+        } else {
+            alert("Ha ocurrido un error.");
+        }
+
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+async function getUserInfo(userId) {
+    try {
+        const response = await fetch(`${baseUrl}/user/${userId}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        const data = await response.json(); 
+
+        if(response.status === 200) {
+            return data
+        } else {
+            alert("Ha ocurrido un error.");
+        }
+
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 export {
     sign_in,
     sign_up,
-    login_google
+    login_google,
+    checkLesson1Progress,
+    checkLesson2Progress,
+    checkLesson3Progress,
+    checkLesson4Progress,
+    getUserInfo
 }
