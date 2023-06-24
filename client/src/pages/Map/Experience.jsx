@@ -123,7 +123,7 @@ export default function Experience() {
                 
                 {/* <Stars radius={50} depth={10} count={5000} factor={4} saturation={0} fade speed={1} /> */}
                 <mesh onClick={(event) => ShipMovementHandler(event)} position={[0,-10,0]}>
-                <Environment files={hdrTextre} ground={{ height: -170, radius: 8000, scale: 600 }} />
+                {/* <Environment files={hdrTextre} ground={{ height: -170, radius: 8000, scale: 600 }} /> */}
 
                 <Shader /> 
    
