@@ -1,39 +1,76 @@
-import {React, useRef, useContext,useEffect} from 'react'
-import { Canvas } from '@react-three/fiber'
-import { Suspense } from 'react'
-import Experience from './Map/Experience'
-import  {Loader} from '@react-three/drei'
-import './styles/Hut.css'
-import map from '../img/mapa-del-tesoro.png';
-import hut from '../img/mini_hut.png';
+
+import React, { useEffect, useState } from 'react';
 import { useUserContext } from './UserProvider';
 import { getUserInfo } from './api/Handleapi';
+import { Loader } from '@react-three/drei';
+import './styles/Hut.css';
+import tv from '../img/tv.png'
+import libros from '../img/libros.png'
+import play from '../img/play.png'
+import map from '../img/mapa-del-tesoro.png';
+import Modal from '../components/Modal'
+import ModalLibros from '../components/Modal_libros'
+import ModalJuegos from '../components/Modal_Videojuegos'
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Hut() {
+    const navigate = useNavigate()
     const { user } = useUserContext();
-  
-    const fetchUserInfo = async () => {
-      try {
-        if (user !== null) {
-          const userInfo = await getUserInfo(String(user));
-          console.log(userInfo);
-          // Realiza las operaciones necesarias con la información del usuario obtenida
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    };
-  
+    const [userInfo, setUserInfo] = useState(null);
+    const [popUp, setPopUP] = useState(false)
+    const [popUpLibros, setPopUpLibros] = useState(false)
+    const [popUpJuegos, setPopUpJuegos] = useState(false)
+
     useEffect(() => {
-      fetchUserInfo();
+        const fetchUserInfo = async () => {
+            try {
+                if (user !== null) {
+                    const userInfo = await getUserInfo(String(user));
+                    setUserInfo(userInfo);
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchUserInfo();
     }, [user]);
-  
+
+    // Check if userInfo is null before accessing its properties
+    if (userInfo === null) {
+        return <Loader />; // Display a loader or any other loading indicator
+    }
+
+    // Access the userInfo properties once it is available
+    console.log(userInfo.email);
+
     return (
-      <div className='hut_ambient'>
-        <a href='/Home'>
-          <img className='map_image_hut' src={map} alt='Map' />
-        </a>
-      </div>
+        <div className='hut_ambient'>
+            <div className='return_btn_hut'>
+                <img onClick={() => navigate('/Home')} className='return_btn_image_hut' src={map} />
+            </div>
+            <div className='hut_displa_container'>
+                <div className='stats_hut'>
+                    <p className='Hut_text'>{userInfo?.nickname}</p>
+                    <div className='progress_bar_container'>
+                        <progress className='progress_bar' value={userInfo?.progress} max={100}></progress>
+                        <span className='progress_text'>{userInfo?.progress}%</span>
+                    </div>
+                </div>
+                <div className='avatar_hut'>
+                    {/* ***** Aqui va el avatar ***** */}
+                </div>
+                <div className='recomendations_hut'>
+                    <p className='recomendations_titile_hut'>Recomendaciones</p>
+                    <button onClick={() => setPopUP(!popUp)} className='btn_recomendation_hut'><img className='icon_close_modal' src={play} /></button>
+                    <button  onClick={() => setPopUpLibros(!popUpLibros)} className='btn_recomendation_hut'><img className='icon_close_modal' src={libros} /></button>
+                    <button  onClick={() => setPopUpJuegos(!popUpJuegos)} className='btn_recomendation_hut'><img className='icon_close_modal' src={tv} /></button>
+                </div>
+                {popUp ? <Modal show={popUp} change={setPopUP} /> : ''}
+                {popUpLibros ? <ModalLibros show={popUpLibros} change={setPopUpLibros} /> : ''}
+                {popUpJuegos ? <ModalJuegos show={popUpJuegos} change={setPopUpJuegos} /> : ''}
+            </div>
+        </div>
     );
-  }
+}

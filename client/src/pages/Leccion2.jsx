@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react'
 import './styles/Leccion2.css'
+import { useUserContext } from './UserProvider';
 import map from '../img/mapa-del-tesoro.png'
 import incursion from '../img/incursion.png'
 import { useNavigate } from 'react-router-dom';
@@ -20,7 +21,11 @@ import RAGNAROK from './modelsLesson2/RAGNAROK';
 import IceVsFire from './modelsLesson2/IceVsFire';
 import ThorO from './modelsLesson2/ThorO';
 import Odin from './modelsLesson2/Odin';
+
+
 export default function Leccion1() {
+    const { user } = useUserContext();
+    console.log(user);
     const navigate = useNavigate();
     const cameraSettings = {
         fov: 45,

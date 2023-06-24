@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
+import { useUserContext } from '../UserProvider';
+import { checkLesson2Progress } from '../api/Handleapi';
 import '../styles/Quiz1.css';
 import hacha from '../../img/incursion.png';
 import flag from '../../img/white-flag.png';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { useNavigate } from 'react-router-dom';
+import soundFile from '../../sounds/LessonSong.mp3';
+import Sound from 'react-sound';
 
 const questions = [
   {
@@ -35,7 +39,10 @@ const questions = [
   }
 ];
 
-export default function Quiz_1() {
+export default function Quiz_2() {
+  const { user } = useUserContext();
+  console.log(user);
+
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [res, setRes] = useState(null);
   const navigate = useNavigate();
@@ -58,6 +65,8 @@ export default function Quiz_1() {
         },
         preConfirm: () => {
           if (answer === 'La batalla entre los dioses y los gigantes de hielo') {
+            const userInfo = checkLesson2Progress(String(user));
+            console.log("Done")
             navigate('/Home');
           } else if (currentQuestionIndex + 1 < questions.length) {
             setCurrentQuestionIndex(currentQuestionIndex + 1);
@@ -100,6 +109,13 @@ export default function Quiz_1() {
 
   return (
     <div className='container_quizVikingos'>
+      <Sound
+                        url={soundFile}
+                        playStatus={Sound.status.PLAYING}
+                        playFromPosition={0}
+                        loop={true}
+                        volume={5}
+                      />
       <div>
         <li>
           <a href='/Home' className='btn_huir'>

@@ -1,18 +1,22 @@
-import { OrbitControls, Stars, useHelper, PerspectiveCamera, Center } from '@react-three/drei'
+import { OrbitControls, Stars, useHelper, PerspectiveCamera, Center, Sphere, Environment } from '@react-three/drei'
 import Shader from './Shader'
 import Island1 from '../Island1/Island1'
 import Island2 from '../Island2/Island2'
-import { useRef, useState } from 'react'
-import { useFrame, useThree  } from '@react-three/fiber'
+import { useRef, useState, useMemo, useEffect } from 'react'
+import { useFrame, useThree, useLoader  } from '@react-three/fiber'
 import { DoubleSide, Euler, PlaneGeometry, PointLightHelper, Vector2 ,Raycaster, Vector3, MathUtils, Object3D, BoxGeometry } from 'three'
 import IconLecture1 from './Icon'
 import IconLecture2 from './IconIsland2'
+import IconLecture3 from './IconIsland3'
 import { useNavigate } from 'react-router-dom'
 import Leccion1 from '../../pages/Leccion1'
 import QuestionMark from '../modelsLesson1/QuestionMark'
 import Ship from './Ship.jsx'
 import { BallCollider, CuboidCollider, Physics, RigidBody , useRapier } from '@react-three/rapier'
 import TheMDFShip from './TheMDFShip'
+import Island3 from '../Island3/Island3'
+import soundFile from '../../sounds/OceanSound.mp3';
+import Sound from 'react-sound';
 
 
 export default function Experience() {
@@ -26,6 +30,7 @@ export default function Experience() {
     const shipRef = useRef();
     const shipMeshRef = useRef();
     const targetPosition = useRef(null);
+    const hdrTextre = 'https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/8k/kloofendal_38d_partly_cloudy_8k.hdr'
 
 
     const ShipMovementHandler = (event) => {
@@ -42,7 +47,7 @@ export default function Experience() {
             const intersection = groundIntersects[0];
             const point = intersection.point;
             if (shipRef.current) {
-              targetPosition.current = new Vector3(point.x, shipRef.current.y, point.z);
+              targetPosition.current = new Vector3(point.x, -2, point.z);
             }
             // console.log('Coordenadas del clic:', point);
            
@@ -54,7 +59,7 @@ export default function Experience() {
 
         if (shipRef.current && shipMeshRef.current) {
           if (targetPosition.current) {
-            const currentPosition = new Vector3(shipRef.current.translation().x, shipRef.current.translation().y, shipRef.current.translation().z)
+            const currentPosition = new Vector3(shipRef.current.translation().x, -2, shipRef.current.translation().z)
             const targetXZ = new Vector3(targetPosition.current.x, currentPosition.y, targetPosition.current.z);
             const direction = targetXZ.clone().sub(currentPosition).normalize();
             const speed = 0.15;
@@ -63,7 +68,7 @@ export default function Experience() {
               const newPosition = currentPosition.clone().add(direction.multiplyScalar(speed));
             
               shipMeshRef.current.position.copy(newPosition)
-              shipRef.current.setTranslation({x: newPosition.x , y: currentPosition.y , z: newPosition.z})
+              shipRef.current.setTranslation({x: newPosition.x , y: -2 , z: newPosition.z})
               
               //shipMeshRef.current.lookAt(targetXZ)
               const targetRotation = new Euler(0, -(Math.atan2(direction.z,direction.x) + (Math.PI * 2)), 0);
@@ -106,31 +111,50 @@ export default function Experience() {
                     enableZoom = {false}
                 />
                 {/* <directionalLight castShadow position={[1, 2, 3]} intensity={1.5} />*/}
+                    <Sound
+                        url={soundFile}
+                        playStatus={Sound.status.PLAYING}
+                        playFromPosition={0}
+                        loop={true}
+                        volume={10}
+                      />
+
                 <ambientLight intensity={0.7} />  
                 
                 {/* <Stars radius={50} depth={10} count={5000} factor={4} saturation={0} fade speed={1} /> */}
                 <mesh onClick={(event) => ShipMovementHandler(event)} position={[0,-10,0]}>
+                {/* <Environment files={hdrTextre} ground={{ height: -170, radius: 8000, scale: 600 }} /> */}
+
                 <Shader /> 
    
                 </mesh>
                 <IconLecture1 />  
-                <IconLecture2 />  
+                <IconLecture2 /> 
+                <IconLecture3 />
+                 
                 <Physics
-                // debug={true} 
+                 //debug={true} 
                  gravity={[0,0,0]}
                 >  
                 
-                <RigidBody colliders={false} position={[0,-9,0]}  mass={99999999} kinematic={true}>
+                <RigidBody colliders={false} position={[0,-9,0]}  mass={99999999} kinematic={true} type={'fixed'}>
                 <mesh receiveShadow={true} castShadow>
                 <Island1 /> 
                 <CuboidCollider args={[82,15,47]} position={[82,10,49]}/>
                 </mesh>
                 </RigidBody>
 
-                <RigidBody colliders={false} position={[-150,70,-200]}  mass={99999999} kinematic={true} rotation={[0,Math.PI/3,0]}>
+                <RigidBody colliders={false} position={[-150,70,-200]}  mass={99999999} kinematic={true} rotation={[0,Math.PI/3,0]} type={'fixed'}>
                 <mesh receiveShadow={true} castShadow>
                 <Island2 /> 
                 <CuboidCollider args={[60,10,55]} position={[-60,-70,40]}/>
+                </mesh>
+                </RigidBody>
+
+                <RigidBody colliders={false} position={[0,-9,-400]}  mass={99999999} kinematic={true} type={'fixed'}>
+                <mesh receiveShadow={true} castShadow>
+                <Island3 /> 
+                <CuboidCollider args={[180,15,140]} position={[180,10,150]}/>
                 </mesh>
                 </RigidBody>
 

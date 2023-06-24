@@ -1,5 +1,14 @@
-.hut_ambient
-{
+@font-face {
+    font-family: Norse;
+    src: url('../../../public/fonts/norse.bold.otf');
+}
+
+@font-face {
+    font-family: texts;
+    src: url('../../../public/fonts/Poppins-ExtraLight.ttf');
+}
+
+.hut_ambient {
     position: fixed;
     top: 0;
     left: 0;
@@ -7,8 +16,122 @@
     height: 100vh;
     background-image: url('../../../public/images/Fondo_Hut.jpg');
     background-size: cover;
+
 }
-.map_image_hut{
-    width: 4%;
-    margin-left: 95%;
+
+.return_btn_hut{
+    position: fixed;
+    right: 5%;
+    top: 2%
+}
+
+.return_btn_image_hut{
+    width: 70%;
+    cursor: pointer;
+    transition: all 0.2s;
+
+}
+
+.return_btn_image_hut:hover{
+    transform: scale(1.1);
+}
+
+
+.hut_displa_container{
+    display: flex;
+}
+
+.map_image_hut {
+
+    width: 6%;
+    margin-left: 93%;
+}
+
+.Hut_text {
+
+    font-family: Norse;
+    padding: 3rem;
+    color: #fff;
+    font-size: 2.5rem;
+    text-align: center;
+
+}
+
+
+.progress_bar_container {
+    position: relative;
+}
+
+.progress_bar {
+
+    width: 20rem;
+    height: 50px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress_text {
+    position: absolute;
+    top: 15%;
+    left: 45%;
+    font-family: norse;
+    color: #fff;
+    font-size: 2rem;
+}
+
+
+.progress_bar::-webkit-progress-value {
+    background-color: #49C6E5;
+}
+
+.progress_bar::-moz-progress-bar {
+    background-color: #49C6E5;
+}
+
+.progress_bar::-ms-fill {
+    background-color: #49C6E5;
+}
+
+.progress_bar::-ms-fill-lower {
+    background-color: #49C6E5;
+}
+
+
+
+.stats_hut {
+    background-color: #000000a1;
+    width: 30%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.avatar_hut{
+    width: 40%;
+}
+
+.recomendations_hut{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5%;
+}
+
+.recomendations_titile_hut{
+    font-family: norse;
+    color: #fff;
+    font-size: 2.5rem;
+}
+
+.btn_recomendation_hut{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.icon_close_modal:hover{
+    transform: scale(1.1);
 }
