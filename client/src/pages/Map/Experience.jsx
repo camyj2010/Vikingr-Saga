@@ -32,6 +32,9 @@ export default function Experience() {
     const targetPosition = useRef(null);
     const hdrTextre = 'https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/8k/kloofendal_38d_partly_cloudy_8k.hdr'
 
+  
+    
+
 
     const ShipMovementHandler = (event) => {
         mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
@@ -69,6 +72,11 @@ export default function Experience() {
             
               shipMeshRef.current.position.copy(newPosition)
               shipRef.current.setTranslation({x: newPosition.x , y: -2 , z: newPosition.z})
+              const cameraPosition = shipMeshRef.current.position.clone();
+              const cameraOffset = new Vector3(-130, 100, 120); // Ajusta los valores según tus necesidades
+              cameraPosition.add(cameraOffset);
+              cameraRef.current.position.copy(cameraPosition);
+              cameraRef.current.lookAt(shipMeshRef.current.position);
               
               //shipMeshRef.current.lookAt(targetXZ)
               const targetRotation = new Euler(0, -(Math.atan2(direction.z,direction.x) + (Math.PI * 2)), 0);
@@ -101,7 +109,7 @@ export default function Experience() {
         <>
             <group>
             
-                <PerspectiveCamera ref={cameraRef} makeDefault position={[60,50, 250]} />
+                <PerspectiveCamera ref={cameraRef} makeDefault position={[-100, 100, 350]}/>
                 <OrbitControls
                     camera={cameraRef.current}
                     maxPolarAngle={Math.PI / 2} // Limita el movimiento hacia arriba y hacia abajo
@@ -154,7 +162,7 @@ export default function Experience() {
                 <RigidBody colliders={false} position={[0,-9,-400]}  mass={99999999} kinematic={true} type={'fixed'}>
                 <mesh receiveShadow={true} castShadow>
                 <Island3 /> 
-                <CuboidCollider args={[180,15,140]} position={[180,10,150]}/>
+                <CuboidCollider args={[180,15,100]} position={[180,10,150]}/>
                 </mesh>
                 </RigidBody>
 
