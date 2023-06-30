@@ -1,4 +1,4 @@
-import { sign_in, sign_up } from './pages/api/Handleapi.js'
+import { sign_in, sign_up,getUserInfo } from './pages/api/Handleapi.js'
 
 
 
@@ -22,6 +22,42 @@ test('El usuario puede iniciar sesión correctamente', async () => {
       message: "Entro",
       userid: "649f1d54d008c3de10fe8bf3",
       userNickname: "admin"
+  })
+  });
+
+test('Se puede obtener la informacion del usuario', async () => {
+    global.fetch = jest.fn(() =>
+  Promise.resolve({
+    json: () => Promise.resolve({
+      _id: "649f1d54d008c3de10fe8bf3",
+      email: "atlasadmin@gmail.com",
+      nickname: "admin",
+      progress: 0,
+      lesson1: false,
+      lesson2: false,
+      lesson3: false,
+      lesson4: false,
+      avatar: 123,
+      image: 13,
+      __v: 0 }),
+    status: 200
+  })
+);
+    const user = '649f1d54d008c3de10fe8bf3';
+    const result = await getUserInfo(user);
+ 
+    expect(result).toEqual({
+      _id: "649f1d54d008c3de10fe8bf3",
+      email: "atlasadmin@gmail.com",
+      nickname: "admin",
+      progress: 0,
+      lesson1: false,
+      lesson2: false,
+      lesson3: false,
+      lesson4: false,
+      avatar: 123,
+      image: 13,
+      __v: 0
   })
   });
 
