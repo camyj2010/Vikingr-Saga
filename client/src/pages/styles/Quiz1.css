@@ -39,13 +39,14 @@
 
 .contenedor_preguntas_quizvikingos{
   text-align: center;
-  padding: 5rem 0;
+  /* padding: 5rem 0; */
 }
 
 .pregunta_quizVikingos{
   color: #fff;
   font-family: Norse;
   font-size: 3rem;
+  margin-top: 3%;
 }
 
 .container_title_quizVikingos{
