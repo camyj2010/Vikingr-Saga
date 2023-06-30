@@ -5,10 +5,10 @@ import { sign_in, sign_up } from './pages/api/Handleapi.js'
 test('El usuario puede iniciar sesión correctamente', async () => {
     global.fetch = jest.fn(() =>
   Promise.resolve({
-    json: () => Promise.resolve({ 
+    json: () => Promise.resolve({
           acceso: 'access_token',
           message: 'Entro',
-          userid: '649218ed5ac5c6e292e7842e',
+          userid: '649f1d54d008c3de10fe8bf3',
           userNickname: 'admin', }),
     status: 200
   })
@@ -16,16 +16,18 @@ test('El usuario puede iniciar sesión correctamente', async () => {
     const email = 'atlasAdmin@gmail.com';
     const password = '123';
     const result = await sign_in(email, password);
-  
+ 
     expect(result).toEqual({
       acceso : 'access_token',
       message: "Entro",
-      userid: "649218ed5ac5c6e292e7842e",
+      userid: "649f1d54d008c3de10fe8bf3",
       userNickname: "admin"
   })
   });
 
-  
+
+ 
+
 
 test('El usuario se puede registrar correctamente', async () => {
     global.fetch = jest.fn(() =>
@@ -39,5 +41,8 @@ test('El usuario se puede registrar correctamente', async () => {
   const password = '12345';
   const result = await sign_up(nickname, email, password);
 
+
   expect(result).toEqual({ ok: true });
 });
+
+
