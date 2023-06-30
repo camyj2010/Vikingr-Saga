@@ -1,22 +1,20 @@
 import React, { Suspense } from 'react'
 import './styles/Leccion2.css'
-import { useUserContext } from './UserProvider';
+import './styles/Leccion4.css'
 import map from '../img/mapa-del-tesoro.png'
 import { useNavigate } from 'react-router-dom';
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import { useRef } from 'react'
 import video from '../img/smoke.mp4'
-import BEOWULF from './modelsLesson2/BEOWULF';
-import RAGNAROK from './modelsLesson2/RAGNAROK';
-import IceVsFire from './modelsLesson2/IceVsFire';
-import ThorO from './modelsLesson2/ThorO';
-import Odin from './modelsLesson2/Odin';
+import MONOLITH from './modelsLesson3/MONOLITH'
+import Oseberg from './modelsLesson3/Oseberg'
+import Drake from './modelsLesson3/Drake'
+import VikingHouse from './modelsLesson3/VikingHouse'
+import Aldea from './modelsLesson3/Aldea'
 
 
-export default function Leccion2() {
-    const { user } = useUserContext();
-    console.log(user);
+export default function Leccion4() {
     const navigate = useNavigate();
     const cameraSettings = {
         fov: 45,
@@ -32,16 +30,19 @@ export default function Leccion2() {
                 <nav>
                     <ul className='links_leccion1'>
                         <li>
-                            <a href='#laCreacion' className='link'>La Creación</a>
+                            <a href='#paises' className='link'>Países</a>
                         </li>
                         <li>
-                            <a href='#losDioses' className='link'>Los Dioses</a>
+                            <a href='#linguistica' className='link'>Lengua</a>
                         </li>
                         <li>
-                            <a href='#beowulf' className='link'>Beowulf</a>
+                            <a href='#religioso' className='link'>Religion</a>
                         </li>
                         <li>
-                            <a href='#ragnarok ' className='link'> Ragnarök </a>
+                            <a href='#festividades' className='link'>festividades</a>
+                        </li>
+                        <li>
+                            <a href='#maritimo' className='link'> Legado del mar </a>
                         </li>
                     </ul>
                 </nav>
@@ -54,25 +55,23 @@ export default function Leccion2() {
 
             </div>
 
-            <div className='banner_container2'>
-                    <p className='title_leccion2'>Mitologia Nordica</p>
+            <div className='banner_container4'>
+                    <p className='title_leccion4'>Legado de los vikingos</p>
             </div>
-            <div id='laCreacion' className='creacion'>
+            <div id='paises' className='introduccion'>
                 <div className='model_container'>
                     <div className='model_container_left' style={{ width: '70%' }}>
                         <div style={{ position: 'relative' }}>
                             <div className='leccion1Left'>
-                                La Creacion
+                            Los países vikingos
                             </div>
                             <div style={{ position: 'absolute', bottom: 0, left: '15%', width: '20%', borderBottom: '3px solid white' }}></div>
                         </div>
                         <p className='Leccion1_text'>
-                            Según la mitología nórdica, el mundo se creó a partir del choque entre el fuego y el hielo. En el principio había dos regiones: Muspelheim, el reino del fuego, y Niflheim, el reino del hielo. Del choque entre ambos surgió un vasto abismo llamado Ginnungagap.
-                        </p><p className='Leccion1_text'>
-                            Dentro de este abismo, el calor de Muspelheim y el frío de Niflheim se encontraron, creando el primer ser vivo, Ymir, un gigante de hielo. A medida que Ymir sudaba, nacieron otros gigantes de su cuerpo.
-                            Del Ginnungagap también emergió Audhumla, una vaca primordial que se alimentaba del hielo. Mientras lamía el hielo, reveló a Buri, el primer dios nórdico, quien tuvo un hijo llamado Bor.
-                        </p><p className='Leccion1_text'>
-                            Bor se casó con la giganta Bestla y juntos tuvieron tres hijos: Odin, Vili y Ve. Estos dioses se levantaron contra Ymir y lo mataron. Con su cuerpo crearon el mundo conocido como Midgard, la Tierra, y utilizaron su cráneo para formar el cielo, su sangre para los mares y su carne para la tierra. Así, la creación del mundo según la mitología nórdica tuvo lugar a partir de esta serie de eventos cósmicos y la intervención de los dioses.
+                        Se conocen como países vikingos a los cinco países nórdicos, esto es, a Suecia, Noruega, Dinamarca, 
+                        Finlandia e Islandia, aunque Noruega es el país que más se ha relacionado siempre con los vikingos.
+                        Los cinco países tienen muchas características en común, principalmente unas señas de identidad y 
+                        unos valores compartidos que hacen que los lazos entre ellos sean muy fuertes, tanto a nivel cultural como histórico.
 
                         </p>
                     </div>
@@ -83,16 +82,16 @@ export default function Leccion2() {
                                     enableZoom={false}
                                     enablePan={true}
                                     minDistance={5} // Ajusta la distancia mínima de la cámara al objeto
-                                    maxDistance={10} // Ajusta la distancia máxima de la cámara al objeto
+                                    maxDistance={20} // Ajusta la distancia máxima de la cámara al objeto
                                 />
                                 <ambientLight />
-                                <IceVsFire rotation={[Math.PI/6,13*Math.PI/12,0]}/>
+                                <Aldea scale={0.2} position={[-5,-5,-5]}/>
                             </Canvas>
                         </Suspense>
                     </div>
                 </div>
             </div>
-            <div id='losDioses'className='dioses'>
+            <div id='linguistica'className='arte'>
 
                 <div className='model_container'>
                     <div className='model_container_right'>
@@ -106,29 +105,32 @@ export default function Leccion2() {
                                     maxDistance={20} // Ajusta la distancia máxima de la cámara al objeto
                                 />
                                 <ambientLight />
-                                <Odin rotation={[0,Math.PI/2,0]}/>
+                                <MONOLITH rotation={[0,13*Math.PI/12,0]}/>
                             </Canvas>
                         </Suspense>
                     </div>
                     <div className='model_container_left' style={{ width: '70%' }}>
                         <div style={{ position: 'relative' }}>
                             <div className='leccion2Right'>
-                                ¿Quienes eran los dioses?
+                                 Herencia Linguistica
                             </div>
                             <div style={{ position: 'absolute', bottom: 0, left: '15%', width: '20%', borderBottom: '3px solid white' }}></div>
                         </div>
-                        <p className='Leccion2_text'>
-                            Los dioses nórdicos eran una amplia pantheon de deidades veneradas en la mitología nórdica, que era la creencia religiosa de los pueblos escandinavos y germanos durante la Era Vikinga y la Edad Media. Algunos de los principales dioses nórdicos incluyen:
+                        <p className='Leccion1_text'>
+                        Los vikingos dejaron una influencia lingüística significativa en los idiomas escandinavos modernos, 
+                        como el noruego, sueco, danés e islandés. El antiguo idioma nórdico, hablado por los vikingos, 
+                        ha dejado huellas en estos idiomas, con muchas palabras y estructuras gramaticales que tienen raíces en el nórdico
+                        antiguo. Esta influencia lingüística conecta históricamente a los vikingos con los países escandinavos actuales,
+                        y se pueden encontrar similitudes en términos naturales, de navegación, guerra y vida cotidiana.
+                        Es importante destacar que si bien los idiomas escandinavos modernos comparten una base común en el antiguo idioma nórdico,
+                        han evolucionado de manera diferente a lo largo del tiempo y presentan variaciones regionales.
+                        Sin embargo, la influencia del nórdico antiguo en estos idiomas proporciona un vínculo histórico y cultural entre los vikingos y los habitantes de los países escandinavos en la actualidad.
+                        
                         </p>
-                        <ul className='Leccion2_text'>
-                            <li> -  Odin: Dios supremo, gobernante de Asgard, dios de la guerra, la sabiduría y la poesía.</li>
-                            <li> -  Freya: Diosa del amor, la fertilidad y la magia.</li>
-                            <li> -  Loki: Dios astuto y travieso, conocido por su habilidad para cambiar de forma.</li>
-                            <li> -  Frigg: Diosa del matrimonio y la maternidad, esposa de Odin.</li>
-                        </ul>
                     </div>
                 </div>
-
+            </div>
+            <div id='religioso'className='religion'>
                 <div className='model_container'>
                     <div className='model_container_right'>
 
@@ -141,47 +143,52 @@ export default function Leccion2() {
                                     maxDistance={15} // Ajusta la distancia máxima de la cámara al objeto
                                 />
                                 <ambientLight />
-                                <ThorO rotation={[0,Math.PI/2,0]}/>
+                                <Oseberg rotation={[0,Math.PI/3,0]}/>
                             </Canvas>
                         </Suspense>
                     </div>
                     <div className='model_container_left' style={{ width: '70%' }}>
                         <div style={{ position: 'relative' }}>
                             <div className='leccion2Right'>
+                            Legado Religioso 
+
                             </div>
                             <div style={{ position: 'absolute', bottom: 0, left: '15%', width: '20%', borderBottom: '3px solid white' }}></div>
                         </div>
                         <p className='Leccion2_text'>
                             <ul>
-                                <li> - Thor: Dios del trueno, el rayo y la fuerza. Hijo de Odin.</li>
-                                <li> - Balder: Dios de la luz, la belleza y la bondad.</li>
-                                <li> - Frey: Dios de la fertilidad, la prosperidad y el buen tiempo.</li>
-                                <li> - Tyr: Dios de la guerra y la justicia.</li>
-                                <li> - Heimdal: Guardián de los dioses, protector de Bifrost (el puente del arcoíris) y con habilidades sobrehumanas.</li>
-                                <li> - Njord: Dios del mar y la navegación.</li>
-                                <li> - Skadi: Diosa de la caza, el invierno y las montañas.</li>
-                                <li> - Hel: Diosa de los muertos y gobernante del reino de los muertos, Helheim.</li>
+                                <li> La religión vikinga, basada en una cosmovisión mitológica, también ha dejado su influencia en los países escandinavos. Los dioses y diosas vikingos,
+                                     como Odín, Thor y Freya, aún se encuentran presentes en la cultura y las festividades tradicionales de la región. 
+                                     Además, los rituales y creencias asociadas con la religión vikinga siguen siendo recordados y apreciados.</li>
+                                <li> Festividades
+                                     </li>
+                                <li> - Þorrablót: Esta festividad, típica de Islandia, honra al dios nórdico Þór (Thor).
+                                    Es una celebración para dar gracias por la abundancia de alimentos y para honrar a los antepasados.</li>
                             </ul>
                         </p>
                     </div>
                 </div>
             </div>
-            <div id='beowulf'className='leyenda'>
+            <div id='festividades'className='literatura'>
                 <div className='model_container'>
                     <div className='model_container_left' style={{ width: '70%' }}>
                         <div style={{ position: 'relative' }}>
                             <div className='leccion1Left'>
-                                La leyenda de Beowulf
+                                 Otras festividades
                             </div>
                             <div style={{ position: 'absolute', bottom: 0, left: '15%', width: '20%', borderBottom: '3px solid white' }}></div>
                         </div>
                         <p className='Leccion1_text'>
-                            El poema nórdico de Beowulf es una antigua epopeya escandinava que narra la historia del héroe homónimo.
-                            Compuesto en el siglo VIII, el poema tiene lugar en Dinamarca y Suecia, y sigue las hazañas de Beowulf mientras se enfrenta a monstruos y dragones para proteger a su pueblo.
-                            Beowulf es un líder valiente que se convierte en rey y encarna virtudes como la lealtad y el honor.
-                        </p><p className='Leccion1_text'>El poema fusiona elementos históricos y mitológicos, y refleja tanto la cultura pagana como la creciente influencia cristiana. Transmitido oralmente durante mucho tiempo, fue finalmente registrado por escribas medievales.
-                            Beowulf es considerado uno de los tesoros literarios más antiguos en inglés y proporciona una visión fascinante de la era vikinga y el folclore germánico.
-                            Es un testimonio duradero del poder de la poesía para preservar la memoria colectiva de una civilización.
+                        <ul>
+                                <li> - Yule (Jól): Esta festividad corresponde a la celebración del solsticio de invierno y 
+                                    tiene sus raíces en las antiguas tradiciones nórdicas. Durante el Yule, se realizaban rituales 
+                                    y se encendían hogueras para dar la bienvenida al renacimiento del sol y celebrar el comienzo de un nuevo ciclo.</li>
+                            
+                                <li> - Midsommar (Solsticio de Verano): Esta festividad se celebra en el solsticio de verano, en junio, 
+                                    y está relacionada con antiguos rituales paganos. Durante Midsommar, las personas se reúnen alrededor 
+                                    de un poste adornado con flores y cintas, bailan y cantan canciones tradicionales. 
+                                    Es una celebración alegre que marca la llegada del verano y la fertilidad de la naturaleza.</li>
+                            </ul>
                         </p>
                     </div>
                     <div className='model_container_right'>
@@ -194,13 +201,13 @@ export default function Leccion2() {
                                     maxDistance={20} // Ajusta la distancia máxima de la cámara al objeto
                                 />
                                 <ambientLight />
-                                <BEOWULF scale={0.2} rotation={[0, Math.PI/2, 0]} />
+                                <Drake rotation={[0, 11*Math.PI/12, 0]}/>
                             </Canvas>
                         </Suspense>
                     </div>
                 </div>
             </div>
-            <div id='ragnarok'className='ragnarok'>
+            <div id='maritimo'className='arqui'>
 
                 <div className='model_container'>
                     <div className='model_container_right'>
@@ -214,32 +221,36 @@ export default function Leccion2() {
                                     maxDistance={20} // Ajusta la distancia máxima de la cámara al objeto
                                 />
                                 <ambientLight />
-                                <RAGNAROK rotation={[0,-Math.PI/2,0]} position={[3,-2,0]}/>
+                                <VikingHouse  position={[1,-2,0]}/>
                             </Canvas>
                         </Suspense>
                     </div>
                     <div className='model_container_left'>
                         <div style={{ position: 'relative' }}>
                             <div className='leccion2Right'>
-                                La leyenda del Ragnarök
+                            Legado del Mar
+
                             </div>
                             <div style={{ position: 'absolute', bottom: 0, left: '15%', width: '20%', borderBottom: '3px solid white' }}></div>
                         </div>
                         <p className='Leccion1_text'>
-                            El Ragnarök es el apocalipsis en la mitología nórdica, una batalla cósmica que marca el fin del mundo y el renacimiento de un nuevo ciclo.
-                            Los dioses se enfrentan a sus enemigos, como los gigantes de hielo y las fuerzas del caos.
-                            Fenrir, el lobo gigante, se libera y lucha contra Odín, quien muere en el combate.
-                            El monstruoso serpiente marina, Jormungandr, emerge del océano y lucha contra Thor, resultando en la muerte de ambos.
-                        </p><p className='Leccion1_text'>Los dioses y los héroes valientes se enfrentan a una derrota inevitable, y el mundo es consumido por el fuego y las inundaciones.
-                            Sin embargo, de las cenizas surge un nuevo mundo, con un nuevo sol y nuevas deidades.
-                            El Ragnarök representa la idea de que incluso los dioses son mortales y que el ciclo de la vida y la muerte es inevitable.
+                        La destreza y el conocimiento de los vikingos en la navegación tuvieron un impacto duradero en la tradición 
+                        marítima de los países escandinavos. A lo largo de los siglos, la relación de estos países con el mar ha sido
+                        profunda y significativa, y se puede rastrear hasta la era vikinga. La navegación se convirtió en una parte 
+                        esencial de la vida y la cultura de los pueblos escandinavos, y la construcción de barcos se convirtió en un
+                        arte transmitido de generación en generación.
+
+                        Incluso en la actualidad, la tradición marítima vikinga perdura en los países escandinavos. 
+                        La navegación recreativa, los deportes acuáticos y la pesca continúan siendo prácticas comunes 
+                        y apreciadas. Además, los barcos vikingos han dejado una marca en la iconografía y el simbolismo 
+                        de la región, con su imagen prominente en banderas, escudos e incluso en festivales náuticos.
                         </p>
                     </div>
                 </div>
             </div>
             <div className='incursion' >
                 <div className='incursion_leccion1'>
-                   <p className='quiz_btn' onClick={() => navigate('/Quiz_Mitologia')} >Incursion</p> 
+                   <p className='quiz_btn' onClick={() => navigate('/Quiz_Arte')} >Incursion</p> 
                 </div>
                 <video autoPlay loop muted className="video-de-fondo">
                     <source src={video} type="video/mp4" />

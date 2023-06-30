@@ -2,25 +2,11 @@ import React, { Suspense } from 'react'
 import './styles/Leccion2.css'
 import './styles/Leccion3.css'
 import map from '../img/mapa-del-tesoro.png'
-import incursion from '../img/incursion.png'
 import { useNavigate } from 'react-router-dom';
-import AXE from './modelsLesson1/AXE'
-import CHEST from './modelsLesson1/CHEST'
-import SHIP1 from './modelsLesson1/SHIP1'
-import RASTRILLO from './modelsLesson1/RASTRILLO'
-import INCURSION from './modelsLesson1/INCURSION'
-import VIKING from './modelsLesson1/VIKING'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import { useRef } from 'react'
-import AxePlusRastrillo from './modelsLesson1/AxePlusRastrillo'
-import SkullPlusChest from './modelsLesson1/SkullPlusChest'
 import video from '../img/smoke.mp4'
-import BEOWULF from './modelsLesson2/BEOWULF';
-import RAGNAROK from './modelsLesson2/RAGNAROK';
-import IceVsFire from './modelsLesson2/IceVsFire';
-import ThorO from './modelsLesson2/ThorO';
-import Odin from './modelsLesson2/Odin';
 import MONOLITH from './modelsLesson3/MONOLITH'
 import Oseberg from './modelsLesson3/Oseberg'
 import Drake from './modelsLesson3/Drake'
@@ -28,7 +14,7 @@ import VikingHouse from './modelsLesson3/VikingHouse'
 import Aldea from './modelsLesson3/Aldea'
 
 
-export default function Leccion1() {
+export default function Leccion3() {
     const navigate = useNavigate();
     const cameraSettings = {
         fov: 45,
@@ -50,7 +36,7 @@ export default function Leccion1() {
                             <a href='#Arte' className='link'>Arte</a>
                         </li>
                         <li>
-                            <a href='#Litaratura' className='link'>Literatura</a>
+                            <a href='#Literatura' className='link'>Literatura</a>
                         </li>
                         <li>
                             <a href='#Arquitectura' className='link'> Arquitectura </a>
@@ -66,7 +52,7 @@ export default function Leccion1() {
 
             </div>
 
-            <div className='banner_container2'>
+            <div className='banner_container3'>
                     <p className='title_leccion3'>¿Guerreros y algo más?</p>
             </div>
             <div id='Masguerra' className='introduccion'>
