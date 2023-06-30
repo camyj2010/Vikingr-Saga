@@ -135,3 +135,31 @@
 .icon_close_modal:hover{
     transform: scale(1.1);
 }
+
+.lecciones_container_hut{
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10% 0;
+    gap: 20px;
+    font-family: Norse;
+    font-size: 2.5rem;
+}
+
+.lecciones_title{
+    text-align: center;    
+}
+.leccion_icon_hut{
+    transform: rotate(90deg);
+    transform-origin: center;
+    width: 3.5rem;
+}
+
+.lecciones_completadas_hut{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    gap: 1rem;
+}
