@@ -1,4 +1,4 @@
-.title_leccion4 {
+.title_leccion3 {
     color: #fff;
     font-family: Norse;
     font-size: 9.9rem;
@@ -12,15 +12,20 @@
     background: linear-gradient(0deg, rgba(14, 24, 59, 0.2), rgba(17, 28, 70, 0.6)), url('../../img/Historia.png');
     background-size: cover;
 }
-.banner_container3 {
+.banner_container4 {
     position: relative;
-    background: linear-gradient(0deg,  rgba(14, 24, 59, 0.2), rgba(17, 28, 70, 0.6)), url('../../img/arte.jpg');
+    background: linear-gradient(0deg,  rgba(14, 24, 59, 0.2), rgba(17, 28, 70, 0.897)), url('../../img/legado.jpg');
     background-size: cover;
     height: 500px;
 }
 
 .arte{
-    background: linear-gradient(0deg, rgba(1, 1, 3, 0.2), rgba(17, 28, 70, 0.6)), url('../../img/Origen.jpg');
+    background: linear-gradient(0deg,  rgba(14, 24, 59, 0.205), rgb(17, 28, 70)), url('../../img/Origen.jpg');
+    background-size: cover;
+    margin-top: 3px;
+}
+.religion{
+    background: linear-gradient(0deg,  rgba(14, 24, 59, 0.637), rgb(17, 28, 70)), url('../../img/paisaje.jpg');
     background-size: cover;
     margin-top: 3px;
 }

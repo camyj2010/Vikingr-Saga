@@ -2,16 +2,21 @@
 import React, { useEffect, useState } from 'react';
 import { useUserContext } from './UserProvider';
 import { getUserInfo } from './api/Handleapi';
-import { Loader } from '@react-three/drei';
+import { Loader, OrbitControls } from '@react-three/drei';
 import './styles/Hut.css';
 import tv from '../img/tv.png'
 import libros from '../img/libros.png'
 import play from '../img/play.png'
 import map from '../img/mapa-del-tesoro.png';
+import leccion1 from '../img/Icon.png'
+import leccion2 from '../img/Icon2.png'
+import leccion3 from '../img/Icon3.png'
 import Modal from '../components/Modal'
 import ModalLibros from '../components/Modal_libros'
 import ModalJuegos from '../components/Modal_Videojuegos'
 import { useNavigate } from 'react-router-dom';
+import { Canvas } from '@react-three/fiber';
+import Avatar from '../avatar/Avatar';
 
 
 export default function Hut() {
@@ -28,6 +33,7 @@ export default function Hut() {
                 if (user !== null) {
                     const userInfo = await getUserInfo(String(user));
                     setUserInfo(userInfo);
+                    console.log(userInfo)
                 }
             } catch (error) {
                 console.error(error);
@@ -57,15 +63,44 @@ export default function Hut() {
                         <progress className='progress_bar' value={userInfo?.progress} max={100}></progress>
                         <span className='progress_text'>{userInfo?.progress}%</span>
                     </div>
+                    <div className='lecciones_container_hut'>
+                        <div className='lecciones_title'>
+                            <p>Lecciones completadas</p>
+                        </div>
+                        <div className='lecciones_completadas_hut'>
+                            {userInfo.lesson1 ? <img className='leccion_icon_hut' src={leccion1} /> : ''}
+                            {userInfo.lesson2 ? <img className='leccion_icon_hut' src={leccion2} /> : ''}
+                            {userInfo.lesson3 ? <img className='leccion_icon_hut' src={leccion3} /> : ''}
+
+                        </div>
+
+
+                    </div>
                 </div>
                 <div className='avatar_hut'>
-                    {/* ***** Aqui va el avatar ***** */}
+                    <Canvas className='canvasAvatar' id="canvas" camera={[0, 0, 0]} >
+                        <ambientLight intensity={0.5} />
+                        <OrbitControls
+                            position={[0, 2, 5.4]}
+                            target={[0, 0, 3.4]}
+                            enableZoom={false}
+                            enablePan={false}
+                            maxPolarAngle={Math.PI / 2}
+                            minPolarAngle={Math.PI / 2}
+                            minAzimuthAngle={Math.PI / -4}
+                            maxAzimuthAngle={Math.PI / 4} />
+                        <directionalLight position={[10, 10, 5]} intensity={0.5} />
+                        {/* <Avatar type="woman" urlAvatar={"/avatars/woman.glb"} position={[0, -1, 3.4]} rotation={[0, Math.PI / 8, 0]} /> */}
+                        {/* <Avatar type="woman" urlAvatar={"/avatars/woman2.glb"} position={[0, -1, 3.4]} rotation={[0, Math.PI / 8, 0]} /> */}
+                        <Avatar type="man" urlAvatar={"/avatars/man2.glb"} position={[0, -1, 3.4]} rotation={[0, Math.PI / 8, 0]} />
+                        {/* <Avatar type="man" urlAvatar={"/avatars/man.glb"} position={[0, -1, 3.4]} rotation={[0, Math.PI / 8, 0]} /> */}
+                    </Canvas>
                 </div>
                 <div className='recomendations_hut'>
                     <p className='recomendations_titile_hut'>Recomendaciones</p>
                     <button onClick={() => setPopUP(!popUp)} className='btn_recomendation_hut'><img className='icon_close_modal' src={play} /></button>
-                    <button  onClick={() => setPopUpLibros(!popUpLibros)} className='btn_recomendation_hut'><img className='icon_close_modal' src={libros} /></button>
-                    <button  onClick={() => setPopUpJuegos(!popUpJuegos)} className='btn_recomendation_hut'><img className='icon_close_modal' src={tv} /></button>
+                    <button onClick={() => setPopUpLibros(!popUpLibros)} className='btn_recomendation_hut'><img className='icon_close_modal' src={libros} /></button>
+                    <button onClick={() => setPopUpJuegos(!popUpJuegos)} className='btn_recomendation_hut'><img className='icon_close_modal' src={tv} /></button>
                 </div>
                 {popUp ? <Modal show={popUp} change={setPopUP} /> : ''}
                 {popUpLibros ? <ModalLibros show={popUpLibros} change={setPopUpLibros} /> : ''}
