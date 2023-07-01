@@ -163,3 +163,8 @@
     align-content: center;
     gap: 1rem;
 }
+
+.canvasAvatar_hut{
+    width: 100vh;
+    height: 100vh;
+}
