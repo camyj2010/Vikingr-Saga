@@ -65,7 +65,7 @@ export default function Experience() {
             const currentPosition = new Vector3(shipRef.current.translation().x, -2, shipRef.current.translation().z)
             const targetXZ = new Vector3(targetPosition.current.x, currentPosition.y, targetPosition.current.z);
             const direction = targetXZ.clone().sub(currentPosition).normalize();
-            const speed = 0.15;
+            const speed = 0.3;
             const distance = currentPosition.distanceTo(targetXZ);
             if (distance > 0.1) {
               const newPosition = currentPosition.clone().add(direction.multiplyScalar(speed));
@@ -73,7 +73,7 @@ export default function Experience() {
               shipMeshRef.current.position.copy(newPosition)
               shipRef.current.setTranslation({x: newPosition.x , y: -2 , z: newPosition.z})
               const cameraPosition = shipMeshRef.current.position.clone();
-              const cameraOffset = new Vector3(-130, 100, 120); // Ajusta los valores según tus necesidades
+              const cameraOffset = new Vector3(-130, 170, 120); // Ajusta los valores según tus necesidades
               cameraPosition.add(cameraOffset);
               cameraRef.current.position.copy(cameraPosition);
               cameraRef.current.lookAt(shipMeshRef.current.position);
@@ -109,7 +109,7 @@ export default function Experience() {
         <>
             <group>
             
-                <PerspectiveCamera ref={cameraRef} makeDefault position={[-100, 100, 350]}/>
+                <PerspectiveCamera ref={cameraRef} makeDefault position={[-100, 170, 350]}/>
                 <OrbitControls
                     camera={cameraRef.current}
                     maxPolarAngle={Math.PI / 2} // Limita el movimiento hacia arriba y hacia abajo
@@ -141,7 +141,7 @@ export default function Experience() {
                 <IconLecture3 />
                  
                 <Physics
-                 //debug={true} 
+                 debug={true} 
                  gravity={[0,0,0]}
                 >  
                 
@@ -162,7 +162,8 @@ export default function Experience() {
                 <RigidBody colliders={false} position={[0,-9,-400]}  mass={99999999} kinematic={true} type={'fixed'}>
                 <mesh receiveShadow={true} castShadow>
                 <Island3 /> 
-                <CuboidCollider args={[180,15,100]} position={[180,10,150]}/>
+                <CuboidCollider args={[180,15,85]} position={[180,10,120]}/>
+                <CuboidCollider args={[30,15,40]} position={[250,10,245]}/>
                 </mesh>
                 </RigidBody>
 

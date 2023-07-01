@@ -26,7 +26,7 @@ export default function introLecture3() {
     })
 
     return (
-        <mesh ref={coin} scale={8} rotation={[Math.PI * 0.5,  0, 0] } position={[180, 100, -270 ]} onClick={() => navigate('/Leccion3')}
+        <mesh ref={coin} scale={8} rotation={[Math.PI * 0.5,  0, 0] } position={[180, 60, -270 ]} onClick={() => navigate('/Leccion3')}
     >
             <cylinderGeometry args={[1, 1, 0.1, 64, 1]} />
             <meshStandardMaterial side={DoubleSide} map={colorMap}/>
