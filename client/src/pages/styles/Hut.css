@@ -109,6 +109,7 @@
 }
 .avatar_hut{
     width: 40%;
+    position: relative;
 }
 
 .recomendations_hut{
@@ -167,4 +168,21 @@
 .canvasAvatar_hut{
     width: 100vh;
     height: 100vh;
+}
+.avatar_text {
+    display: flex;
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.avatar_button {
+    background-color: transparent;
+    position: absolute;
+    border: none;
+    top: 4%;
+    left:50%;
+    cursor: pointer;
+    
 }
