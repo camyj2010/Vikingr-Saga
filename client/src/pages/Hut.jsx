@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState , useRef} from 'react';
 import { useUserContext } from './UserProvider';
-import { getUserInfo } from './api/Handleapi';
+import { getUserInfo, changeImage } from './api/Handleapi';
 import { Loader, OrbitControls } from '@react-three/drei';
 import './styles/Hut.css';
 import tv from '../img/tv.png'
@@ -18,9 +18,15 @@ import ModalAvatar from '../components/Modal_Avatar'
 import { useNavigate } from 'react-router-dom';
 import { Canvas } from '@react-three/fiber';
 import Avatar from '../avatar/Avatar';
+import axios from 'axios';
+
+const cloudniary_URL = 'https://api.cloudinary.com/v1_1/proyectogca/image/upload';
+
+const cloudinary_upload_preset = 'sk5zjw47';
 
 
 export default function Hut() {
+  const imageRef = useRef(null);
   const navigate = useNavigate()
   const { user } = useUserContext();
   const [userInfo, setUserInfo] = useState(null);
@@ -29,7 +35,7 @@ export default function Hut() {
   const [popUpJuegos, setPopUpJuegos] = useState(false)
   const [popUpAvatar, setPopUpAvatar] = useState(false)
   const [avatarChanged, setAvatarChanged] = useState(false);
-
+  const [uploadedFile, setUploadedFile] = useState("Cambiar Imagen");
   useEffect(() => {
     const fetchUserInfo = async () => {
       try {
@@ -69,7 +75,31 @@ export default function Hut() {
   if (userInfo === null) {
     return <Loader />; // Display a loader or any other loading indicator
   }
+  // Actualiza la foto de perfil del usuario
+	const handleUploadFile = async (e) => {
+		const file = e.target.files[0];
+		setUploadedFile(file.name);
 
+		const formData = new FormData();
+		formData.append('file', file);
+		formData.append('upload_preset', cloudinary_upload_preset);
+
+		try {
+			const res = await axios.post(cloudniary_URL, formData, {
+				headers: {
+					'Content-Type': 'multipart/form-data'
+				}
+			});
+
+			const image = res.data.url;
+			changeImage(user, image);
+			imageRef.current.src = image;
+		} catch (err) {
+			console.log(err);
+		}
+	
+		
+	}
   // Access the userInfo properties once it is available
   console.log(userInfo.email);
 
@@ -80,7 +110,35 @@ export default function Hut() {
       </div>
       <div className='hut_displa_container'>
         <div className='stats_hut'>
-          <p className='Hut_text'>{userInfo?.nickname}</p>
+        {/* <div className="image_container">
+        <div className="w-[300px] rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+    <img ref={imageRef} src={'https://app.cdnstabletransit.net/images/avatar-whiteback.png'} alt="Foto de perfil" />
+  </div>
+  <div className>
+    <label htmlFor="img-uploader" className="hidden">
+    </label>
+    <input
+      onChange={(e) => handleUploadFile(e)}
+      className="hidden"
+      id="img-uploader"
+      type="file"
+    />
+    <span className="uploaded_file_label">{uploadedFile}</span>
+  </div>
+</div>  */}
+        <div className="image_container">
+									<label className="custom_upload_button" for="img-uploader">
+										<div className="custom_upload_button">
+											<img ref={imageRef} src={userInfo?.image} alt="Foto de perfil" />
+										</div>
+									</label>
+									<label for="img-uploader" className="custom_upload_button">
+                                    <button className="custom_upload_button2" id="img-uploader">Subir imagen</button>
+									<input onChange={(e) => handleUploadFile(e)} className="custom_upload_button" id="img-uploader" type="file" />
+                </label>		</div>  
+       
+							
+        <p className='Hut_text'>{userInfo?.nickname}</p>
           <div className='progress_bar_container'>
             <progress className='progress_bar' value={userInfo?.progress} max={100}></progress>
             <span className='progress_text'>{userInfo?.progress}%</span>
