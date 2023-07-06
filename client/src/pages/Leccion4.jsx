@@ -12,7 +12,9 @@ import Oseberg from './modelsLesson3/Oseberg'
 import Drake from './modelsLesson3/Drake'
 import VikingHouse from './modelsLesson3/VikingHouse'
 import Aldea from './modelsLesson3/Aldea'
-
+import Fiordo from './modelsLesson4/Fiordo';
+import FishingShip from './modelsLesson4/FishingShip';
+import Midsommar from './modelsLesson4/Midsommar';
 
 export default function Leccion4() {
     const navigate = useNavigate();
@@ -105,7 +107,7 @@ export default function Leccion4() {
                                     maxDistance={20} // Ajusta la distancia máxima de la cámara al objeto
                                 />
                                 <ambientLight />
-                                <MONOLITH rotation={[0,13*Math.PI/12,0]}/>
+                                <Fiordo rotation={[Math.PI/20,19*Math.PI/12,0]}/>
                             </Canvas>
                         </Suspense>
                     </div>
@@ -201,7 +203,7 @@ export default function Leccion4() {
                                     maxDistance={20} // Ajusta la distancia máxima de la cámara al objeto
                                 />
                                 <ambientLight />
-                                <Drake rotation={[0, 11*Math.PI/12, 0]}/>
+                                <Midsommar rotation={[0,Math.PI/2,0]}/>
                             </Canvas>
                         </Suspense>
                     </div>
@@ -221,7 +223,7 @@ export default function Leccion4() {
                                     maxDistance={20} // Ajusta la distancia máxima de la cámara al objeto
                                 />
                                 <ambientLight />
-                                <VikingHouse  position={[1,-2,0]}/>
+                                <FishingShip />
                             </Canvas>
                         </Suspense>
                     </div>
