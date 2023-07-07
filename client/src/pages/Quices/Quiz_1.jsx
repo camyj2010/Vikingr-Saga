@@ -1,4 +1,4 @@
-import React, {useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/Quiz1.css';
 import { useUserContext } from '../UserProvider';
 import { checkLesson1Progress } from '../api/Handleapi';
@@ -43,7 +43,7 @@ export default function Quiz_1() {
   const { user } = useUserContext();
   console.log(user);
 
-  
+
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [res, setRes] = useState(null);
@@ -68,9 +68,9 @@ export default function Quiz_1() {
         preConfirm: () => {
           if (answer === '15 nudos') {
 
-              const userInfo = checkLesson1Progress(String(user));
-              console.log("Done")
-    
+            const userInfo = checkLesson1Progress(String(user));
+            console.log("Done")
+
             navigate('/Home');
           } else if (currentQuestionIndex + 1 < questions.length) {
             setCurrentQuestionIndex(currentQuestionIndex + 1);
@@ -107,20 +107,28 @@ export default function Quiz_1() {
         }
       });
     }
-  
+
     setRes(answer); // Actualizar el estado con la respuesta seleccionada
   };
 
   return (
     <div className='container_quizVikingos'>
       <Sound
-                        url={soundFile}
-                        playStatus={Sound.status.PLAYING}
-                        playFromPosition={0}
-                        loop={true}
-                        volume={5}
-                      />
+        url={soundFile}
+        playStatus={Sound.status.PLAYING}
+        playFromPosition={17}
+        loop={true}
+        volume={5}
+      />
       <div>
+      <input  type="range" min="0" max="100" step="10" value="50" />
+        {/* <div className='slider-cont'>
+          <div className='slider'>
+            <input type='range' min="0" max="100" value="50" />
+            <progress min="0" max="100" value="50"></progress>
+          </div>
+          <div className='sliderValue'>50</div>
+        </div> */}
         <li>
           <a href='/Home' className='btn_huir'>
             Huir

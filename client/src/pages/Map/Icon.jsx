@@ -1,4 +1,5 @@
 import {  useFrame, useLoader } from '@react-three/fiber'
+import { useUserContext } from '../UserProvider';
 import { TextureLoader } from 'three/src/loaders/TextureLoader';
 import icon from '../../img/Icon.png'
 import { useRef } from 'react';
@@ -9,6 +10,7 @@ import Swal from 'sweetalert2/dist/sweetalert2.js'
 import Island1 from '../Island1/Island1';
 
 export default function introLecture() {
+    
     const colorMap = useLoader(TextureLoader, icon)
     const coin = useRef(null)
     const navigate = useNavigate()

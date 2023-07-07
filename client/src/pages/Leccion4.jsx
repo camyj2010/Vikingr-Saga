@@ -12,6 +12,7 @@ import Oseberg from './modelsLesson3/Oseberg'
 import Drake from './modelsLesson3/Drake'
 import VikingHouse from './modelsLesson3/VikingHouse'
 import Aldea from './modelsLesson3/Aldea'
+import hut from '../img/mini_hut.png';
 import Fiordo from './modelsLesson4/Fiordo';
 import FishingShip from './modelsLesson4/FishingShip';
 import Midsommar from './modelsLesson4/Midsommar';
@@ -50,10 +51,10 @@ export default function Leccion4() {
                         </li>
                     </ul>
                 </nav>
-                <div >
-                    <a href='/Home'>
-                        <img className='map_image_leccion1' src={map} />
-                    </a>
+                <div className='options_leecion4'>
+
+                        <img className='map_image_leccion1' src={map} onClick={() => navigate('/Home')}/>
+                        <img className='hut_image_leccion1' src={hut} onClick={() => navigate('/Hut')} />
                 </div>
 
 

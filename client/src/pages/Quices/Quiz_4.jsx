@@ -110,7 +110,7 @@ export default function Quiz_3() {
       <Sound
                         url={soundFile}
                         playStatus={Sound.status.PLAYING}
-                        playFromPosition={0}
+                        playFromPosition={17}
                         loop={true}
                         volume={5}
                       />
