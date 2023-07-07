@@ -49,6 +49,7 @@
 
 
 .btn_hut {
+  width: 20%;
   font-family: Norse;
   font-size: 2.4rem;
   right: -76%;
@@ -85,9 +86,10 @@ transform: scale(1.1);
 }
 
 .hut_image {
-  width: 35%;
+  width: 10%;
   transition: all 0.2s;
   cursor: pointer;
+  margin-right: 2rem;
 }
 
 .hut_image:hover{

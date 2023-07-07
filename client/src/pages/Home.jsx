@@ -73,9 +73,9 @@ export default function Home() {
                             onClick={() => handleDetalle("Aqui podras elegir a que leccion deseas ingresar dandole click a al boton arriba de cada isla. Si deseas ir a tu perfil puedes darle click en la cabaña al lado derecho de tu pantalla")}
                         />
                     </div>
-                    <div className='btn_hut'>
+               
                         <img onClick={() => navigate('/Hut')} className='hut_image' src={hut} />
-                    </div>
+                  
                 </div>
             </div>
             <Canvas
