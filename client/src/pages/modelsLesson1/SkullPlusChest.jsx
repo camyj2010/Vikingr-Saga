@@ -12,7 +12,7 @@ export default function SkullPlusChest(props) {
       title: detalle,
       icon: 'info',
       showConfirmButton: false,
-      background: '#1D2F6F',
+      background: '#fff',
       customClass: {
         title: 'mi-titulo',
       },
