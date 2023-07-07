@@ -13,7 +13,7 @@ import Island1 from '../Island1/Island1';
 
 export default function introLecture2() {
     const { user } = useUserContext();
-    console.log(user);
+    
     const [iconS, seticonS] = useState(icon2);
     const [userInfo, setUserInfo] = useState(null);
     const colorMap = useLoader(TextureLoader, iconS)
