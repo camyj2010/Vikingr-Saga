@@ -128,7 +128,6 @@ export default function Leccion1() {
                             Suecia y Dinamarca, se lanzaron a expediciones marítimas en busca de riquezas y tierras. Su transición de granjas a saqueos se debe a factores
                             como la superpoblación, la falta de tierras fértiles y la búsqueda de oportunidades económicas y políticas en otros territorios. Los vikingos
                             veían en los ataques a poblaciones costeras una forma de obtener botines y esclavos, asegurando así su supervivencia y ascenso social.
-                            Datos curiosos
                         </p>
                     </div>
                 </div>
