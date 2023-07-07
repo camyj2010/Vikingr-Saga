@@ -44,7 +44,7 @@ export default function Leccion4() {
                             <a href='#religioso' className='link'>Religión</a>
                         </li>
                         <li>
-                            <a href='#festividades' className='link'>festividades</a>
+                            <a href='#festividades' className='link'>Festividades</a>
                         </li>
                         <li>
                             <a href='#maritimo' className='link'> Legado del mar </a>
@@ -68,7 +68,7 @@ export default function Leccion4() {
                     <div className='model_container_left' style={{ width: '70%' }}>
                         <div style={{ position: 'relative' }}>
                             <div className='leccion1Left'>
-                            Los países vikingos
+                            Los Países Vikingos
                             </div>
                             <div style={{ position: 'absolute', bottom: 0, left: '15%', width: '20%', borderBottom: '3px solid white' }}></div>
                         </div>
@@ -179,7 +179,7 @@ export default function Leccion4() {
                     <div className='model_container_left' style={{ width: '70%' }}>
                         <div style={{ position: 'relative' }}>
                             <div className='leccion1Left'>
-                                 Otras festividades
+                                 Otras Festividades
                             </div>
                             <div style={{ position: 'absolute', bottom: 0, left: '15%', width: '20%', borderBottom: '3px solid white' }}></div>
                         </div>
@@ -243,7 +243,7 @@ export default function Leccion4() {
                         marítima de los países escandinavos. A lo largo de los siglos, la relación de estos países con el mar ha sido
                         profunda y significativa, y se puede rastrear hasta la era vikinga. La navegación se convirtió en una parte 
                         esencial de la vida y la cultura de los pueblos escandinavos, y la construcción de barcos se convirtió en un
-                        arte transmitido de generación en generación.
+                        arte que se transmite de generación en generación.
 
                         Incluso en la actualidad, la tradición marítima vikinga perdura en los países escandinavos. 
                         La navegación recreativa, los deportes acuáticos y la pesca continúan siendo prácticas comunes 
@@ -255,7 +255,7 @@ export default function Leccion4() {
             </div>
             <div className='incursion' >
                 <div className='incursion_leccion1'>
-                   <p className='quiz_btn' onClick={() => navigate('/Quiz_Legado')} >Incursion</p> 
+                   <p className='quiz_btn' onClick={() => navigate('/Quiz_Legado')} >Incursión</p> 
                 </div>
                 <video autoPlay loop muted className="video-de-fondo">
                     <source src={video} type="video/mp4" />

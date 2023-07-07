@@ -147,4 +147,22 @@ a {
   color: white;
 }
 
+@media only screen and (max-width: 600px) {
+  .main_container_login{
+    justify-content: center;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .video-de-fondo-login{
+      height: 100vh;
+  }
+
+  .center_login{
+    width: 100%;
+  }
+
+
+}
+
 
