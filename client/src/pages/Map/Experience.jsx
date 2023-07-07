@@ -8,6 +8,7 @@ import { DoubleSide, Euler, PlaneGeometry, PointLightHelper, Vector2 ,Raycaster,
 import IconLecture1 from './Icon'
 import IconLecture2 from './IconIsland2'
 import IconLecture3 from './IconIsland3'
+import IconLecture4 from './IconIsland4'
 import { useNavigate } from 'react-router-dom'
 import Leccion1 from '../../pages/Leccion1'
 import QuestionMark from '../modelsLesson1/QuestionMark'
@@ -17,6 +18,8 @@ import TheMDFShip from './TheMDFShip'
 import Island3 from '../Island3/Island3'
 import soundFile from '../../sounds/OceanSound.mp3';
 import Sound from 'react-sound';
+import Island4 from '../Island4/Island4'
+import Kraken from './Kraken'
 
 
 export default function Experience() {
@@ -139,6 +142,7 @@ export default function Experience() {
                 <IconLecture1 />  
                 <IconLecture2 /> 
                 <IconLecture3 />
+                <IconLecture4 />
                  
                 <Physics
                  debug={true} 
@@ -167,6 +171,21 @@ export default function Experience() {
                 </mesh>
                 </RigidBody>
 
+                <RigidBody colliders={false} position={[200,-9,380]}  mass={99999999} kinematic={true} type={'fixed'}>
+                <mesh receiveShadow={true} castShadow>
+                <Island4 /> 
+                <CuboidCollider args={[70,15,90]} position={[0,0,12]}/>
+                </mesh>
+                </RigidBody>
+
+
+                <RigidBody colliders={false} position={[-90,-9,300]}  mass={99999999} kinematic={true} type={'fixed'}>
+                <mesh receiveShadow={true} castShadow>
+                <Kraken /> 
+                <CuboidCollider args={[40,40,40]} />
+                </mesh>
+                </RigidBody>
+
                 {/**Hitbox del barco */}
                 <RigidBody colliders={false} ref={shipRef} mass={0.01} position={[60,-2,140]} kinematic={true}>  
                 <CuboidCollider args={[11,11,11]} name="cuboidCollider"/>
@@ -176,7 +195,7 @@ export default function Experience() {
       no esta dentro del RigidBody porque si lo ponia ahi el modelo desaparecia al cabo de unos segundos, cosa que habra que solucionar 
       luego*/ }
                 {/** el barco */}
-                <mesh ref={shipMeshRef} position={[60,-2,140]}>
+                <mesh ref={shipMeshRef} position={[60,-2,140]} >
 
                   {/* <Ship /> */}
                   <TheMDFShip /> 

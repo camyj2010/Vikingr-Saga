@@ -194,7 +194,7 @@ export default function Leccion3() {
                                     maxDistance={20} // Ajusta la distancia máxima de la cámara al objeto
                                 />
                                 <ambientLight />
-                                <Drake rotation={[0, 11*Math.PI/12, 0]}/>
+                                <Drake rotation={[0, 5*Math.PI/12, 0]}/>
                             </Canvas>
                         </Suspense>
                     </div>

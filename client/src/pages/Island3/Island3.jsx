@@ -2,411 +2,411 @@ import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
 export default function Island3(props) {
-  const { nodes, materials } = useGLTF("/static/Island3.glb");
+  const { nodes, materials } = useGLTF("/static/ISLA3C.glb");
   return (
     <group {...props} dispose={null}>
-      <group scale={0.022}>
+      <group position={[165, 0, 100]} scale={0.022}>
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0.geometry}
-          material={materials["terrain_atlas.terrain.015"]}
+          geometry={nodes.Mesh_0002_1.geometry}
+          material={materials["terrain_atlas.terrain.054"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_1.geometry}
-          material={materials["terrain_atlas.terrain_alpha"]}
+          geometry={nodes.Mesh_0002_2.geometry}
+          material={materials["terrain_atlas.terrain_alpha.041"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_2.geometry}
-          material={materials["terrain_atlas.terrain"]}
+          geometry={nodes.Mesh_0002_3.geometry}
+          material={materials["terrain_atlas.terrain.055"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_3.geometry}
-          material={materials["terrain_atlas.terrain_alpha.001"]}
+          geometry={nodes.Mesh_0002_4.geometry}
+          material={materials["terrain_atlas.terrain_alpha.042"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_4.geometry}
-          material={materials["terrain_atlas.terrain.001"]}
+          geometry={nodes.Mesh_0002_5.geometry}
+          material={materials["terrain_atlas.terrain.056"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_5.geometry}
-          material={materials["terrain_atlas.terrain.002"]}
+          geometry={nodes.Mesh_0002_6.geometry}
+          material={materials["terrain_atlas.terrain.057"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_6.geometry}
-          material={materials["terrain_atlas.terrain_alpha.002"]}
+          geometry={nodes.Mesh_0002_7.geometry}
+          material={materials["terrain_atlas.terrain_alpha.043"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_7.geometry}
-          material={materials["terrain_atlas.terrain_alpha.003"]}
+          geometry={nodes.Mesh_0002_8.geometry}
+          material={materials["terrain_atlas.terrain_alpha.044"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_8.geometry}
-          material={materials["terrain_atlas.terrain.003"]}
+          geometry={nodes.Mesh_0002_9.geometry}
+          material={materials["terrain_atlas.terrain.058"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_9.geometry}
+          geometry={nodes.Mesh_0002_10.geometry}
           material={materials.entity}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_10.geometry}
+          geometry={nodes.Mesh_0002_11.geometry}
           material={materials.ui_text_font_default8_blend}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_11.geometry}
-          material={materials["terrain_atlas.terrain_alpha.004"]}
+          geometry={nodes.Mesh_0002_12.geometry}
+          material={materials["terrain_atlas.terrain_alpha.045"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_12.geometry}
-          material={materials["terrain_atlas.terrain.004"]}
+          geometry={nodes.Mesh_0002_13.geometry}
+          material={materials["terrain_atlas.terrain.059"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_13.geometry}
-          material={materials["terrain_atlas.terrain_blend"]}
+          geometry={nodes.Mesh_0002_14.geometry}
+          material={materials["terrain_atlas.terrain_blend.027"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_14.geometry}
+          geometry={nodes.Mesh_0002_15.geometry}
           material={materials["ui_text_font_default8_blend.001"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_15.geometry}
-          material={materials["terrain_atlas.terrain_alpha.005"]}
+          geometry={nodes.Mesh_0002_16.geometry}
+          material={materials["terrain_atlas.terrain_alpha.046"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_16.geometry}
-          material={materials["terrain_atlas.terrain.005"]}
+          geometry={nodes.Mesh_0002_17.geometry}
+          material={materials["terrain_atlas.terrain.060"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_17.geometry}
-          material={materials["terrain_atlas.terrain_blend.001"]}
+          geometry={nodes.Mesh_0002_18.geometry}
+          material={materials["terrain_atlas.terrain_blend.028"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_18.geometry}
+          geometry={nodes.Mesh_0002_19.geometry}
           material={materials["ui_text_font_default8_blend.002"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_19.geometry}
-          material={materials["terrain_atlas.terrain_alpha.006"]}
+          geometry={nodes.Mesh_0002_20.geometry}
+          material={materials["terrain_atlas.terrain_alpha.047"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_20.geometry}
-          material={materials["terrain_atlas.terrain.006"]}
+          geometry={nodes.Mesh_0002_21.geometry}
+          material={materials["terrain_atlas.terrain.061"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_21.geometry}
+          geometry={nodes.Mesh_0002_22.geometry}
           material={materials["ui_text_font_default8_blend.003"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_22.geometry}
-          material={materials["terrain_atlas.terrain_alpha.007"]}
+          geometry={nodes.Mesh_0002_23.geometry}
+          material={materials["terrain_atlas.terrain_alpha.048"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_23.geometry}
-          material={materials["terrain_atlas.terrain.007"]}
+          geometry={nodes.Mesh_0002_24.geometry}
+          material={materials["terrain_atlas.terrain.062"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_24.geometry}
-          material={materials["terrain_atlas.terrain_blend.002"]}
+          geometry={nodes.Mesh_0002_25.geometry}
+          material={materials["terrain_atlas.terrain_blend.029"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_25.geometry}
+          geometry={nodes.Mesh_0002_26.geometry}
           material={materials["ui_text_font_default8_blend.004"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_26.geometry}
-          material={materials["terrain_atlas.terrain_alpha.008"]}
+          geometry={nodes.Mesh_0002_27.geometry}
+          material={materials["terrain_atlas.terrain_alpha.049"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_27.geometry}
-          material={materials["terrain_atlas.terrain.008"]}
+          geometry={nodes.Mesh_0002_28.geometry}
+          material={materials["terrain_atlas.terrain.063"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_28.geometry}
+          geometry={nodes.Mesh_0002_29.geometry}
           material={materials["ui_text_font_default8_blend.005"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_29.geometry}
-          material={materials["terrain_atlas.terrain.009"]}
+          geometry={nodes.Mesh_0002_30.geometry}
+          material={materials["terrain_atlas.terrain.064"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_30.geometry}
-          material={materials["terrain_atlas.terrain_alpha.009"]}
+          geometry={nodes.Mesh_0002_31.geometry}
+          material={materials["terrain_atlas.terrain_alpha.050"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_31.geometry}
-          material={materials["terrain_atlas.terrain_alpha.010"]}
+          geometry={nodes.Mesh_0002_32.geometry}
+          material={materials["terrain_atlas.terrain_alpha.051"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_32.geometry}
-          material={materials["terrain_atlas.terrain.010"]}
+          geometry={nodes.Mesh_0002_33.geometry}
+          material={materials["terrain_atlas.terrain.065"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_33.geometry}
-          material={materials["terrain_atlas.terrain_alpha.011"]}
+          geometry={nodes.Mesh_0002_34.geometry}
+          material={materials["terrain_atlas.terrain_alpha.052"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_34.geometry}
-          material={materials["terrain_atlas.terrain.011"]}
+          geometry={nodes.Mesh_0002_35.geometry}
+          material={materials["terrain_atlas.terrain.066"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_35.geometry}
-          material={materials["terrain_atlas.terrain_alpha.012"]}
+          geometry={nodes.Mesh_0002_36.geometry}
+          material={materials["terrain_atlas.terrain_alpha.053"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_36.geometry}
-          material={materials["terrain_atlas.terrain.012"]}
+          geometry={nodes.Mesh_0002_37.geometry}
+          material={materials["terrain_atlas.terrain.067"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_37.geometry}
-          material={materials["terrain_atlas.terrain_alpha.013"]}
+          geometry={nodes.Mesh_0002_38.geometry}
+          material={materials["terrain_atlas.terrain_alpha.054"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_38.geometry}
-          material={materials["terrain_atlas.terrain.013"]}
+          geometry={nodes.Mesh_0002_39.geometry}
+          material={materials["terrain_atlas.terrain.068"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_39.geometry}
+          geometry={nodes.Mesh_0002_40.geometry}
           material={materials["ui_text_font_default8_blend.006"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_40.geometry}
-          material={materials["terrain_atlas.terrain_alpha.015"]}
+          geometry={nodes.Mesh_0002_41.geometry}
+          material={materials["terrain_atlas.terrain_alpha.055"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_41.geometry}
-          material={materials["terrain_atlas.terrain_blend.003"]}
+          geometry={nodes.Mesh_0002_42.geometry}
+          material={materials["terrain_atlas.terrain_blend.030"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_42.geometry}
-          material={materials["terrain_atlas.terrain.018"]}
+          geometry={nodes.Mesh_0002_43.geometry}
+          material={materials["terrain_atlas.terrain.069"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_43.geometry}
-          material={materials["terrain_atlas.terrain_alpha.018"]}
+          geometry={nodes.Mesh_0002_44.geometry}
+          material={materials["terrain_atlas.terrain_alpha.056"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_44.geometry}
-          material={materials["terrain_atlas.terrain.019"]}
+          geometry={nodes.Mesh_0002_45.geometry}
+          material={materials["terrain_atlas.terrain.070"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_45.geometry}
-          material={materials["terrain_atlas.terrain.020"]}
+          geometry={nodes.Mesh_0002_46.geometry}
+          material={materials["terrain_atlas.terrain.071"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_46.geometry}
-          material={materials["terrain_atlas.terrain_alpha.019"]}
+          geometry={nodes.Mesh_0002_47.geometry}
+          material={materials["terrain_atlas.terrain_alpha.057"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_47.geometry}
-          material={materials["terrain_atlas.terrain_alpha.020"]}
+          geometry={nodes.Mesh_0002_48.geometry}
+          material={materials["terrain_atlas.terrain_alpha.058"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_48.geometry}
-          material={materials["terrain_atlas.terrain.021"]}
+          geometry={nodes.Mesh_0002_49.geometry}
+          material={materials["terrain_atlas.terrain.072"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_49.geometry}
-          material={materials["terrain_atlas.terrain.022"]}
+          geometry={nodes.Mesh_0002_50.geometry}
+          material={materials["terrain_atlas.terrain.073"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_50.geometry}
-          material={materials["terrain_atlas.terrain_alpha.021"]}
+          geometry={nodes.Mesh_0002_51.geometry}
+          material={materials["terrain_atlas.terrain_alpha.059"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_51.geometry}
-          material={materials["terrain_atlas.terrain_blend.005"]}
+          geometry={nodes.Mesh_0002_52.geometry}
+          material={materials["terrain_atlas.terrain_blend.031"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_52.geometry}
-          material={materials["terrain_atlas.terrain.023"]}
+          geometry={nodes.Mesh_0002_53.geometry}
+          material={materials["terrain_atlas.terrain.074"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_53.geometry}
-          material={materials["terrain_atlas.terrain_alpha.022"]}
+          geometry={nodes.Mesh_0002_54.geometry}
+          material={materials["terrain_atlas.terrain_alpha.060"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_54.geometry}
-          material={materials["terrain_atlas.terrain.024"]}
+          geometry={nodes.Mesh_0002_55.geometry}
+          material={materials["terrain_atlas.terrain.075"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_55.geometry}
-          material={materials["terrain_atlas.terrain_alpha.023"]}
+          geometry={nodes.Mesh_0002_56.geometry}
+          material={materials["terrain_atlas.terrain_alpha.061"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_56.geometry}
-          material={materials["terrain_atlas.terrain.025"]}
+          geometry={nodes.Mesh_0002_57.geometry}
+          material={materials["terrain_atlas.terrain.076"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_57.geometry}
-          material={materials["terrain_atlas.terrain_alpha.024"]}
+          geometry={nodes.Mesh_0002_58.geometry}
+          material={materials["terrain_atlas.terrain_alpha.062"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_58.geometry}
-          material={materials["terrain_atlas.terrain_blend.006"]}
+          geometry={nodes.Mesh_0002_59.geometry}
+          material={materials["terrain_atlas.terrain_blend.032"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_59.geometry}
-          material={materials["terrain_atlas.terrain_alpha.025"]}
+          geometry={nodes.Mesh_0002_60.geometry}
+          material={materials["terrain_atlas.terrain_alpha.063"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_60.geometry}
-          material={materials["terrain_atlas.terrain.026"]}
+          geometry={nodes.Mesh_0002_61.geometry}
+          material={materials["terrain_atlas.terrain.077"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_61.geometry}
-          material={materials["terrain_atlas.terrain.027"]}
+          geometry={nodes.Mesh_0002_62.geometry}
+          material={materials["terrain_atlas.terrain.078"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_62.geometry}
-          material={materials["terrain_atlas.terrain_alpha.026"]}
+          geometry={nodes.Mesh_0002_63.geometry}
+          material={materials["terrain_atlas.terrain_alpha.064"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_63.geometry}
+          geometry={nodes.Mesh_0002_64.geometry}
           material={materials["ui_text_font_default8_blend.008"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_64.geometry}
-          material={materials["terrain_atlas.terrain_alpha.027"]}
+          geometry={nodes.Mesh_0002_65.geometry}
+          material={materials["terrain_atlas.terrain_alpha.065"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_65.geometry}
-          material={materials["terrain_atlas.terrain.028"]}
+          geometry={nodes.Mesh_0002_66.geometry}
+          material={materials["terrain_atlas.terrain.079"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.mesh_0_66.geometry}
-          material={materials["terrain_atlas.terrain_blend.007"]}
+          geometry={nodes.Mesh_0002_67.geometry}
+          material={materials["terrain_atlas.terrain_blend.033"]}
         />
       </group>
     </group>
