@@ -56,14 +56,14 @@ export default function Leccion2() {
             </div>
 
             <div className='banner_container2'>
-                    <p className='title_leccion2'>Mitologia Nordica</p>
+                    <p className='title_leccion2'>Mitología Nórdica</p>
             </div>
             <div id='laCreacion' className='creacion'>
                 <div className='model_container'>
                     <div className='model_container_left' style={{ width: '70%' }}>
                         <div style={{ position: 'relative' }}>
                             <div className='leccion1Left'>
-                                La Creacion
+                                La Creación
                             </div>
                             <div style={{ position: 'absolute', bottom: 0, left: '15%', width: '20%', borderBottom: '3px solid white' }}></div>
                         </div>
@@ -114,7 +114,7 @@ export default function Leccion2() {
                     <div className='model_container_left' style={{ width: '70%' }}>
                         <div style={{ position: 'relative' }}>
                             <div className='leccion2Right'>
-                                ¿Quienes eran los dioses?
+                                ¿Quiénes eran los dioses?
                             </div>
                             <div style={{ position: 'absolute', bottom: 0, left: '15%', width: '20%', borderBottom: '3px solid white' }}></div>
                         </div>

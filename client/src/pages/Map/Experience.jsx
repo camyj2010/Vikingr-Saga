@@ -112,7 +112,7 @@ export default function Experience() {
         <>
             <group>
             
-                <PerspectiveCamera ref={cameraRef} makeDefault position={[-100, 170, 350]}/>
+                <PerspectiveCamera ref={cameraRef} makeDefault position={[100, 35, 560]}/>
                 <OrbitControls
                     camera={cameraRef.current}
                     maxPolarAngle={Math.PI / 2} // Limita el movimiento hacia arriba y hacia abajo
@@ -130,7 +130,7 @@ export default function Experience() {
                         volume={10}
                       /> */}
 
-                <ambientLight intensity={0.7} />  
+                <ambientLight intensity={0.3} />  
                 
                 {/* <Stars radius={50} depth={10} count={5000} factor={4} saturation={0} fade speed={1} /> */}
                 <mesh onClick={(event) => ShipMovementHandler(event)} position={[0,-10,0]}>

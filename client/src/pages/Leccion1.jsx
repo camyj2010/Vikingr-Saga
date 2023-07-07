@@ -119,7 +119,7 @@ export default function Leccion1() {
                     <div className='model_container_left'>
                         <div style={{ position: 'relative' }}>
                             <div className='leccion1Left' >
-                                Origenes
+                                Orígenes
                             </div>
                             <div style={{ position: 'absolute', bottom: 0, left: '15%', width: '20%', borderBottom: '3px solid white' }}></div>
                         </div>

@@ -41,7 +41,7 @@ export default function Leccion4() {
                             <a href='#linguistica' className='link'>Lengua</a>
                         </li>
                         <li>
-                            <a href='#religioso' className='link'>Religion</a>
+                            <a href='#religioso' className='link'>Religión</a>
                         </li>
                         <li>
                             <a href='#festividades' className='link'>festividades</a>
@@ -117,7 +117,7 @@ export default function Leccion4() {
                     <div className='model_container_left' style={{ width: '70%' }}>
                         <div style={{ position: 'relative' }}>
                             <div className='leccion2Right'>
-                                 Herencia Linguistica
+                                 Herencia Linguística
                             </div>
                             <div style={{ position: 'absolute', bottom: 0, left: '15%', width: '20%', borderBottom: '3px solid white' }}></div>
                         </div>
