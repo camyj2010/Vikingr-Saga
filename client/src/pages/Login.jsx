@@ -52,7 +52,7 @@ export default function Login() {
     try {
       const { email, googleId, givenName } = res.profileObj;
       const response = await login_google(email, googleId, givenName);
-      console.log(response.userid)
+      console.log(response)
       update(response.userid)
       // history.push('/Home');
       navigate('/Home');

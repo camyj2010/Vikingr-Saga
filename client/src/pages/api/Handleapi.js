@@ -1,6 +1,6 @@
 const Swal = require('sweetalert2')
-const baseUrl = "https://backend-ajuu.onrender.com"
-// const baseUrl = "http://localhost:5000"
+// const baseUrl = "https://backend-ajuu.onrender.com"
+const baseUrl = "http://localhost:5000"
 async function sign_in(email, password) {
     try {
         const response = await fetch(`${baseUrl}/login`, {

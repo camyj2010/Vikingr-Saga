@@ -41,12 +41,12 @@ const userSchema = new mongoose.Schema({
         default: false,
     },
     avatar: {
-        type: Number,
-        default: 1,
+        type: String,
+        default: "man",
     },
     image: {
-        type: Number,
-        default: 1,
+        type: String,
+        default: "https://app.cdnstabletransit.net/images/avatar-whiteback.png",
     },
 
 
