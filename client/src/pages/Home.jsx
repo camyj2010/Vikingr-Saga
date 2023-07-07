@@ -70,7 +70,7 @@ export default function Home() {
                         <img
                             className='info_image'
                             src={info}
-                            onClick={() => handleDetalle("Aqui podras elegir a que leccion deseas ingresar dandole click a al boton arriba de cada isla. Si deseas ir a tu perfil puedes darle click en la cabaña al lado derecho de tu pantalla")}
+                            onClick={() => handleDetalle("- Aqui podras elegir a que leccion deseas ingresar, cada isla es una leccion. Puedes moverte por el mundo con el barco dandole click a el agua. \n \n - Ingresas a la leccion dandole click a al boton arriba de cada isla. \n \n - Si deseas ir a tu perfil puedes darle click en la cabaña al lado derecho de tu pantalla.")}
                         />
                     </div>
                
