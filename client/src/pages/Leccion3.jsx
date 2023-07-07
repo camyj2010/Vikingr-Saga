@@ -31,7 +31,7 @@ export default function Leccion3() {
                 <nav>
                     <ul className='links_leccion1'>
                         <li>
-                            <a href='#Masguerra' className='link'>Más que guerra</a>
+                            <a href='#Masguerra' className='link'>Más Que Guerra</a>
                         </li>
                         <li>
                             <a href='#Arte' className='link'>Arte</a>
@@ -61,7 +61,7 @@ export default function Leccion3() {
                     <div className='model_container_left' style={{ width: '70%' }}>
                         <div style={{ position: 'relative' }}>
                             <div className='leccion1Left'>
-                            Más que guerra
+                            Más Que Guerra
                             </div>
                             <div style={{ position: 'absolute', bottom: 0, left: '15%', width: '20%', borderBottom: '3px solid white' }}></div>
                         </div>
@@ -146,7 +146,7 @@ export default function Leccion3() {
                     <div className='model_container_left' style={{ width: '70%' }}>
                         <div style={{ position: 'relative' }}>
                             <div className='leccion2Right'>
-                            Obras famosas 
+                            Obras Famosas 
 
                             </div>
                             <div style={{ position: 'absolute', bottom: 0, left: '15%', width: '20%', borderBottom: '3px solid white' }}></div>
@@ -222,7 +222,7 @@ export default function Leccion3() {
                     <div className='model_container_left'>
                         <div style={{ position: 'relative' }}>
                             <div className='leccion2Right'>
-                                Arquitectura y diseño 
+                                Arquitectura y Diseño 
                             </div>
                             <div style={{ position: 'absolute', bottom: 0, left: '15%', width: '20%', borderBottom: '3px solid white' }}></div>
                         </div>
@@ -240,7 +240,7 @@ export default function Leccion3() {
             </div>
             <div className='incursion' >
                 <div className='incursion_leccion1'>
-                   <p className='quiz_btn' onClick={() => navigate('/Quiz_Arte')} >Incursion</p> 
+                   <p className='quiz_btn' onClick={() => navigate('/Quiz_Arte')} >Incursión</p> 
                 </div>
                 <video autoPlay loop muted className="video-de-fondo">
                     <source src={video} type="video/mp4" />
