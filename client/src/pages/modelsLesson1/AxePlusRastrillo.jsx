@@ -3,7 +3,6 @@ import { useGLTF } from "@react-three/drei";
 import QuestionMark from "./QuestionMark";
 import Question_mark from "../Question_mark";
 import Swal from 'sweetalert2/dist/sweetalert2.js'
-import "../styles/Modelos.css"
 
 export default function AxePlusRastrillo(props) {
   const { nodes, materials } = useGLTF("/static/AxePlusRastrillo.glb");
@@ -12,7 +11,7 @@ export default function AxePlusRastrillo(props) {
       title: detalle,
       icon: 'info',
       showConfirmButton: false,
-      background: '#1D2F6F',
+      background: '#fff',
       customClass: {
         title: 'mi-titulo',
       },
