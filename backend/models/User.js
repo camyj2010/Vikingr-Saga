@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 
+
 const userSchema = new mongoose.Schema({
     email: {
         type: String,
@@ -39,12 +40,25 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         default: false,
     },
+    avatar: {
+        type: String,
+        default: "man",
+    },
+    image: {
+        type: String,
+        default: "https://app.cdnstabletransit.net/images/avatar-whiteback.png",
+    },
+
+
 });
+
 
 userSchema.pre("save", async function(next) {
     const user = this;
 
+
     if (!user.isModified("password")) return next();
+
 
     try {
         const salt = await bcrypt.genSalt(10);
@@ -56,8 +70,10 @@ userSchema.pre("save", async function(next) {
     }
 });
 
+
 userSchema.methods.comparePassword = async function(candidatePassword) {
     return await bcrypt.compare(candidatePassword, this.password);
 };
+
 
 export const User = mongoose.model("User", userSchema);

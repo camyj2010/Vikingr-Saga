@@ -1,6 +1,6 @@
 const Swal = require('sweetalert2')
-const baseUrl = "https://backend-ajuu.onrender.com"
-// const baseUrl = "http://localhost:5000"
+// const baseUrl = "https://backend-ajuu.onrender.com"
+const baseUrl = "http://localhost:5000"
 async function sign_in(email, password) {
     try {
         const response = await fetch(`${baseUrl}/login`, {
@@ -205,6 +205,56 @@ async function getUserInfo(userId) {
         console.error(error);
     }
 }
+async function changeAvatar(userId,number) {
+    try {
+        const response = await fetch(`${baseUrl}/change-avatar`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                userId,
+                number
+            }),
+        });
+
+        const data = await response.json(); 
+
+        if(response.status === 200) {
+            return data
+        } else {
+            alert("Ha ocurrido un error.");
+        }
+
+    } catch (error) {
+        console.error(error);
+    }
+}
+async function changeImage(userId,number) {
+    try {
+        const response = await fetch(`${baseUrl}/change-image`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                userId,
+                number
+            }),
+        });
+
+        const data = await response.json(); 
+
+        if(response.status === 200) {
+            return data
+        } else {
+            alert("Ha ocurrido un error.");
+        }
+
+    } catch (error) {
+        console.error(error);
+    }
+}
 
 export {
     sign_in,
@@ -214,5 +264,7 @@ export {
     checkLesson2Progress,
     checkLesson3Progress,
     checkLesson4Progress,
-    getUserInfo
+    getUserInfo,
+    changeAvatar,
+    changeImage
 }
