@@ -113,3 +113,16 @@
     border-radius: 5px;
 
 }
+
+@media only screen and (max-width: 600px) {
+    .main_container_registro{
+        justify-content: center;
+    }
+
+    .form_registro{
+        width: 100%;
+    }
+  
+  
+  }
+  

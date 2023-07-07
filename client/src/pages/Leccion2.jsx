@@ -114,7 +114,7 @@ export default function Leccion2() {
                     <div className='model_container_left' style={{ width: '70%' }}>
                         <div style={{ position: 'relative' }}>
                             <div className='leccion2Right'>
-                                ¿Quiénes eran los dioses?
+                                ¿Quiénes eran los Dioses?
                             </div>
                             <div style={{ position: 'absolute', bottom: 0, left: '15%', width: '20%', borderBottom: '3px solid white' }}></div>
                         </div>
@@ -172,7 +172,7 @@ export default function Leccion2() {
                     <div className='model_container_left' style={{ width: '70%' }}>
                         <div style={{ position: 'relative' }}>
                             <div className='leccion1Left'>
-                                La leyenda de Beowulf
+                                La Leyenda de Beowulf
                             </div>
                             <div style={{ position: 'absolute', bottom: 0, left: '15%', width: '20%', borderBottom: '3px solid white' }}></div>
                         </div>
@@ -181,7 +181,7 @@ export default function Leccion2() {
                             Compuesto en el siglo VIII, el poema tiene lugar en Dinamarca y Suecia, y sigue las hazañas de Beowulf mientras se enfrenta a monstruos y dragones para proteger a su pueblo.
                             Beowulf es un líder valiente que se convierte en rey y encarna virtudes como la lealtad y el honor.
                         </p><p className='Leccion1_text'>El poema fusiona elementos históricos y mitológicos, y refleja tanto la cultura pagana como la creciente influencia cristiana. Transmitido oralmente durante mucho tiempo, fue finalmente registrado por escribas medievales.
-                            Beowulf es considerado uno de los tesoros literarios más antiguos en inglés y proporciona una visión fascinante de la era vikinga y el folclore germánico.
+                            Beowulf es considerado uno de los tesoros literarios más antiguos en inglés y proporciona una visión fascinante de la era vikinga y el folklore germánico.
                             Es un testimonio duradero del poder de la poesía para preservar la memoria colectiva de una civilización.
                         </p>
                     </div>
@@ -222,7 +222,7 @@ export default function Leccion2() {
                     <div className='model_container_left'>
                         <div style={{ position: 'relative' }}>
                             <div className='leccion2Right'>
-                                La leyenda del Ragnarök
+                                La Leyenda del Ragnarök
                             </div>
                             <div style={{ position: 'absolute', bottom: 0, left: '15%', width: '20%', borderBottom: '3px solid white' }}></div>
                         </div>
@@ -230,7 +230,7 @@ export default function Leccion2() {
                             El Ragnarök es el apocalipsis en la mitología nórdica, una batalla cósmica que marca el fin del mundo y el renacimiento de un nuevo ciclo.
                             Los dioses se enfrentan a sus enemigos, como los gigantes de hielo y las fuerzas del caos.
                             Fenrir, el lobo gigante, se libera y lucha contra Odín, quien muere en el combate.
-                            El monstruoso serpiente marina, Jormungandr, emerge del océano y lucha contra Thor, resultando en la muerte de ambos.
+                            La monstruosa serpiente marina, Jormungandr, emerge del océano y lucha contra Thor, resultando en la muerte de ambos.
                         </p><p className='Leccion1_text'>Los dioses y los héroes valientes se enfrentan a una derrota inevitable, y el mundo es consumido por el fuego y las inundaciones.
                             Sin embargo, de las cenizas surge un nuevo mundo, con un nuevo sol y nuevas deidades.
                             El Ragnarök representa la idea de que incluso los dioses son mortales y que el ciclo de la vida y la muerte es inevitable.
@@ -240,7 +240,7 @@ export default function Leccion2() {
             </div>
             <div className='incursion' >
                 <div className='incursion_leccion1'>
-                   <p className='quiz_btn' onClick={() => navigate('/Quiz_Mitologia')} >Incursion</p> 
+                   <p className='quiz_btn' onClick={() => navigate('/Quiz_Mitologia')} >Incursión</p> 
                 </div>
                 <video autoPlay loop muted className="video-de-fondo">
                     <source src={video} type="video/mp4" />

@@ -49,7 +49,7 @@ export default function Leccion1() {
                             <a href='#incursiones' className='link'>incursiones</a>
                         </li>
                         <li>
-                            <a href='#barcos' className='link'> Barcos vikingos</a>
+                            <a href='#barcos' className='link'> Barcos Vikingos</a>
                         </li>
                     </ul>
                 </nav>
@@ -200,7 +200,7 @@ export default function Leccion1() {
             </div>
             <div className='incursion' >
                 <div className='incursion_leccion1'>
-                    <p className='quiz_btn' onClick={() => navigate('/Quiz_Vikingos')} >Incursion</p>
+                    <p className='quiz_btn' onClick={() => navigate('/Quiz_Vikingos')} >Incursión</p>
                 </div>
                 <video autoPlay loop muted className="video-de-fondo">
                     <source src={video} type="video/mp4" />
