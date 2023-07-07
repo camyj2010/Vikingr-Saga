@@ -15,6 +15,8 @@ import Aldea from './modelsLesson3/Aldea'
 import Fiordo from './modelsLesson4/Fiordo';
 import FishingShip from './modelsLesson4/FishingShip';
 import Midsommar from './modelsLesson4/Midsommar';
+import FlagsC from './modelsLesson4/FlagsC';
+import Food from './modelsLesson4/Food';
 
 export default function Leccion4() {
     const navigate = useNavigate();
@@ -87,7 +89,7 @@ export default function Leccion4() {
                                     maxDistance={20} // Ajusta la distancia máxima de la cámara al objeto
                                 />
                                 <ambientLight />
-                                <Aldea scale={0.2} position={[-5,-5,-5]}/>
+                                <FlagsC/>
                             </Canvas>
                         </Suspense>
                     </div>
@@ -145,7 +147,7 @@ export default function Leccion4() {
                                     maxDistance={15} // Ajusta la distancia máxima de la cámara al objeto
                                 />
                                 <ambientLight />
-                                <Oseberg rotation={[0,Math.PI/3,0]}/>
+                                <Food rotation={[0,Math.PI/3,0]}/>
                             </Canvas>
                         </Suspense>
                     </div>
