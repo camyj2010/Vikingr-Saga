@@ -1,4 +1,5 @@
 import {  useFrame, useLoader } from '@react-three/fiber'
+import { useUserContext } from '../UserProvider';
 import { TextureLoader } from 'three/src/loaders/TextureLoader';
 import icon from '../../img/Icon.png'
 import iconG from '../../img/IconGray.png'
@@ -13,6 +14,7 @@ import Swal from 'sweetalert2/dist/sweetalert2.js'
 import Island1 from '../Island1/Island1';
 
 export default function introLecture() {
+
     const { user } = useUserContext();
    
     const [iconS, seticonS] = useState(icon);
@@ -44,6 +46,7 @@ export default function introLecture() {
     }, [user]);
    
     const colorMap = useLoader(TextureLoader, iconS)
+
     const coin = useRef(null)
     const navigate = useNavigate()
     

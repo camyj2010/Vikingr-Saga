@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import { useRef } from 'react'
+import hut from '../img/mini_hut.png';
 import video from '../img/smoke.mp4'
 import BEOWULF from './modelsLesson2/BEOWULF';
 import RAGNAROK from './modelsLesson2/RAGNAROK';
@@ -45,10 +46,10 @@ export default function Leccion2() {
                         </li>
                     </ul>
                 </nav>
-                <div >
-                    <a href='/Home'>
-                        <img className='map_image_leccion1' src={map} />
-                    </a>
+                <div className='options_leecion1'>
+
+                        <img className='map_image_leccion1' src={map} onClick={() => navigate('/Home')}/>
+                        <img className='hut_image_leccion1' src={hut} onClick={() => navigate('/Hut')} />
                 </div>
 
 

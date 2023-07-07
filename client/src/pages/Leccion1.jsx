@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import AXE from './modelsLesson1/AXE'
 import CHEST from './modelsLesson1/CHEST'
 import SHIP1 from './modelsLesson1/SHIP1'
+import hut from '../img/mini_hut.png';
 import RASTRILLO from './modelsLesson1/RASTRILLO'
 import INCURSION from './modelsLesson1/INCURSION'
 import VIKING from './modelsLesson1/VIKING'
@@ -33,8 +34,8 @@ export default function Leccion1() {
     };
 
     return (
-        
-        <div className='contenedor_Leccion1'>     
+
+        <div className='contenedor_Leccion1'>
             <div className='navbar_leccion1'>
                 <nav>
                     <ul className='links_leccion1'>
@@ -52,10 +53,9 @@ export default function Leccion1() {
                         </li>
                     </ul>
                 </nav>
-                <div >
-                    <a href='/Home'>
-                        <img className='map_image_leccion1' src={map} />
-                    </a>
+                <div className='options_leecion1'>
+                    <img className='map_image_leccion1' src={map} onClick={() => navigate('/Home')} />
+                    <img className='hut_image_leccion1' src={hut} onClick={() => navigate('/Hut')} />
                 </div>
 
 
@@ -137,7 +137,7 @@ export default function Leccion1() {
                 <div className='model_container'>
                     <div className='model_container_left'>
                         <div style={{ position: 'relative' }}>
-                        <div className='leccion1Left' >
+                            <div className='leccion1Left' >
                                 Las Incursiones
                             </div>
                             <div style={{ position: 'absolute', bottom: 0, left: '15%', width: '20%', borderBottom: '3px solid white' }}></div>
@@ -201,7 +201,7 @@ export default function Leccion1() {
             </div>
             <div className='incursion' >
                 <div className='incursion_leccion1'>
-                   <p className='quiz_btn' onClick={() => navigate('/Quiz_Vikingos')} >Incursion</p> 
+                    <p className='quiz_btn' onClick={() => navigate('/Quiz_Vikingos')} >Incursion</p>
                 </div>
                 <video autoPlay loop muted className="video-de-fondo">
                     <source src={video} type="video/mp4" />
