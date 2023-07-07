@@ -1,7 +1,10 @@
 import {  useFrame, useLoader } from '@react-three/fiber'
 import { TextureLoader } from 'three/src/loaders/TextureLoader';
 import icon4 from '../../img/Icon4.png'
-import { useRef } from 'react';
+import icon4G from '../../img/Icon4Gray.png'
+import { useEffect, useState, useRef} from 'react';
+import { useUserContext } from '../UserProvider';
+import { getUserInfo } from '../api/Handleapi';
 import * as THREE from 'three'
 import { DoubleSide } from 'three';
 import { useNavigate } from 'react-router-dom';
@@ -9,10 +12,35 @@ import Swal from 'sweetalert2/dist/sweetalert2.js'
 import Island1 from '../Island1/Island1';
 
 export default function introLecture3() {
-    const colorMap = useLoader(TextureLoader, icon4)
+    const { user } = useUserContext();
+ 
+    const [iconS, seticonS] = useState(icon4);
+    const [userInfo, setUserInfo] = useState(null);
+    const colorMap = useLoader(TextureLoader, iconS)
     const coin = useRef(null)
     const navigate = useNavigate()
-    
+    useEffect(() => {
+        const fetchUserInfo = async () => {
+            try {
+                if (user !== null) {
+                    const userInfo = await getUserInfo(String(user));
+                    setUserInfo(userInfo);
+                    if (userInfo.lesson4==true){
+                        seticonS(icon4G)
+                        }    
+                    else{
+                        seticonS(icon4)
+                    }
+
+                    console.log(userInfo);
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchUserInfo();
+    }, [user]);
 
     useFrame((state, delta)=>{
         if(coin.current.position.y < 45){
