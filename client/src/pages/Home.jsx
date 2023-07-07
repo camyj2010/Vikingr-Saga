@@ -13,6 +13,7 @@ import Music_slider from '../components/Music_slider';
 import Sound from 'react-sound';
 import soundFile from '../sounds/OceanSound.mp3';
 import { useNavigate } from 'react-router-dom';
+import icon_salir from '../img/salir.png'
 
 export default function Home() {
     const { user } = useUserContext()
@@ -50,22 +51,31 @@ export default function Home() {
                 volume={music}
             />
             <div className='model_container_home'>
-                <div className='btn_singoff'>
-                    <img className='signoff_image' src={flag} alt='Flag' />
-                    Cerrar Sesión
+                <div className='btn_singoff' onClick={() => navigate('/')}>
+                    {/* <img className='signoff_image' src={flag} alt='Flag' /> */}
+                    <div className='btn_signoff_text'>
+                        <img className='salir_btn' src={icon_salir} />
+                        <p>
+                            Cerrar Sesión
+                        </p>
+
+                    </div>
                 </div>
-                <div className='sound_home'>
-                    <Music_slider volume={music} setVolume={setMusic} />
-                </div>
-                <div className='btn_info'>
-                    <img 
-                    className='info_image' 
-                    src={info} 
-                    onClick={() => handleDetalle("Aqui podras elegir a que leccion deseas ingresar dandole click a al boton arriba de cada isla. Si deseas ir a tu perfil puedes darle click en la cabaña al lado derecho de tu pantalla")}
-                    />
-                </div>
-                <div className='btn_hut'>
-                    <img onClick={() => navigate('/Hut')} className='hut_image' src={hut} />
+                <div className='options_home'>
+
+                    <div className='sound_home'>
+                        <Music_slider volume={music} setVolume={setMusic} />
+                    </div>
+                    <div className='btn_info'>
+                        <img
+                            className='info_image'
+                            src={info}
+                            onClick={() => handleDetalle("Aqui podras elegir a que leccion deseas ingresar dandole click a al boton arriba de cada isla. Si deseas ir a tu perfil puedes darle click en la cabaña al lado derecho de tu pantalla")}
+                        />
+                    </div>
+                    <div className='btn_hut'>
+                        <img onClick={() => navigate('/Hut')} className='hut_image' src={hut} />
+                    </div>
                 </div>
             </div>
             <Canvas

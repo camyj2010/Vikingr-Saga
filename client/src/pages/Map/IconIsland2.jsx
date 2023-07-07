@@ -19,6 +19,8 @@ export default function introLecture2() {
     const colorMap = useLoader(TextureLoader, iconS)
     const coin = useRef(null)
     const navigate = useNavigate()
+    const [isHovered, setIsHovered] = useState(false);
+
     useEffect(() => {
         const fetchUserInfo = async () => {
             try {
@@ -53,9 +55,17 @@ export default function introLecture2() {
             coin.current.rotation.z += 1 * delta
         }
     })
+    const handlePointerOver = () => {
+        setIsHovered(true);
+        document.body.style.cursor = 'pointer';
+    };
+
+    const handlePointerOut = () => {
+        setIsHovered(false);
+    };
 
     return (
-        <mesh ref={coin} scale={8} rotation={[Math.PI * 0.5,  0, 0] } position={[-140, 90, -150]} onClick={() => navigate('/Leccion2')}
+        <mesh ref={coin} scale={isHovered ? 9 : 8} rotation={[Math.PI * 0.5,  0, 0] } position={[-140, 90, -150]} onClick={() => navigate('/Leccion2') } onPointerOver={handlePointerOver} onPointerOut={handlePointerOut}
     >
             <cylinderGeometry args={[1, 1, 0.1, 64, 1]} />
             <meshStandardMaterial side={DoubleSide} map={colorMap}/>

@@ -25,7 +25,7 @@ import Kraken from './Kraken'
 export default function Experience() {
     const pointLightRef = useRef();
     useHelper(pointLightRef, PointLightHelper, 1)
-    const sunRef = useRef();
+    // const sunRef = useRef();
     const cameraRef = useRef();
     const { scene } = useThree();
     const raycaster = new Raycaster();
@@ -68,7 +68,7 @@ export default function Experience() {
             const currentPosition = new Vector3(shipRef.current.translation().x, -2, shipRef.current.translation().z)
             const targetXZ = new Vector3(targetPosition.current.x, currentPosition.y, targetPosition.current.z);
             const direction = targetXZ.clone().sub(currentPosition).normalize();
-            const speed = 0.3;
+            const speed = 0.4;
             const distance = currentPosition.distanceTo(targetXZ);
             if (distance > 0.1) {
               const newPosition = currentPosition.clone().add(direction.multiplyScalar(speed));
@@ -96,17 +96,17 @@ export default function Experience() {
         }
       });
   
-    const animate = (time) => {
-        const speed = 0.5; 
-        const radius = 1000;
-        const x = Math.cos(time * speed) * radius;
-        const y = Math.sin(time * speed) * radius;
-        sunRef.current.rotation.x += 0.01; // Rotación en el eje x
-        sunRef.current.rotation.y += 0.01; // Rotación en el eje y
-        sunRef.current.position.set(x, y, 0);
-    };
+    // const animate = (time) => {
+    //     const speed = 0.5; 
+    //     const radius = 1000;
+    //     const x = Math.cos(time * speed) * radius;
+    //     const y = Math.sin(time * speed) * radius;
+    //     sunRef.current.rotation.x += 0.01; // Rotación en el eje x
+    //     sunRef.current.rotation.y += 0.01; // Rotación en el eje y
+    //     sunRef.current.position.set(x, y, 0);
+    // };
 
-    useFrame(({ clock }) => animate(clock.elapsedTime));
+    // useFrame(({ clock }) => animate(clock.elapsedTime));
     
     return (
         <>
@@ -145,7 +145,7 @@ export default function Experience() {
                 <IconLecture4 />
                  
                 <Physics
-                 debug={true} 
+                 debug={false} 
                  gravity={[0,0,0]}
                 >  
                 
@@ -203,11 +203,11 @@ export default function Experience() {
                 </mesh>  
                 
 
-                <mesh ref={sunRef} position={[4, 500, 4]}>
+                {/* <mesh ref={sunRef} position={[4, 500, 4]}>
                     <sphereGeometry args={[50, 500, 100]} />
                     <meshBasicMaterial color={0xffff00} />
                     <pointLight ref={pointLightRef} castShadow={true} intensity={0.5} shadow-mapSize={[512, 512]} />
-                </mesh>
+                </mesh> */}
                 
                 
             </group> 
