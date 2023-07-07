@@ -36,34 +36,17 @@
   align-items: center;
 }
 
-/* .slider {
-  position: relative;
-  width: 300px;
-  height: 8px;
+.Huir_link{
+  list-style: none;
 }
 
-.slider input[type="range"] {
-  position: absolute;
-  left: -2px;
-  top: 0;
-  width: 304px;
-  height: 8px;
-  -webkit-appearance: none;
-  background: transparent;
-  z-index: 99;
+.nav_quiz{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 2rem;
+
 }
-
-.slider input::-webkit-slider-thumb{
-  -webkit-appearance: none;
-  width: 20px;
-  height: 20px;
-  background-color: #fff;
-  border: 2px solid rgba(9,205,240);
-  cursor: pointer;
-  box-shadow: 0 0 0 1px #fff;
-  border-radius: 50%;
-} */
-
 
 .custom-confirm-button{
   width: 100%;

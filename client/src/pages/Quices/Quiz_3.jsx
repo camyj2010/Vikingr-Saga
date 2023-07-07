@@ -8,6 +8,7 @@ import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { useNavigate } from 'react-router-dom';
 import soundFile from '../../sounds/LessonSong.mp3';
 import Sound from 'react-sound';
+import Music_slider from '../../components/Music_slider';
 
 const questions = [
   {
@@ -44,6 +45,7 @@ export default function Quiz_3() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [res, setRes] = useState(null);
   const navigate = useNavigate();
+  const [music, setMusic] = useState(10)
 
   const currentQuestion = questions[currentQuestionIndex];
 
@@ -108,17 +110,18 @@ export default function Quiz_3() {
   return (
     <div className='container_quizVikingos'>
       <Sound
-                        url={soundFile}
-                        playStatus={Sound.status.PLAYING}
-                        playFromPosition={17}
-                        loop={true}
-                        volume={5}
-                      />
-      <div>
-        <li>
+        url={soundFile}
+        playStatus={Sound.status.PLAYING}
+        // playFromPosition={17}
+        loop={true}
+        volume={music}
+      />
+      <div className='nav_quiz'>
+      <Music_slider volume={music} setVolume={setMusic} />
+        <li className='Huir_link'>
           <a href='/Home' className='btn_huir'>
             Huir
-            <img className='flag_image' src={flag} alt='Flag' />
+            {/* <img className='flag_image' src={flag} alt='Flag' /> */}
           </a>
         </li>
       </div>

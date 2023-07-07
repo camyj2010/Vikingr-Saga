@@ -8,6 +8,8 @@ import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { useNavigate } from 'react-router-dom';
 import soundFile from '../../sounds/LessonSong.mp3';
 import Sound from 'react-sound';
+import Music_slider from '../../components/Music_slider';
+
 
 const questions = [
   {
@@ -39,6 +41,7 @@ const questions = [
   }
 ];
 
+
 export default function Quiz_1() {
   const { user } = useUserContext();
   console.log(user);
@@ -48,8 +51,10 @@ export default function Quiz_1() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [res, setRes] = useState(null);
   const navigate = useNavigate();
+  const [music, setMusic] = useState(10)
 
   const currentQuestion = questions[currentQuestionIndex];
+
 
   const handleAnswer = (answer) => {
     console.log(answer);
@@ -111,28 +116,32 @@ export default function Quiz_1() {
     setRes(answer); // Actualizar el estado con la respuesta seleccionada
   };
 
+  useEffect(() => {
+    setMusic((prevVolume) => {
+      if (prevVolume !== music) {
+        return music;
+      }
+      return prevVolume;
+    });
+  }, [music]);
+
   return (
     <div className='container_quizVikingos'>
       <Sound
         url={soundFile}
         playStatus={Sound.status.PLAYING}
-        playFromPosition={17}
+        // playFromPosition={17}
         loop={true}
-        volume={5}
+        volume={music}
       />
-      <div>
-      <input  type="range" min="0" max="100" step="10" value="50" />
-        {/* <div className='slider-cont'>
-          <div className='slider'>
-            <input type='range' min="0" max="100" value="50" />
-            <progress min="0" max="100" value="50"></progress>
-          </div>
-          <div className='sliderValue'>50</div>
-        </div> */}
-        <li>
+      <div className='nav_quiz'>
+
+        <Music_slider volume={music} setVolume={setMusic} />
+
+        <li className='Huir_link'>
           <a href='/Home' className='btn_huir'>
             Huir
-            <img className='flag_image' src={flag} alt='Flag' />
+            {/* <img className='flag_image' src={flag} alt='Flag' /> */}
           </a>
         </li>
       </div>

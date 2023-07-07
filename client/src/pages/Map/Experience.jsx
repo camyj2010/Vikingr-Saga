@@ -122,13 +122,13 @@ export default function Experience() {
                     enableZoom = {false}
                 />
                 {/* <directionalLight castShadow position={[1, 2, 3]} intensity={1.5} />*/}
-                    <Sound
+                    {/* <Sound
                         url={soundFile}
                         playStatus={Sound.status.PLAYING}
                         playFromPosition={0}
                         loop={true}
                         volume={10}
-                      />
+                      /> */}
 
                 <ambientLight intensity={0.7} />  
                 
