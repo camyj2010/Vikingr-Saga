@@ -214,7 +214,7 @@ export default function Leccion2() {
                                     maxDistance={20} // Ajusta la distancia máxima de la cámara al objeto
                                 />
                                 <ambientLight />
-                                <RAGNAROK rotation={[0,-Math.PI/2,0]} position={[3,-2,0]}/>
+                                <RAGNAROK rotation={[0,-Math.PI/2,0]} position={[0,-5,0]}/>
                             </Canvas>
                         </Suspense>
                     </div>
