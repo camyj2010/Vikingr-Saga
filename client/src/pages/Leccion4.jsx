@@ -12,6 +12,7 @@ import Oseberg from './modelsLesson3/Oseberg'
 import Drake from './modelsLesson3/Drake'
 import VikingHouse from './modelsLesson3/VikingHouse'
 import Aldea from './modelsLesson3/Aldea'
+import hut from '../img/mini_hut.png';
 import Fiordo from './modelsLesson4/Fiordo';
 import FishingShip from './modelsLesson4/FishingShip';
 import Midsommar from './modelsLesson4/Midsommar';
@@ -40,7 +41,7 @@ export default function Leccion4() {
                             <a href='#linguistica' className='link'>Lengua</a>
                         </li>
                         <li>
-                            <a href='#religioso' className='link'>Religion</a>
+                            <a href='#religioso' className='link'>Religión</a>
                         </li>
                         <li>
                             <a href='#festividades' className='link'>festividades</a>
@@ -50,10 +51,10 @@ export default function Leccion4() {
                         </li>
                     </ul>
                 </nav>
-                <div >
-                    <a href='/Home'>
-                        <img className='map_image_leccion1' src={map} />
-                    </a>
+                <div className='options_leecion4'>
+
+                        <img className='map_image_leccion1' src={map} onClick={() => navigate('/Home')}/>
+                        <img className='hut_image_leccion1' src={hut} onClick={() => navigate('/Hut')} />
                 </div>
 
 
@@ -116,7 +117,7 @@ export default function Leccion4() {
                     <div className='model_container_left' style={{ width: '70%' }}>
                         <div style={{ position: 'relative' }}>
                             <div className='leccion2Right'>
-                                 Herencia Linguistica
+                                 Herencia Linguística
                             </div>
                             <div style={{ position: 'absolute', bottom: 0, left: '15%', width: '20%', borderBottom: '3px solid white' }}></div>
                         </div>

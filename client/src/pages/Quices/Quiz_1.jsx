@@ -1,4 +1,4 @@
-import React, {useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/Quiz1.css';
 import { useUserContext } from '../UserProvider';
 import { checkLesson1Progress } from '../api/Handleapi';
@@ -8,6 +8,8 @@ import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { useNavigate } from 'react-router-dom';
 import soundFile from '../../sounds/LessonSong.mp3';
 import Sound from 'react-sound';
+import Music_slider from '../../components/Music_slider';
+
 
 const questions = [
   {
@@ -39,17 +41,20 @@ const questions = [
   }
 ];
 
+
 export default function Quiz_1() {
   const { user } = useUserContext();
   console.log(user);
 
-  
+
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [res, setRes] = useState(null);
   const navigate = useNavigate();
+  const [music, setMusic] = useState(10)
 
   const currentQuestion = questions[currentQuestionIndex];
+
 
   const handleAnswer = (answer) => {
     console.log(answer);
@@ -68,9 +73,9 @@ export default function Quiz_1() {
         preConfirm: () => {
           if (answer === '15 nudos') {
 
-              const userInfo = checkLesson1Progress(String(user));
-              console.log("Done")
-    
+            const userInfo = checkLesson1Progress(String(user));
+            console.log("Done")
+
             navigate('/Home');
           } else if (currentQuestionIndex + 1 < questions.length) {
             setCurrentQuestionIndex(currentQuestionIndex + 1);
@@ -107,24 +112,36 @@ export default function Quiz_1() {
         }
       });
     }
-  
+
     setRes(answer); // Actualizar el estado con la respuesta seleccionada
   };
+
+  useEffect(() => {
+    setMusic((prevVolume) => {
+      if (prevVolume !== music) {
+        return music;
+      }
+      return prevVolume;
+    });
+  }, [music]);
 
   return (
     <div className='container_quizVikingos'>
       <Sound
-                        url={soundFile}
-                        playStatus={Sound.status.PLAYING}
-                        playFromPosition={0}
-                        loop={true}
-                        volume={5}
-                      />
-      <div>
-        <li>
+        url={soundFile}
+        playStatus={Sound.status.PLAYING}
+        // playFromPosition={17}
+        loop={true}
+        volume={music}
+      />
+      <div className='nav_quiz'>
+
+        <Music_slider volume={music} setVolume={setMusic} />
+
+        <li className='Huir_link'>
           <a href='/Home' className='btn_huir'>
             Huir
-            <img className='flag_image' src={flag} alt='Flag' />
+            {/* <img className='flag_image' src={flag} alt='Flag' /> */}
           </a>
         </li>
       </div>

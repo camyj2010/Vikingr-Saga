@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import { useRef } from 'react'
+import hut from '../img/mini_hut.png';
 import video from '../img/smoke.mp4'
 import BEOWULF from './modelsLesson2/BEOWULF';
 import RAGNAROK from './modelsLesson2/RAGNAROK';
@@ -45,24 +46,24 @@ export default function Leccion2() {
                         </li>
                     </ul>
                 </nav>
-                <div >
-                    <a href='/Home'>
-                        <img className='map_image_leccion1' src={map} />
-                    </a>
+                <div className='options_leecion1'>
+
+                        <img className='map_image_leccion1' src={map} onClick={() => navigate('/Home')}/>
+                        <img className='hut_image_leccion1' src={hut} onClick={() => navigate('/Hut')} />
                 </div>
 
 
             </div>
 
             <div className='banner_container2'>
-                    <p className='title_leccion2'>Mitologia Nordica</p>
+                    <p className='title_leccion2'>Mitología Nórdica</p>
             </div>
             <div id='laCreacion' className='creacion'>
                 <div className='model_container'>
                     <div className='model_container_left' style={{ width: '70%' }}>
                         <div style={{ position: 'relative' }}>
                             <div className='leccion1Left'>
-                                La Creacion
+                                La Creación
                             </div>
                             <div style={{ position: 'absolute', bottom: 0, left: '15%', width: '20%', borderBottom: '3px solid white' }}></div>
                         </div>
@@ -113,7 +114,7 @@ export default function Leccion2() {
                     <div className='model_container_left' style={{ width: '70%' }}>
                         <div style={{ position: 'relative' }}>
                             <div className='leccion2Right'>
-                                ¿Quienes eran los dioses?
+                                ¿Quiénes eran los dioses?
                             </div>
                             <div style={{ position: 'absolute', bottom: 0, left: '15%', width: '20%', borderBottom: '3px solid white' }}></div>
                         </div>
@@ -214,7 +215,7 @@ export default function Leccion2() {
                                     maxDistance={20} // Ajusta la distancia máxima de la cámara al objeto
                                 />
                                 <ambientLight />
-                                <RAGNAROK rotation={[0,-Math.PI/2,0]} position={[3,-2,0]}/>
+                                <RAGNAROK rotation={[0,-Math.PI/2,0]} position={[0,-5,0]}/>
                             </Canvas>
                         </Suspense>
                     </div>

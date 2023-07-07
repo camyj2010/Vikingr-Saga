@@ -1,18 +1,24 @@
-import {React, useRef} from 'react'
+import { React, useRef, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Suspense } from 'react'
 import Experience from './Map/Experience'
-import  {Loader} from '@react-three/drei'
+import { Loader } from '@react-three/drei'
 import './styles/Home.css'
 import flag from '../img/Salida1.png';
 import hut from '../img/mini_hut.png';
 import info from '../img/info.png';
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import { useUserContext } from './UserProvider';
-
+import Music_slider from '../components/Music_slider';
+import Sound from 'react-sound';
+import soundFile from '../sounds/OceanSound.mp3';
+import { useNavigate } from 'react-router-dom';
+import icon_salir from '../img/salir.png'
 
 export default function Home() {
     const { user } = useUserContext()
+    const [music, setMusic] = useState(10)
+    const navigate = useNavigate();
     console.log(user)
     const scene = useRef();
     const cameraSettings = {
@@ -24,31 +30,53 @@ export default function Home() {
     }
     const handleDetalle = (detalle) => {
         Swal.fire({
-          title: detalle,
-          icon: 'info',
-          showConfirmButton: false,
-          background: '#fff',
-          customClass: {
-            title: 'mi-titulo',
-          },
+            title: detalle,
+            icon: 'info',
+            showConfirmButton: false,
+            background: '#fff',
+            customClass: {
+                title: 'mi-titulo',
+            },
         })
-      }
-      
+    }
+
 
     return (
         <div className='world'>
+            <Sound
+                url={soundFile}
+                playStatus={Sound.status.PLAYING}
+                // playFromPosition={0}
+                loop={true}
+                volume={music}
+            />
             <div className='model_container_home'>
-                
-                <a href='/' className='btn_singoff'>
-                    <img className='signoff_image' src={flag} alt='Flag' />
-                    Cerrar Sesión
-                </a>
-                <a  className='btn_info' onClick={() => handleDetalle("Aqui podras elegir a que leccion deseas ingresar dandole click a al boton arriba de cada isla. Si deseas ir a tu perfil puedes darle click en la cabaña al lado derecho de tu pantalla")}>
-                    <img className='info_image' src={info} />
-                </a>
-                <a href='/Hut' className='btn_hut'>
-                    <img className='hut_image' src={hut} />
-                </a>
+                <div className='btn_singoff' onClick={() => navigate('/')}>
+                    {/* <img className='signoff_image' src={flag} alt='Flag' /> */}
+                    <div className='btn_signoff_text'>
+                        <img className='salir_btn' src={icon_salir} />
+                        <p>
+                            Cerrar Sesión
+                        </p>
+
+                    </div>
+                </div>
+                <div className='options_home'>
+
+                    <div className='sound_home'>
+                        <Music_slider volume={music} setVolume={setMusic} />
+                    </div>
+                    <div className='btn_info'>
+                        <img
+                            className='info_image'
+                            src={info}
+                            onClick={() => handleDetalle("Aqui podras elegir a que leccion deseas ingresar dandole click a al boton arriba de cada isla. Si deseas ir a tu perfil puedes darle click en la cabaña al lado derecho de tu pantalla")}
+                        />
+                    </div>
+               
+                        <img onClick={() => navigate('/Hut')} className='hut_image' src={hut} />
+                  
+                </div>
             </div>
             <Canvas
                 shadows={true}
@@ -58,7 +86,7 @@ export default function Home() {
                     <Experience />
                 </Suspense>
             </Canvas>
-            <Loader/>
+            <Loader />
         </div>
     )
 }

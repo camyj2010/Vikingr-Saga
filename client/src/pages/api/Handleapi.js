@@ -1,6 +1,6 @@
 const Swal = require('sweetalert2')
-// const baseUrl = "https://backend-ajuu.onrender.com"
-const baseUrl = "http://localhost:5000"
+const baseUrl = "https://backend-ajuu.onrender.com"
+// const baseUrl = "http://localhost:5000"
 async function sign_in(email, password) {
     try {
         const response = await fetch(`${baseUrl}/login`, {
@@ -164,7 +164,7 @@ async function checkLesson3Progress(userId) {
 
 async function checkLesson4Progress(userId) {
     try {
-        const response = await fetch(`${baseUrl}/Lesson3_Quiz/${userId}`, {
+        const response = await fetch(`${baseUrl}/Lesson4_Quiz/${userId}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

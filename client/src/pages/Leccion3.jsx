@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import { useRef } from 'react'
+import hut from '../img/mini_hut.png';
 import video from '../img/smoke.mp4'
 import MONOLITH from './modelsLesson3/MONOLITH'
 import Oseberg from './modelsLesson3/Oseberg'
@@ -43,10 +44,10 @@ export default function Leccion3() {
                         </li>
                     </ul>
                 </nav>
-                <div >
-                    <a href='/Home'>
-                        <img className='map_image_leccion1' src={map} />
-                    </a>
+                <div className='options_leecion1'>
+
+                        <img className='map_image_leccion1' src={map} onClick={() => navigate('/Home')}/>
+                        <img className='hut_image_leccion1' src={hut} onClick={() => navigate('/Hut')} />
                 </div>
 
 
@@ -194,7 +195,7 @@ export default function Leccion3() {
                                     maxDistance={20} // Ajusta la distancia máxima de la cámara al objeto
                                 />
                                 <ambientLight />
-                                <Drake rotation={[0, 11*Math.PI/12, 0]}/>
+                                <Drake rotation={[0, 5*Math.PI/12, 0]}/>
                             </Canvas>
                         </Suspense>
                     </div>
