@@ -164,7 +164,7 @@ async function checkLesson3Progress(userId) {
 
 async function checkLesson4Progress(userId) {
     try {
-        const response = await fetch(`${baseUrl}/Lesson3_Quiz/${userId}`, {
+        const response = await fetch(`${baseUrl}/Lesson4_Quiz/${userId}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

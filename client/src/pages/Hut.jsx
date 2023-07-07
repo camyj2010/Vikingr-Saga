@@ -11,6 +11,7 @@ import map from '../img/mapa-del-tesoro.png';
 import leccion1 from '../img/Icon.png'
 import leccion2 from '../img/Icon2.png'
 import leccion3 from '../img/Icon3.png'
+import leccion4 from '../img/Icon4.png'
 import Modal from '../components/Modal'
 import ModalLibros from '../components/Modal_libros'
 import ModalJuegos from '../components/Modal_Videojuegos'
@@ -153,10 +154,11 @@ export default function Hut() {
                             <p>Lecciones completadas</p>
                         </div>
                         <div className='lecciones_completadas_hut'>
-                            {userInfo.lesson1 == false && userInfo.lesson2 == false && userInfo.lesson3 == false ? <p className='cero_lecciones'>0/4</p> : ''}
+                            {userInfo.lesson1 == false && userInfo.lesson2 == false && userInfo.lesson3 == false && userInfo.lesson4 == false ? <p className='cero_lecciones'>0/4</p> : ''}
                             {userInfo.lesson1 ? <img className='leccion_icon_hut' src={leccion1} /> : ''}
                             {userInfo.lesson2 ? <img className='leccion_icon_hut' src={leccion2} /> : ''}
                             {userInfo.lesson3 ? <img className='leccion_icon_hut' src={leccion3} /> : ''}
+                            {userInfo.lesson4 ? <img className='leccion_icon_hut' src={leccion4} /> : ''}
                         </div>
                     </div>
                 </div>

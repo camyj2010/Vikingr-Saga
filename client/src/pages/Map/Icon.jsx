@@ -1,18 +1,53 @@
 import {  useFrame, useLoader } from '@react-three/fiber'
 import { TextureLoader } from 'three/src/loaders/TextureLoader';
 import icon from '../../img/Icon.png'
-import { useRef } from 'react';
+import iconG from '../../img/IconGray.png'
+import { useEffect, useState, useRef} from 'react';
 import * as THREE from 'three'
+import { useUserContext } from '../UserProvider';
+import { getUserInfo } from '../api/Handleapi';
 import { DoubleSide } from 'three';
 import { useNavigate } from 'react-router-dom';
+import { Loader } from '@react-three/drei';
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import Island1 from '../Island1/Island1';
 
 export default function introLecture() {
-    const colorMap = useLoader(TextureLoader, icon)
+    const { user } = useUserContext();
+    console.log(user);
+    const [iconS, seticonS] = useState(icon);
+    
+    const [userInfo, setUserInfo] = useState(null);
+    
+
+    useEffect(() => {
+        const fetchUserInfo = async () => {
+            try {
+                if (user !== null) {
+                    const userInfo = await getUserInfo(String(user));
+                    setUserInfo(userInfo);
+                    if (userInfo.lesson1==true){
+                        seticonS(iconG)
+                        }    
+                    else{
+                        seticonS(icon)
+                    }
+
+                    console.log(userInfo);
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchUserInfo();
+    }, [user]);
+   
+    const colorMap = useLoader(TextureLoader, iconS)
     const coin = useRef(null)
     const navigate = useNavigate()
     
+
 
     useFrame((state, delta)=>{
         if(coin.current.position.y < 45){
