@@ -164,7 +164,7 @@ async function checkLesson3Progress(userId) {
 
 async function checkLesson4Progress(userId) {
     try {
-        const response = await fetch(`${baseUrl}/Lesson3_Quiz/${userId}`, {
+        const response = await fetch(`${baseUrl}/Lesson4_Quiz/${userId}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -205,6 +205,56 @@ async function getUserInfo(userId) {
         console.error(error);
     }
 }
+async function changeAvatar(userId,number) {
+    try {
+        const response = await fetch(`${baseUrl}/change-avatar`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                userId,
+                number
+            }),
+        });
+
+        const data = await response.json(); 
+
+        if(response.status === 200) {
+            return data
+        } else {
+            alert("Ha ocurrido un error.");
+        }
+
+    } catch (error) {
+        console.error(error);
+    }
+}
+async function changeImage(userId,number) {
+    try {
+        const response = await fetch(`${baseUrl}/change-image`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                userId,
+                number
+            }),
+        });
+
+        const data = await response.json(); 
+
+        if(response.status === 200) {
+            return data
+        } else {
+            alert("Ha ocurrido un error.");
+        }
+
+    } catch (error) {
+        console.error(error);
+    }
+}
 
 export {
     sign_in,
@@ -214,5 +264,7 @@ export {
     checkLesson2Progress,
     checkLesson3Progress,
     checkLesson4Progress,
-    getUserInfo
+    getUserInfo,
+    changeAvatar,
+    changeImage
 }

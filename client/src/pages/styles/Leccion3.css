@@ -1,4 +1,4 @@
-.title_leccion3 {
+.title_leccion4 {
     color: #fff;
     font-family: Norse;
     font-size: 9.9rem;
@@ -11,6 +11,12 @@
 .introduccion{
     background: linear-gradient(0deg, rgba(14, 24, 59, 0.2), rgba(17, 28, 70, 0.6)), url('../../img/Historia.png');
     background-size: cover;
+}
+.banner_container3 {
+    position: relative;
+    background: linear-gradient(0deg,  rgba(14, 24, 59, 0.2), rgba(17, 28, 70, 0.6)), url('../../img/arte.jpg');
+    background-size: cover;
+    height: 500px;
 }
 
 .arte{

@@ -4,7 +4,49 @@
   src: url('../../../public/fonts/norse.bold.otf');
 }
 
+#player {
+	width: 350px;
+	height: 50px;
+	position: relative;
+	margin: 0 auto;
+	top: 80px;
+	
+	i {
+		position: absolute;
+		margin-top: -6px;
+		color: #666;
+	}
+	
+	i.fa-volume-down {
+		margin-left: -8px;
+	}
+	
+	i.fa-volume-up {
+		margin-right: -8px;
+		right: 0;
+	}
+}
 
+
+.slider-cont {
+  box-shadow: 0 1px 10px 0 rgba(0,0,0, 0.1);
+  padding: 25px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.Huir_link{
+  list-style: none;
+}
+
+.nav_quiz{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 2rem;
+
+}
 
 .custom-confirm-button{
   width: 100%;
@@ -39,13 +81,14 @@
 
 .contenedor_preguntas_quizvikingos{
   text-align: center;
-  padding: 5rem 0;
+  /* padding: 5rem 0; */
 }
 
 .pregunta_quizVikingos{
   color: #fff;
   font-family: Norse;
   font-size: 3rem;
+  margin-top: 3%;
 }
 
 .container_title_quizVikingos{
@@ -68,7 +111,7 @@
   display: flex;
   font-family: Norse;
   color: #fff;
-  font-size: 2.8rem;
+  font-size: 2.5rem;
 }
 
 .columna1, .columna2 {

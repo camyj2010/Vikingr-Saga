@@ -10,6 +10,7 @@ import google from '../img/google.png'
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import { useUserContext, useToogleContext } from './UserProvider';
 import { useHistory } from 'react-router-dom';
+import video from '../img/intro.mp4'
 
 export default function Login() {
 
@@ -17,7 +18,7 @@ export default function Login() {
   console.log(user)
 
   const clientID = "210604676754-meeiidpktbvgbu10rg4j0qkoh23jf5tr.apps.googleusercontent.com"
-  
+
   const update = (context) => {
     updateUser(context)
     console.log(user)
@@ -52,7 +53,7 @@ export default function Login() {
     try {
       const { email, googleId, givenName } = res.profileObj;
       const response = await login_google(email, googleId, givenName);
-      console.log(response.userid)
+      console.log(response)
       update(response.userid)
       // history.push('/Home');
       navigate('/Home');
@@ -132,6 +133,7 @@ export default function Login() {
 
   return (
     <div className='main_container_login'>
+
       <div className="center_login">
         <form onSubmit={formik.handleSubmit}>
           <div className='form_login'>
@@ -175,6 +177,12 @@ export default function Login() {
           </div>
         </form>
       </div>
+
+      <video autoPlay loop muted className="video-de-fondo-login">
+        <source src={video} type="video/mp4" />
+        Tu navegador no soporta el elemento de video.
+      </video>
     </div>
+
   )
 }

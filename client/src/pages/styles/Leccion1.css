@@ -49,13 +49,29 @@ html {
 
 }
 
+.options_leecion1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2rem;
+    gap: 2.5rem;
+    
+}
+
 
 .map_image_leccion1 {
     width: 20%;
-    margin-left: 10rem;
+    cursor: pointer;
+
 }
 
-.map_image_leccion1:hover{
+.hut_image_leccion1 {
+    width: 22%;
+    cursor: pointer;
+
+}
+
+.map_image_leccion1:hover, .hut_image_leccion1:hover{
     animation: shake3856 0.3s linear infinite both;
 }
 
