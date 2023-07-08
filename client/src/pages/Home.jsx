@@ -55,7 +55,7 @@ export default function Home() {
                     {/* <img className='signoff_image' src={flag} alt='Flag' /> */}
                     <div className='btn_signoff_text'>
                         <img className='salir_btn' src={icon_salir} />
-                        <p>
+                        <p className='salir_text'>
                             Cerrar Sesión
                         </p>
 
