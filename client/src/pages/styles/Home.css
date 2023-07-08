@@ -8,7 +8,7 @@
   background-size: cover;
 }
 
-.options_home{
+.options_home {
   display: flex;
   justify-content: right;
   align-items: center;
@@ -33,11 +33,11 @@
   margin-left: 2.5rem;
 }
 
-.btn_singoff:hover{
+.btn_singoff:hover {
   transform: scale(1.1);
 }
 
-.btn_signoff_text{
+.btn_signoff_text {
   background-color: #010a0f59;
   display: flex;
   justify-content: center;
@@ -64,8 +64,8 @@
   margin: 0 2rem;
 }
 
-.btn_info:hover{
-transform: scale(1.1);
+.btn_info:hover {
+  transform: scale(1.1);
 }
 
 
@@ -92,7 +92,7 @@ transform: scale(1.1);
   margin-right: 2rem;
 }
 
-.hut_image:hover{
+.hut_image:hover {
   transform: scale(1.1);
 }
 
@@ -104,4 +104,44 @@ transform: scale(1.1);
 .salir_btn {
   width: 12%;
   margin-right: 1rem;
+}
+
+@media only screen and (max-width: 600px) {
+
+  .model_container_home{
+    justify-content: space-between;
+  }
+
+  .salir_btn{
+    width: 50%;
+  }
+
+  .salir_text {
+    display: none;
+  }
+
+  .options_home {
+
+    position: relative;
+    flex-direction: column;
+    
+    left: -50px;
+    z-index: 1;
+    gap: 0rem;
+  }
+
+  .info_image {
+    position: absolute;
+    width: 30%;
+    top: 140%;
+    left: 35%;
+  }
+
+  .hut_image{
+    position: absolute;
+    top: 100%;
+    right: -35%;
+    width: 40%;
+  }
+
 }
